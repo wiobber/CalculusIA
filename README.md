@@ -1,9 +1,9 @@
-# CalculusWithReview
+# CalculusAB
 
 This is a textbook for a two-semester version of a traditional calculus course
 incorporating a Just-In-Time review of precalculus concepts.  It is (almost entirely) 
-based on the mooculus/calculus text by Fowler/Snapp which is available at:
-http://github.com/mooculus/calculus
+based on the calcWithReview text which is available at:
+https://github.com/mooculus/calculusWithReview
 
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License. To view a copy of this license, visit
@@ -14,8 +14,8 @@ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisc
 
 The source code is available at
 
-https://github.com/mooculus/calculusWithReview
 
+https://github.com/aedemps/CalculusIA
 
 This text contains source material from several other open-source texts:
 
