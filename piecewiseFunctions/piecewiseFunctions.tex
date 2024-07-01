@@ -1,0 +1,243 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{soldot/.style={color=black,only marks,mark=*}}
+\pgfplotsset{holdot/.style={color=black,fill=white,only marks,mark=*}}
+\usetikzlibrary{arrows.meta}
+
+\input{preamble.tex}
+%preamble previously had ../ before it, deleted to compile??
+
+%\outcome{Know the graphs and properties of ``famous'' functions.}
+
+\title[Functions:]{Piecewise Functions}
+\begin{document}
+
+\begin{abstract} \end{abstract}
+\maketitle
+
+
+
+\begin{document}
+\begin{abstract}
+  Some functions use more than one formula.
+\end{abstract}
+\maketitle
+
+\subsection{Objectives}
+After completing this section, students should be able to:
+\vspace{.05in}
+
+\noindent$\bullet$ understand the notation of a piecewise function
+\\$\bullet$ compute and plot points using a given piecewise function
+\\$\bullet$ sketch the graph of a given piecewise function
+
+\subsection{Introduction}
+Sometimes a function uses different formulas depending on what number is being plugged into it. Functions that use different formulas for different parts of their domain are called \textbf{piecewise functions}, or sometimes \textbf{piecewise-defined functions}.
+
+\subsection{Notation}
+When defining a piecewise function, we need to show the various formulas being used as well as which parts of the domain each applies to. We typically write the formulas in a vertical list, grouped by a brace symbol, with their associated domain intervals on the right.
+
+\begin{example}
+$f(x)=\begin{cases} x+10 & \mbox{ \emph{if} }x<0\\x^2+1 & \mbox{ \emph{if} } x\geq 0\end{cases}$
+
+This notation defines a single function $f(x)$ that uses the formula $y=x+10$ when plugging in $x$ values less than $0$, and the formula $y=x^2+1$ when plugging in $x$ values $0$ or higher.
+\end{example}
+
+\begin{example}
+$g(x)=\begin{cases} 2x+5 & \mbox{ \emph{if} }x\leq 2\\ -(x-2)(x-10) & \mbox{ \emph{if} } 2<x<10\\ x-10 & \mbox{ \emph{if} } x\geq 10\end{cases}$
+
+This notation defines a single function $g(x)$ that uses the formula $y=2x+5$ when plugging in $x$ values $2$ or less, and the formula $y=\sqrt{x-2}$ when plugging in $x$ values strictly between $2$ and $10$, and the formula $y=x-10$ when plugging in $x$ values $10$ or higher.
+\end{example}
+
+\subsection{Plugging in}
+When we want to plug a number into a piecewise function to compute its corresponding output, we start by deciding which of the intervals the number falls into. These intervals will not overlap, so for each $x$ there will always be only one interval that it belongs to. We plug into the formula next to the chosen interval; the other formulas will not be used for that input.
+
+\begin{example}
+$f(x)=\begin{cases} x+10 & \mbox{ \emph{if} }x<0\\x^2+1 & \mbox{ \emph{if} } x\geq 0\end{cases}$
+
+Suppose we want to compute $f(-3)$, which is the output corresponding to $x=-3$. We start by determining which interval $-3$ is in: $x<0$ or $x\geq 0$. \\Since $-3<0$, we choose the first interval $x<0$, which means we should plug into the first formula $y=x+10$. Thus $f(-3)=-3+10=7$.
+\\
+\\Suppose we want to compute $f(4)$. Since $4\geq 0$, we choose the second formula this time: $y=x^2+1$. Thus $f(4)=4^2+1=17$.
+\end{example}
+
+\begin{example}
+$g(x)=\begin{cases} 2x+5 & \mbox{ \emph{if} }x\leq 2\\ -(x-2)(x-10) & \mbox{ \emph{if} } 2<x<10\\ x-10 & \mbox{ \emph{if} } x\geq 10\end{cases}$
+
+To compute $g(6)$, we start by determining which of the three intervals contains $x=6$. Since $2<6<10$, we choose the second interval and use the formula next to it: $y=-(x-2)(x-10)$. Thus $g(6)=-(6-2)(6-10)=-1(4)(-4)=16$.\\
+\\Similarly, we can compute $g(0)=2(0)+5=5$ using the first formula and $g(12)=12-10=2$ using the third formula.
+\end{example}
+
+
+
+\subsection{Graphing}
+The graphs of piecewise functions often have a corner or a jump where the formula changes. 
+
+\begin{example}
+$f(x)=\begin{cases} x+10 & \mbox{ \emph{if} }x<0\\x^2+1 & \mbox{ \emph{if} } x\geq 0\end{cases}$
+
+This graph will look like the graph of $y=x+10$ when $x<0$, which is on the left side of the $y$-axis. Then when $x=0$, the graph jumps and starts showing the curve $y=x^2+1$ on the right side of the $y$-axis.
+
+\begin{tikzpicture} [scale=.8]
+    \begin{axis}[samples=50,xmin=-6,xmax=6, ymin=-2, ymax=20, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-5:0,<-] {x+10};
+	\addplot[black,domain=0:4,->] {x^2+1};
+	\addplot[holdot] coordinates{(0,10)};
+	\addplot[soldot] coordinates{(0,1)};
+	\end{axis}
+\end{tikzpicture}
+
+\textbf{What's up with the open and closed points?} The open dot at $(0,10)$ shows that there would have been a point there but it is missing. When $x$ reaches $0$, the curve jumps down and plots the point $(0,1)$ (the solid dot, meaning it really is there) using the second formula.
+
+In general, showing open and closed points at the transition clarifies what's happening there. Without this extra detail, it would not be clear to our eyes precisely where or how the jump happened. The solid dot will only be graphed on the function that truly uses the $x$ value.
+\end{example}
+
+\begin{example}
+$g(x)=\begin{cases} 2x+5 & \mbox{ \emph{if} }x\leq 2\\ \sqrt{x-2} & \mbox{ \emph{if} } 2<x<10\\ -(x-2)(x-10) & \mbox{ \emph{if} } x\geq 10\end{cases}$
+
+This graph will have transitions at $x=2$ and $x=10$. The left-most part will look like $y=2x+5$, the middle part will look like $y=-(x-2)(x-10)$, and the right-most part will look like $y=x-20$. If you're not sure what these graphs look like, plug in some $x$ values and plot points to connect!
+
+\begin{tikzpicture} [scale=.8]
+    \begin{axis}[samples=50,xmin=-6,xmax=15, ymin=-5, ymax=20, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-5:2,<-] {2*x+5};
+	\addplot[black,domain=2:10,-] {-1*(x-2)*(x-10)};
+	\addplot[black,domain=10:14,->] {x-10};
+	\addplot[soldot] coordinates{(2,9)};
+	\addplot[holdot] coordinates{(2,0)};
+%	\addplot[holdot] coordinates{(10,2.8)};
+	\addplot[soldot] coordinates{(10,0)};
+	\end{axis}
+\end{tikzpicture}
+
+Notice that at $x=10$, $y=-(x-2)(x-10)$ and $y=x-10$ both output $y=0$, so instead of a jump this graph has a corner at the transition.
+\end{example}
+
+
+%We will shortly turn our attention to graphs of polynomial functions, but we have one more topic to discuss \emph{End Behavior}.
+%Basically, we want to know what happens to our function as our input variable $x$ gets really, really large in either the positive or negative direction.
+%This is kind of like the limits we talked about before, except $x$ is not approaching a fixed value $a$, but just going off to either the right or the left.
+%
+%We'll start with the most basic polynomials, the \emph{monomials}, $x^n$.  (Since \emph{mono-} means one, the monomials are the polynomials with a single term.)
+%Here are the graphs of $f(x)=x^n$ for $n = 2$, $4$, and $6$:
+%	\begin{center}
+%		\begin{tikzpicture}
+%        			\begin{axis}[
+%          			domain=-2:2,
+%          			xmin=-2, xmax=2,
+%          			ymin=-8, ymax=8,
+%          			width=4in,
+%          			axis lines =middle, xlabel=$x$, ylabel=$y$,
+%          			every axis y label/.style={at=(current axis.above origin),anchor=south},
+%          			every axis x label/.style={at=(current axis.right of origin),anchor=west},
+%          			]
+%	 	 		\addplot [very thick, penColor, smooth] {x^2};
+%				\addplot [very thick, penColor2, smooth] {x^4};
+%				\addplot [very thick, penColor4, smooth] {x^6};
+%        			\end{axis}
+%      		\end{tikzpicture}
+%	\end{center}
+%
+%	
+%Here are the graphs of $f(x)=x^n$ for $n = 3$, $5$, and $7$:
+%	\begin{center}
+%		\begin{tikzpicture}
+%        			\begin{axis}[
+%          			domain=-2:2,
+%          			xmin=-2, xmax=2,
+%          			ymin=-8, ymax=8,
+%          			width=4in,
+%          			axis lines =middle, xlabel=$x$, ylabel=$y$,
+%          			every axis y label/.style={at=(current axis.above origin),anchor=south},
+%          			every axis x label/.style={at=(current axis.right of origin),anchor=west},
+%          			]
+%	 	 		\addplot [very thick, penColor, smooth] {x^3};
+%				\addplot [very thick, penColor2, smooth] {x^5};
+%				\addplot [very thick, penColor4, smooth] {x^7};
+%        			\end{axis}
+%      		\end{tikzpicture}
+%	\end{center}
+%
+%Notice the similarity between the all the graphs with $n$ even.  They all have the same basic cup shape, but higher values of $n$ make the graphs flatter in $(-1,1)$ and steeper outside $(-1,1)$.
+%
+%The same thing happens with the $n$ odd graphs.  They have the same basic shape, but higher values of $n$ make the graphs flatter near the origin and steeper past $1$ and $-1$.
+%
+%When $n$ is even, what is happening to the output values of $f(x) = x^n$ as $x$ gets larger and larger?  They themselves get larger and larger!  As $x$ increases without bound, so do the outputs.
+%The same thing happens as $x$ gets larger and larger in the negative direction without bound.  This is the end behavior we were looking for.  We'll say it this way:
+%
+%\begin{align*}
+%	\text{As} \quad x \to \infty \, ,  \quad & x^n \to \infty \\
+%	\text{As} \quad x \to -\infty \, , \quad & x^n \to \infty \quad \text{, for $n$ even}
+%\end{align*}
+%
+%For $n$ odd we have a slightly different end behavior.
+%\begin{align*}
+%	\text{As} \quad x \to \infty \, ,  \quad & x^n \to \infty \\
+%	\text{As} \quad x \to -\infty \, , \quad & x^n \to -\infty \quad \text{, for $n$ odd}
+%\end{align*}
+%
+%Next we need to see how a coefficient could change this.  Remember how multiplying by a constant transforms a graph?  If the constant is positive the graph is vertically stretched/compressed.
+%If the constant is negative the graph is flipped over the $x$-axis and then vertically stretched/compressed.  This means if the coefficient of $x^n$ is positive, the end behavior is unaffected.  If the 
+%coefficient is negative, the end behavior is negated as well.
+%
+%\begin{example}
+%	Find the end behavior of $f(x) = -3x^4$.
+%	\begin{explanation}
+%		Since $4$ is even, the function $x^4$ has end behavior 
+%		\begin{align*}
+%			\text{As} \quad x \to \infty \, ,  \quad & x^4 \to \infty \\
+%			\text{As} \quad x \to -\infty \, , \quad & x^4 \to \infty 
+%		\end{align*}
+%		The coefficient is negative, changing our end behavior to
+%		\begin{align*}
+%			\text{As} \quad x \to \infty \, ,  \quad & -3x^4 \to -\infty \\
+%			\text{As} \quad x \to -\infty \, , \quad & -3x^4 \to -\infty 
+%		\end{align*}
+%	\end{explanation}
+%\end{example}
+%
+%\begin{problem}
+%	Find the end behavior of $g(x) = -6 x^9$.
+%	\begin{align*}
+%		\text{As} \quad x \to \infty \, ,  \quad & -6x^9 \to \answer{-\infty} \\
+%		\text{As} \quad x \to -\infty \, , \quad & -6x^9 \to \answer{\infty} 
+%	\end{align*}
+%\end{problem}
+%
+%
+%We understand monomials.  What about more general polynomials? 
+%\begin{example}
+%	Find the end behavior of $f(x) = 3x^5 - 4x^3 + 1$.
+%	\begin{explanation}
+%		If we rewrite the function as:
+%		\begin{align*}
+%			f(x) &= 3x^5 - 4x^3 + 1 \\
+%				&= x^5 \left( \frac{3x^5}{x^5} - \frac{4x^3}{x^5} + \frac{1}{x^5} \right)\\
+%				&=x^5 \left( \frac{3x^5}{x^5} - \frac{4x^3}{x^5} + \frac{1}{x^5} \right)\\
+%				&= x^5 \left( 3 - \frac{4}{x^2} + \frac{1}{x^5} \right)
+%		\end{align*}
+%		Remember that as $x\to \pm\infty$ we saw that $x^2 \to \infty$ and that $x^5 \to \mp \infty$.  That means $\frac{4}{x^2} \to 0$ and $\frac{1}{x^5} \to 0$. 
+%		(We'll talk about this more when we talk about Rational Functions.)  This means everything in parentheses will basically be just $3$ as $x \to \pm \infty$.
+%		That is, the polynomial $3x^5 - 4x^3 + 1$ has the same end behavior as $3x^5$.  Thus
+%		\begin{align*}
+%			\text{As} \quad x \to \infty \, ,  \quad & f(x) \to \infty \\
+%			\text{As} \quad x \to -\infty \, , \quad & f(x) \to -\infty 
+%		\end{align*}
+%	\end{explanation}
+%\end{example}
+%
+%This example showed us that \emph{the end behavior of a polynomial is the same as the end behavior of its leading term}.
+%\begin{problem}
+%	Find the end behavior of $g(x) = -6x^9 + 15x^5 + 7 x^4 - 18 x^3 + 91x^2 - 72 x + 4$
+%	\begin{align*}
+%		\text{As} \quad x \to \infty \, ,  \quad & g(x) \to \answer{-\infty} \\
+%		\text{As} \quad x \to -\infty \, , \quad & g(x) \to \answer{\infty} 
+%	\end{align*}
+%\end{problem}
+
+
+
+
+\end{document}
