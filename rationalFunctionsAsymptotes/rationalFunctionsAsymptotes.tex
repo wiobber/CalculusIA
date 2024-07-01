@@ -1,0 +1,300 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\pgfplotsset{soldot/.style={color=black,only marks,mark=*}}
+\pgfplotsset{holdot/.style={color=black,fill=white,only marks,mark=*}}
+
+\title{Rational Functions: Asymptotes}
+\begin{document}
+
+\begin{abstract} \end{abstract}
+\maketitle
+
+
+
+\section{Vertical asymptotes and holes}
+While rational functions aren't the only graphs that may have holes and vertical asymptotes, both are a common feature of this type of function. Both come from domain restrictions. Recall from the previous section that the domain of a rational function is all real numbers except for where the denominator is equal to zero. Any value of $x$ that makes the denominator zero creates either a hole in the graph or a vertical asymptote.
+
+\begin{definition}
+  Function $f(x)$ has a \dfn{vertical asymptote} at $x=a$ if, as we plug in values of $x$ increasingly close to $a$, the corresponding outputs get increasingly large in magnitude without bound. This results in a graph that appears to be going up to $\infty$ or down to $-\infty$ on either side of the vertical line $x=a$.
+\end{definition}
+
+Below are some examples of graphs with vertical asymptotes. 
+
+\begin{tikzpicture} [scale=.5]
+    \begin{axis}[samples=50,xmin=-6,xmax=6, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-5:-.1,<->] {1/(x^2)};
+	\addplot[black,domain=.1:5,<->] {1/(x^2)};
+	\end{axis}
+\end{tikzpicture} \hfill
+\begin{tikzpicture} [scale=.5]
+    \begin{axis}[samples=50,xmin=-6,xmax=6, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-5:1.95,<->] {1/(x-2)};
+	\addplot[black,domain=2.05:5,<->] {1/(x-2)};
+	\end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture} [scale=.5]
+    \begin{axis}[samples=50,xmin=-6,xmax=6, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-5:-.01,<->] {1/(x*(x-3)^2)};
+	\addplot[black,domain=.01:2.9,<->] {1/(x*(x-3)^2)};
+	\addplot[black,domain=3.1:5,<->] {1/(x*(x-3)^2)};
+	\end{axis}
+\end{tikzpicture}
+\vspace{-.1in}
+
+%THIS SPACING WILL NEED TO BE UPDATED FOR XIMERA
+\hspace{.3in}{\scriptsize asymptote at $x=0$ \hspace{.55in} asymptote at $x=2$ \hfill asymptotes at $x=0$ and $x=3$}
+
+\begin{example}
+Consider the rational function $f(x)=\dfrac{1}{x-3}$.
+\\
+\\Notice that $x=3$ is not in the domain of $f$ because it causes division by zero. Also notice that if we plug in numbers increasingly close to $x=3$, the outputs get increasingly large in magnitude: 
+%$f(2.9)=-10, f(2.99)=-100, f(2.999)=-1000$. 
+\[ \begin{array}{c|c}
+		x       & f(x)=\frac{1}{x-3} \\\hline
+		2.9      &  -10\\ 
+		2.99     &  -100\\
+		2.999    &  -1000
+	\end{array} \]
+These large negative numbers tell us that $f$ has a vertical asymptote at $x=3$ and more specifically the graph heads downward (toward $-\infty$) on the left side of $x=3$.
+\\
+\\To figure out what's happening on the right side of $x=3$, we plug in numbers increasingly close to $3$ from right side: 
+%$f(3.1)=10,f(3.01)=100, f(3.001)=1000$. 
+\[ \begin{array}{c|c}
+		x       & f(x)=\frac{1}{x-3} \\\hline
+		3.1   &  10\\
+		3.01  & 100\\
+		3.001 & 1000
+	\end{array} \]
+
+Because these numbers are positive and increasingly large, we can tell that the graph heads upward (toward $\infty$) on the right side $x=3$. The graph of $f(x)$ is shown below.
+
+\begin{center}\begin{tikzpicture} [scale=.8]
+    \begin{axis}[samples=50,xmin=-3,xmax=9, ymin=-20, ymax=20, axis x line= middle, axis y line = middle,xtick={-2,-1,1,2,3,4,5,6,7},ytick={}]
+	\addplot[black,domain=-2:2.95,<->] {1/(x-3)};
+	\addplot[black,domain=3.05:8,<->] {1/(x-3)};
+	\end{axis}
+\end{tikzpicture}\end{center}
+\end{example}
+
+\begin{example}
+Describe the vertical asymptotes of $f(x)=\dfrac{x+2}{x^2(x-5)}$.
+\\
+\\We start by identifying the $x$ values that make our denominator zero: $x^2(x-5)=0$ results in $x=0$ and $x=5$. Then for each, we will plug in a few test points on either side to see if the graph is headed upward or downward on that side. Where the test points have increasingly large positive outputs, we assume the graph is headed upward, and where the test points have increasingly large negative outputs, we assume the graph is headed downward.
+\\
+\\We start with $x=0$. On the left side of this asymptote, we can compute for example $f(-0.01)$ and $f(-0.001)$ as test points. Because these outputs are large negative numbers, we conclude that the graph goes up on the left side of $x=0$. Similarly, we test for example $f(0.01)$ and $f(0.0000001)$ and, because they are large positive numbers, we conclude the graph also heads upward on the right side of $x=0$. Thus $x=0$ is a vertical asymptote and the graph heads downward on both sides.
+\\
+\\For $x=5$, we use test points on the left such as $f(4.99)$ and on the right such as $f(5.01)$ or $f(5.0001)$. On the left we get negative outputs so we assume the graph heads downward, and on the right we get positive outputs so we assume the graph heads upward. Thus $x=5$ is a vertical asymptote and the graph heads downward on the left side and upward on the right side. We can observe our conclusions in action in the graph of $f(x)=\dfrac{x+2}{x^2(x-5)}$ below.
+
+\begin{center}\begin{tikzpicture} [scale=.8]
+    \begin{axis}[samples=50,xmin=-3,xmax=9, ymin=-20, ymax=20, axis x line= middle, axis y line = middle,xtick={-2,-1,1,2,3,4,5,6,7},ytick={}]
+	\addplot[black,domain=-3:-.14,<->] {(x+2)/(x^2*(x-5))};
+	\addplot[black,domain=.15:4.985,<->] {(x+2)/(x^2*(x-5))};
+	\addplot[black,domain=5.015:8,<->] {(x+2)/(x^2*(x-5))};
+	\end{axis}
+\end{tikzpicture}\end{center}
+\end{example}
+
+\begin{example}
+The graph of $f(x)=\dfrac{x^2}{(x+3)(x-10)}$ has vertical asymptotes at $x=-3$ and at 
+  \begin{multipleChoice}
+    \choice{$x=3$}
+    \choice[correct]{$x=10$}
+    \choice{$x=0$}
+  \end{multipleChoice}. Using test points to decide, we can conclude that at $x=-3$, the graph 
+  \begin{multipleChoice}
+    \choice{goes upward on both sides}
+    \choice{goes downward on both sides}
+    \choice[correct]{heads up on the left side and down on the right side}
+    \choice{heads down on the left side and up on the right side}
+  \end{multipleChoice}. At the other vertical asymptote, the graph 
+  \begin{multipleChoice}
+    \choice{goes upward on both sides}
+    \choice{goes downward on both sides}
+    \choice{heads up on the left side and down on the right side}
+    \choice[correct]{heads down on the left side and up on the right side}
+  \end{multipleChoice}. 
+\end{example}
+
+\textbf{What about the holes?} If a function $f(x)$ has a hole at $x=a$, it will initially present as a domain restriction much like a vertical asymptote. The difference in this case is that the $(x-a)$ term in the denominator that is creating the restriction can be canceled with the numerator. If it were a true vertical asymptote, the term would not be able to cancel.
+
+\begin{example}
+Consider, for example, $f(x)=\dfrac{x(x-1)}{(x+4)(x-1)}$.
+\\
+\\The domain restrictions are $x=-4$ and $x=1$. Because there is also an $(x-1)$ in the numerator however, we can cancel to see that for $x\neq 1$, 
+$$\dfrac{x(x-1)}{(x+4)(x-1)}=\dfrac{x}{x+4}.$$ 
+This cancellation tells us that there is a hole in the graph at $x=1$ and not a vertical asymptote. That is, our $f(x)$ has a graph identical to that of $y=\dfrac{x}{x+4}$ but with a hole at $x=1$. If we were to plug in test points increasingly close to $x=1$, the outputs would not have magnitudes increasing without bound but rather would simply get closer and closer to $\frac{1}{1+4}=\frac{1}{5}$. Thus there is a hole in the graph at the point $(1,1/5)$. There is, however, a true vertical asymptote at $x=-4$ because the $(x+4)$ term did not cancel. The graph of $f(x)=\dfrac{x(x-1)}{(x+4)(x-1)}$ is shown below on the left; compare with the graph of $g(x)=\dfrac{x}{x+4}$ shown on the right.
+
+\begin{center}\begin{tikzpicture} [scale=.8]
+    \begin{axis}[samples=50,xmin=-7,xmax=5, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-6:-4.3,<->] {x/(x+4)};
+	\addplot[black,domain=-3.75:4,<->] {x/(x+4)};
+	\addplot[holdot] coordinates{(1,0.2)};
+	\end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture} [scale=.8]
+    \begin{axis}[samples=50,xmin=-7,xmax=5, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-6:-4.3,<->] {x/(x+4)};
+	\addplot[black,domain=-3.75:4,<->] {x/(x+4)};
+%	\addplot[holdot] coordinates{(1,0.2)};
+	\end{axis}
+\end{tikzpicture}\end{center}
+
+Notice that the graphs of $f(x)=\dfrac{x(x-1)}{(x+4)(x-1)}$ and $g(x)=\dfrac{x}{x+4}$ are identical, with the exception of the hole in $f(x)$ at $x=1$.
+\end{example}
+
+\begin{example}
+The graph of $f(x)=\dfrac{x(x+2)}{x(x-3)(x-2)}$ has a 
+  \begin{multipleChoice}
+    \choice[correct]{hole}
+    \choice{vertical asymptote}
+  \end{multipleChoice} at $x=0$, a
+    \begin{multipleChoice}
+    \choice{hole}
+    \choice[correct]{vertical asymptote}
+  \end{multipleChoice} at $x=3$, and a 
+     \begin{multipleChoice}
+    \choice{hole}
+    \choice[correct]{vertical asymptote}
+  \end{multipleChoice} at $x=3$.
+\end{example}
+
+\begin{example} 
+Create a rational function that has a vertical asymptote at $x=9$ and holes at $x=0$ and $x=-2$.
+\begin{explanation}
+To make a vertical asymptote at $x=9$, our function must have $(x-9)$ in the denominator and not in the numerator. To create holes at $x=0$ and $x=-2$, our function must have $x$ and $(x+2)$ in the denominator AND numerator. Thus, we get
+$$f(x)=\dfrac{x(x+2)}{x(x+2)(x-9)}.$$
+\end{explanation}
+\end{example}
+
+\section{Horizontal asymptotes}
+\begin{definition}
+Function $f(x)$ has a \dfn{horizontal asymptote} at $y=a$ if, as we plug in values of $x$ increasingly large in magnitude, the corresponding outputs get as close as desired to $a$. That is, as $x\rightarrow\infty$ and/or $x\rightarrow -\infty$, $f(x)\rightarrow a$. This results in a graph that appears to be approaching the horizontal line $y=a$ either on its far left end, its far right end, or both.
+\end{definition}
+
+Horizontal asymptotes are a common feature of rational functions, but rationals aren't the only type of function that can have them. We'll return to the concepts of vertical and horizontal asymptotes soon to explore them in other function types.
+
+Below are some examples of graphs with horizontal asymptotes.
+
+\begin{tikzpicture} [scale=.5]
+    \begin{axis}[samples=50,xmin=-6,xmax=6, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=-5:-.1,<->] {-1/(x^2)+10};
+	\addplot[black,domain=.1:5,<->] {-1/(x^2)+10};
+	\end{axis}
+\end{tikzpicture} \hfill
+\begin{tikzpicture} [scale=.5]
+    \begin{axis}[samples=50,xmin=-20,xmax=20, ymin=-15, ymax=15, axis x line= middle, axis y line = middle,xtick={},ytick={5}]
+	\addplot[black,domain=-19:1.95,<->] {5*x/(x-2)};
+	\addplot[black,domain=2.05:19,<->] {5*x/(x-2)};
+	\end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture} [scale=.5]
+    \begin{axis}[samples=50,xmin=0,xmax=55, ymin=-1, ymax=1, axis x line= middle, axis y line = middle,xtick={},ytick={}]
+	\addplot[black,domain=.5:54,<->] {sin(deg(x))/x};
+%	\addplot[black,domain=.01:2.9,<->] {1/(x*(x-3)^2)};
+%	\addplot[black,domain=3.1:5,<->] {1/(x*(x-3)^2)};
+	\end{axis}
+\end{tikzpicture}
+\vspace{-.1in}
+
+%THIS SPACING WILL NEED TO BE UPDATED FOR XIMERA
+{\scriptsize \hfill asymptote at $y=10$ \hfill asymptote at $y=5$ \hfill asymptote at $y=0$\hfill}
+
+Notice that in the third example above, we see that--unlike a vertical asysmptote--a graph can cross its horizontal asymptote. This is because vertical asymptotes relate to domain restrictions, whereas horizontal asymptotes simply reflect end behavior.
+%
+%\begin{example}
+%Below is the graph of $f(x)=\dfrac{x}{x+5}$, which has horizontal asymptote $y=1$ at both ends.
+%
+%\begin{center}\begin{tikzpicture} [scale=.8]
+%    \begin{axis}[samples=50,xmin=-22,xmax=22, ymin=-10, ymax=10, axis x line= middle, axis y line = middle,xtick={},ytick={1}]
+%	\addplot[black,domain=-20:-5.4,<->] {x/(x+5)};
+%	\addplot[black,domain=-4.6:20,<->] {x/(x+5)};
+%	\end{axis}
+%\end{tikzpicture}\end{center}
+%
+%
+%\end{example}
+
+Before we begin computing horizontal asymptotes, it will be necessary to establish the following rule:
+\vspace{.1in}
+
+\textbf{Rule:} As $x\rightarrow\pm\infty$, $\dfrac{1}{x^n}$ will shrink to $0$ for any number $n>0$ (when the function is defined).
+\vspace{.1in}
+
+This is because $1$ divided by numbers with larger and larger magnitude will give smaller and smaller magnitude outputs. For example, consider the function $g(x) = \frac{1}{x}$ with the table below
+	\[ \begin{array}{c|c}
+		x       & g(x)=\frac{1}{x} \\\hline
+		10      & \answer[given]{0.1} \\ 
+		100     & \answer[given]{0.01} \\
+		1000    & \answer[given]{0.001} \\
+		10000   & \answer[given]{0.0001} \\
+		100000  & \answer[given]{0.00001}\\
+		1000000 & \answer[given]{0.000001}
+	\end{array} \]
+
+Thus as $x\rightarrow\infty,g(x)\rightarrow 0$. Similarly, as $x\rightarrow -\infty,g(x)\rightarrow 0$. The same pattern can be observed if $x$ has any positive exponent, as long as the function is defined. For functions like $y=x^{1/2}=\sqrt{x}$, the function is simply not defined as $x\rightarrow -\infty$.
+
+Additionally, notice that if $\frac{1}{x^n}\rightarrow 0$ then so does any constant multiple of it. Thus expressions like $5\cdot\frac{1}{x}=\frac{5}{x}$, $\frac{-7}{x^3}$, and $\frac{100}{\sqrt[3]{x}}$ all shrink to $0$ for large $x$ as well.
+
+\begin{example}
+Consider $f(x)=\dfrac{x^3}{x^5-2x^2+50}$, $g(x)=\dfrac{6x^3-3x+1}{2x^3+x^2-80}$, and $h(x)=\dfrac{x^8-1}{2x^3+5x-5}$.
+\begin{explanation} First consider $f(x)$. Notice that 
+$$f(x)=\dfrac{x^3}{x^5-2x^2+50}=\dfrac{x^3}{x^5(1-\frac{2}{x^3}+\frac{50}{x^5})}.$$ Since $\frac{2}{x^3}$ and $\frac{50}{x^5}$ both shrink to $0$ for large magnitude $x$, $f(x)$ behaves like $\frac{x^3}{x^5}=\frac{1}{x^2}$ at its ends. Thus we conclude that $f$ has horizontal asymptote $y=0$ at both ends of its graph. In fact, whenever the denominator of a rational is higher degree than the numerator, we will get the same result.
+\\
+\\Next, consider $g(x)$. Notice that
+$$g(x)=\dfrac{6x^3-3x+1}{2x^3+x^2-80}=\dfrac{x^3(6-\frac{3}{x^2}+\frac{1}{x^3})}{x^3(2+\frac{1}{x}-\frac{80}{x^3})}.$$ 
+Again applying the rule, we conclude that $g(x)$ behaves like $\frac{6x^3}{2x^3}=3$ at its ends. Thus $g$ has horizontal asymptote $y=3$ at both ends. In fact, whenever the degree of numerator and denominator are equal, the horizontal asymptote will be the ratio of the leading terms as we've seen here.
+\\
+\\Finally, consider $h(x)$. Since 
+$$h(x)=\dfrac{x^8-1}{2x^3+5x-5}=\dfrac{x^8(1-\frac{1}{x^8})}{x^3(2+\frac{5}{x^2}-\frac{5}{x^3})},$$
+we conclude that for large magnitude $x$, $h(x)$ behaves like $\frac{x^8}{2x^3}=\frac{1}{2}x^5$. Applying our knowledge of polynomial end behavior, we conclude that $h\rightarrow -\infty$ as $x\rightarrow -\infty$ and $h\rightarrow\infty$ as $x\rightarrow\infty$. In fact, whenever the degree of the numerator is higher than that of the denominator, the rational will not have a horizontal asymptote and its end behavior can be investigated as we did here.
+%Since the degree of the numerator is higher, $h$ does not have a horizontal asymptote. For the right end of its graph, we consider the ratio of leading terms $\dfrac{x^8}{2x^3}$ for large positive $x$ values. The numerator and denominator in this ratio would both be positive, so $f$ is positive on the right side of its graph, meaning it heads upward. For the left end of its graph, we consider the ratio of leading terms $\dfrac{x^8}{2x^3}$ for large negative $x$ values. The numerator would be positive because even a negative number to the power of $8$ is positive, but the denominator would be negative since negative numbers to the power of $3$ are negative. Thus the ratio is negative,, meaning the left end of the graph heads downward.
+\end{explanation}
+\end{example}
+
+Let's summarize what we've noticed in the previous example. Consider the rational function $f(x)=\frac{p(x)}{q(x)}$. 
+\\$\bullet$ If $\deg(p)<\deg(q)$, then $f$ has horizontal asymptote $y=0$ at both ends. %This is because the denominator will eventually output much larger numbers than the numerator, thus shrinking the outputs to numbers close to $0$.
+\\$\bullet$  If $\deg(p)=\deg(q)$, then $f$ has horizontal asymptote $y=a$ at both ends, where $a$ is the ratio of the leading coefficients of $p$ and $q$. %This is because for inputs with large magnitude, these highest-power terms are the largest and thus most dominant in their respective polynomials.
+\\$\bullet$ If $\deg(p)>\deg(q)$, then $f$ does not have a horizontal asymptote. Instead, at the left and right ends of the graph, $f$ either heads upward or downward forever. To determine if it heads upward or downward on each end, we consider the behavior of the ratio of the leading terms of $p$ and $q$.
+
+
+
+\begin{example} $f(x)=\dfrac{10x^5-8x^2+15}{x^9+7x^8}$ has 
+     \begin{multipleChoice}
+    \choice[correct]{horizontal asymptote $y=0$}
+    \choice{horizontal asymptote $y=10$}
+    \choice{horizontal asymptote $y=10/7$}
+    \choice{no horizontal asymptote}
+  \end{multipleChoice}
+  
+    $f(x)=\dfrac{10x^7-8x^2+15}{x^5+7x^8}$ has 
+     \begin{multipleChoice}
+    \choice{horizontal asymptote $y=0$}
+    \choice{horizontal asymptote $y=10$}
+    \choice{horizontal asymptote $y=10/7$}
+    \choice[correct]{no horizontal asymptote}
+  \end{multipleChoice}
+  
+  $f(x)=\dfrac{10x^5-8x^2+15}{x^5+7x^8}$ has 
+     \begin{multipleChoice}
+    \choice{horizontal asymptote $y=0$}
+    \choice[correct]{horizontal asymptote $y=10$}
+    \choice{horizontal asymptote $y=10/7$}
+    \choice{no horizontal asymptote}
+  \end{multipleChoice}
+\end{example}
+
+\subsection{Learning Objectives}
+After completing this section, students should be able to:
+\vspace{.05in}
+
+\noindent$\bullet$ understand the graphical meaning of a vertical asymptote
+\\$\bullet$ identify the equations of all vertical asymptotes of a given rational function
+\\$\bullet$ identify the $(x,y)$ location of a hole in the graph of a rational function
+\\$\bullet$ determine if a domain restriction of a rational function is a hole or a vertical asymptote
+\\$\bullet$ understand the graphical meaning of a horizontal asymptote
+\\$\bullet$ identify the equations of any horizontal asymptotes of a given rational function
+
+
+\end{document}

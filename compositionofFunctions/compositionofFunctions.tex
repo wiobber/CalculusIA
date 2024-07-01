@@ -1,0 +1,195 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Composition of Functions}
+\begin{document}
+
+\begin{abstract} \end{abstract}
+\maketitle
+
+At the end of this section, you should be able to:
+\begin{itemize}
+    \item Interpret a composition of functions when functions have meaning.
+    \item Perform basic operations and compositions on functions.
+      \item Evaluate a composition of functions.
+      \item Identify the ``inner" and ``outer" function for composition.
+    \item Given a composition of functions, decompose them.
+    
+  
+\end{itemize}
+
+The notation that you should be aware of is:
+\begin{itemize}
+    \item A composition of functions can be denoted as $$(f\circ g)(x)=f(g(x)).$$
+\end{itemize}
+Let's start with an example in a
+``real context.''
+
+\begin{example}
+  Let
+  \[
+  g(m) = \text{the amount of gas one can buy with $m$ dollars,}
+  \]
+  and let
+  \[
+  f(g) = \text{how far one can drive with $g$ gallons of gas.}
+  \]
+  What does $f(g(m))$ represent in this setting?
+  \begin{explanation}
+    With $f(g(m))$ we first relate how far one can drive with
+    $\answer[given]{g}$ gallons of gas, and this in turn is determined
+    by how much money $\answer[given]{m}$ one has. Hence $f(g(m))$ represents how far
+    one can drive with $\answer[given]{m}$ dollars.
+  \end{explanation}
+\end{example}
+
+Composition of functions can be thought of as putting one function
+inside another.  We use the notation
+\[
+(f\circ g)(x) = f(g(x)).
+\]
+Here we can see that our input for our function $f(g(x))$ would $g(x)$ which has itself an input of $x$. So, the output of $g(x)$ is the input for $(f\circ g)(x)$.
+
+
+\begin{example}
+ Suppose we have
+\begin{align*}
+  f(x)&={{x}^{2}}+5x+4 &&\text{for $-\infty< x< \infty$,}\\
+  g(x)&= x+7 &&\text{for $-\infty< x< \infty$.}\\
+\end{align*}
+\begin{enumerate}
+    \item[(a)] Find $f(g(-5))$ 
+    \item[(b)] Find $f(g(x))$ and state its domain.
+\end{enumerate}
+
+\begin{explanation}
+
+\begin{enumerate}
+    
+\item[(a)] To find $f(g(-5))$, we must start by finding that $g(-5)=\answer[given]{-5}+7=\answer[given]{2}$. Now, we take the output for $g(-5)$ and use it as the input for $f(x)$. Thus $f(g(-5))=f(\answer[given]{2})=(\answer[given]{2})^2+5(\answer[given]{2})+4=\answer[given]{18}$. 
+  \item[(b)] The range of $g$ is $-\infty< x< \infty$, which is equal to the
+  domain of $f$. This means the domain of $f\circ g$ is $-\infty< x<
+  \infty$. Next, we substitute $x+7$ for each instance of $\answer[given]{x}$ found
+  in
+  \[
+  f(x)={{x}^{2}}+5x+4
+  \]
+  and so
+  \begin{align*}
+  f(g(x)) &=f(x+7)\\
+  &=\answer[given]{{{(x+7)}^{2}}+5(x+7)+4}.
+  \end{align*}
+  \end{enumerate}
+\end{explanation}
+\end{example}
+\begin{example}
+    Let
+    \begin{align*}
+  f(x)&=x^2 &&\text{for $-\infty< x< \infty$,}\\
+  g(x)&= \sqrt{x} &&\text{for $0\le x< \infty$.}\\
+\end{align*}
+Determine $f(g(-1))$.
+\begin{explanation}
+    Notice our first step would be to evaluate $g(-1)$. We can see that $g(-1)=\sqrt{-1}$ which is not a real number and thus $g(-1)$ is not defined. So that means that $-1$ would be outside the domain of $f(g(x))$. 
+\end{explanation}
+\end{example}
+\begin{warning}
+  The composition $f\circ g$ only makes sense if
+  \[
+  \{\text{the range of $g$}\}
+  \text{ is contained in or equal to }
+  \{\text{the domain of $f$}\}
+  \]
+\end{warning}
+Now let's try an example with a more restricted domain.
+
+\begin{example}
+ Suppose we have:
+\begin{align*}
+  f(x)&=x^2 &&\text{for $-\infty< x< \infty$,}\\
+  g(x)&= \sqrt{x} &&\text{for $0\le x< \infty$.}\\
+\end{align*}
+Find $f(g(x))$ and state its domain.
+\begin{explanation}
+  The domain of $g$ is $0\le x< \infty$. From this we can see that the
+  range of $g$ is $\answer[given]{0}\le x< \infty$. This is contained
+  in the domain of $f$.
+
+  This means that the domain of $f\circ g$ is $0\le x< \infty$.  Next,
+  we substitute $\answer[given]{\sqrt{x}}$ for each instance of $x$
+  found in
+  \[
+  f(x)={{x}^{2}}
+  \]
+  and so
+  \begin{align*}
+  f(g(x))&=f(\sqrt{x})\\
+  &=\left(\sqrt{x}\right)^2.
+  \end{align*}
+  We can summarize our results as a piecewise function, which
+  looks somewhat interesting:
+  \[
+  (f\circ g)(x) = 
+  \begin{cases}
+    x & \text{if $0\le x < \infty$}\\
+   \text{undefined} &\text{otherwise}. 
+  \end{cases}
+  \]
+\end{explanation}
+\end{example}
+
+
+\begin{example}
+ What if we instead compose the other way? So again let:
+\begin{align*}
+  f(x)&=x^2 &&\text{for $-\infty< x< \infty$,}\\
+  g(x)&= \sqrt{x} &&\text{for $0\le x< \infty$.}
+\end{align*}
+Find $g(f(x))$ and state its domain.
+\begin{explanation}
+  While the domain of $f$ is $-\infty< x< \infty$, its range is only
+  $0 \le x<\infty$ since the output of $x^2$ can never be negative. This is exactly the domain of $g$. This means that
+  the domain of $g\circ f$ is $-\infty< x< \infty$ because no matter what $x$-value we input for $f(x)$, we will always end up with an $f(x)$ value that is in the domain of $g(x)$.
+  Now we may substitute $\answer[given]{x^2}$ for each instance of
+  $\answer[given]{x}$ found in
+  \[
+  g(x)=\sqrt{x}
+  \]
+  and so
+  \begin{align*}
+  g(f(x))&=g(x^2)\\
+  &=\sqrt{x^2},\\
+  &=|x|.
+  \end{align*}
+\end{explanation}
+\end{example}
+
+Compare and contrast the previous two examples.  We used the same
+functions for each example, but composed them in different ways.  The resulting
+compositions are not only different, they have different domains!
+
+
+
+It is not only important to be able to compose two functions, it is also important to be able to \textbf{decompose} a composition of them! By decompose, we mean that we want to determine the two functions, $f(x)$ and $g(x)$, that create the composition of two functions $h(x)=f(g(x))$. Now, it is not unusual to have multiple possible answers, but we do want to avoid the trivial answers, when either $f(x)=x$ or $g(x)=x$.
+
+\begin{example}
+   Let $h(x)=f(g(x))$. Decompose the following compositions of functions.
+    \begin{enumerate}
+        \item[(a)] $h(x)=\sqrt[3]{2x-3}$ 
+        \item[(b)] $h(x)=\frac{2}{(x+2)^2}$
+    \end{enumerate}
+    \begin{explanation}
+    We know that $h(x)=f(g(x))$. We will often think about $g(x)$ as the ``inner" function as it is the function that is plugged into $f(x)$ and thus $f(x)$ is the ``outer" function. We can keep this in mind as we proceed to answering these questions.
+        \begin{enumerate}
+            \item[(a)] We start by identifying the ``inner" function, our $g(x)$. We can let. $g(x)=2x-3$. If that is the case, then $f(x)$, our ``outer" function, is $\answer[given]{\sqrt[3]{x}}$. We can then check that this forms our composition by plugging in $g(x)=\answer[given]{2x-3}$ for the $x$ in $f(x)=\answer[given]{\sqrt[3]{x}}$. Doing that, we confirm that $h(x)=f(g(x))=\sqrt[3]{2x-3}$. Note that we could have looked at another composition of functions where $g(x)=2x$ and $f(x)=\sqrt[3]{x-3}$. This is a valid decomposition, but for our future purposes (how mysterious!) not the preferred decomposition.
+            
+            \item[(b)] We can follow a similar path for this problem. There are two common decompositions. First, we will let our ``outer" function be $f(x)=\frac{2}{x}$.  In this case, we can see that our ``inner" function will be, $g(x)=\answer[given]{(x+2)^2}$. Composing these two functions and get our desired result $h(x)=f(g(x))=\answer[given]{\frac{2}{(x+2)^2}}$.
+            
+            For our second option, let's identify an ``inner" function, $g(x)=\answer[given]{x+2}$. Then our ``outer" function, $f(x)=\answer[given]{\frac{2}{x^2}}$. We can compose these two functions and get the result $h(x)=f(g(x))=\answer[given]{\frac{2}{(x+2)^2}}$.
+           
+        \end{enumerate}
+    \end{explanation}
+\end{example}
+
+\end{document}

@@ -1,0 +1,166 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Rational Functions}
+\begin{document}
+
+\begin{abstract} \end{abstract}
+\maketitle
+
+
+
+\section{What are rational functions?}
+\begin{definition}
+  A \dfn{rational function} in the variable $x$ is a function that can be written in the form
+  \[
+  f(x) = \frac{p(x)}{q(x)}
+  \]
+  where $p$ and $q$ are polynomial functions, and $q$ is not the constant zero function. The domain of a rational
+  function is all real numbers except for where the denominator is
+  equal to zero.
+\end{definition}
+
+
+\begin{question}
+  Which of the following are rational functions?
+  \begin{selectAll}
+    \choice[correct]{$f(x) = 0$}
+    \choice[correct]{$f(x) = \frac{3x+1}{x^2-4x+5}$}
+    \choice{$f(x)=e^x$}
+    \choice{$f(x)=\frac{\sin(x)}{\cos(x)}$}
+    \choice[correct]{$f(x) = -4x^{-3}+5x^{-1}+7-18x^2$}
+    \choice{$f(x) = x^{1/2}-x +8$}
+    \choice{$f(x)=\frac{\sqrt{x}}{x^3-x}$}
+  \end{selectAll}
+  \begin{feedback}
+    All polynomials can be thought of as rational functions.
+    \\(e) \emph could be rewritten in the form $p(x)/q(x)$, which we will explore below
+  \end{feedback}
+\end{question}
+
+\section{Multiplying and dividing rational functions}
+
+Multiplying and dividing rational functions works the same way as multiplying and dividing fractions. To multiply, we multiply the numerators and the denominators. To divide, we rewrite the division as multiplication by the reciprocal of the denominator, then multiply.
+
+\begin{example}
+	Simplify the expression \[ \dfrac{x}{x+5}\cdot\dfrac{3}{x-2}. \]
+	\begin{explanation}
+		\begin{align*}
+			\dfrac{x}{x+5}\cdot\dfrac{3}{x-2} &= \dfrac{3x}{(x+5)(x-2)}\\
+		\end{align*}
+	\end{explanation}
+\end{example}
+
+\begin{example}
+	Simplify the expression \[ \dfrac{x}{x+5}\div\dfrac{3}{x-2}. \]
+	\begin{explanation}
+		\begin{align*}
+			\dfrac{x}{x+5}\div\dfrac{3}{x-2} &= \dfrac{x}{x+5}\cdot\dfrac{x-2}{3}\\
+				&= \dfrac{x(x-2)}{(x+5)3}\\
+				&= \dfrac{x^2-2x}{3x+15}
+		\end{align*}
+	\end{explanation}
+\end{example}
+
+
+\section{Adding and subtracting rational functions}
+
+When dealing with a sum or difference of two fractions, we must first convert to a common denominator.  After the addition, we can divide away any common factors that are still present. This is as true for rational functions as it is for regular fractions. The product of the two denominators is always a common denominator, although it may not be the \emph{least} common denominator.
+
+\begin{example}
+	Simplify the expression \[ \dfrac{x}{x+5} + \dfrac{3}{x-2}. \]
+	\begin{explanation}
+		These two fractions have a common denominator of $(x+5)(x-2)$ because each denominator can be multiplied up to this expression. Once the denominators match, we are free to add across the top.
+\\\\In the first rational, we multiply the denominator by $(x-2)$ to get to this denominator, and to maintain balance we must also multiply the numerator by $(x-2)$. In the second rational, we multiply the denominator by $(x+5)$ to get to the common denominator, and thus the numerator as well. Notice that we are actually multiplying this second rational by $\dfrac{x+5}{x+5}$, which is equivalent to $1$ and thus does not change the overall value.
+		\begin{align*}
+			\dfrac{x}{x+5} + \dfrac{3}{x-2} &= \dfrac{x(x-2)}{(x+5)(x-2)} + \dfrac{3(x+5)}{(x-2)(x+5)}\\
+				&= \dfrac{x(x-2)+3(x+5)}{(x+5)(x-2)}\\
+				&= \dfrac{x^2-2x+3x+15}{(x+5)(x-2)}\\ 
+				&= \dfrac{x^2+x+15}{(x+5)(x-2)} \mbox{ or } \dfrac{x^2+x+15}{x^2+3x-10}
+		\end{align*}
+	\end{explanation}
+\end{example}
+
+\begin{example}
+	Simplify the expression \[ \dfrac{x+1}{x-3} - \dfrac{x^2}{x+7}. \]
+
+  \begin{multipleChoice}
+    \choice{$\dfrac{x^3-2x^2+8x+7}{x^2+4x-21}$}
+    \choice{$\dfrac{-x^2+x+1}{x^2+4x-21}$}
+    \choice{$\dfrac{-x^3-2x^2+8x+7}{x^2+4x-21}$}
+    \choice[correct]{$\dfrac{-x^3+4x^2+8x+7}{x^2+4x-21}$}
+  \end{multipleChoice}
+\end{example}
+
+If the denominators have any shared factors, our least common denominator is not just the product of the two denominators.
+
+\begin{example}
+	Simplify the expression \[ \dfrac{x-6}{x^2+2x} + \dfrac{x+3}{x^2+x}. \]
+	\begin{explanation}
+		We'll start by factoring the denominators.  $x^2+2x = x(x+2)$, and $x^2+x = x(x+1)$. Because they have a common factor $x$, we can tell that the least common denominator is not just the product of the two denominators. \\\\In fact, the least common denominator is $x(x+1)(x+2)$ since each can multiply up to it. The first rational just needs $(x+1)$ in the top and bottom, and the second needs $(x+2)$.
+		\begin{align*}
+			\dfrac{x-6}{x^2+2x} + \dfrac{x+3}{x^2+x} &= \dfrac{x-6}{x(x+2)} + \dfrac{x+3}{x(x+1)}\\
+				&= \dfrac{(x-6)(x+1)}{x(x+2)(x+1)} + \dfrac{(x+3)(x+2)}{x(x+1)(x+2)}\\
+				&= \dfrac{x^2-5x-6}{x(x+2)(x+1)} + \dfrac{x^2+5x+6}{x(x+2)(x+1)}\\ 
+				&= \dfrac{2x^2}{x(x+2)(x+1)}\\
+				&= \dfrac{2x}{(x+2)(x+1)}
+		\end{align*}
+		Since there was an $x$ in the numerator and denominator after combining into one fraction, we were able to take extra cancellation step at the very end.
+	\end{explanation}
+\end{example}
+
+\begin{example}
+	Simplify the expression \[ \dfrac{5}{x^2(x+2)} + \dfrac{6}{(x+2)(x-4)}. \]
+	\begin{explanation}
+		Because the denominators have a common factor $x+2$, we can tell that the least common denominator is not just the product of the two denominators. In this case, the least common denominator is $x^2(x+2)(x-4)$ since each can multiply up to it. The first rational needs $(x-4)$ in the top and bottom, and the second needs $x^2$.
+		\begin{align*}
+			\dfrac{5}{x^2(x+2)} + \dfrac{6}{(x+2)(x-4)} 
+			&= \dfrac{5(x-4)}{x^2(x+2)(x-4)} + \dfrac{6x^2}{(x+2)(x-4)x^2}\\
+				&= \dfrac{5(x-4)+6x^2}{x^2(x+2)(x-4)}\\
+				&= \dfrac{6x^2+5x-20}{x^2(x+2)(x-4)}
+		\end{align*}
+	\end{explanation}
+\end{example}
+
+\section{Solving rational equations}
+
+To solve equations involving rational expressions, it is often best to clear out fractions before proceeding. We do this by multiplying both sides of the equation by the least common denominator of all rationals present. After doing this and simplifying our rationals, we are left with a polynomial equation.
+\begin{example}
+	Solve the equation
+	\[  \frac{2}{x} + \frac{3x}{x+1} = 4.\]
+	\begin{explanation}
+		The common denominator is $x(x+1)$.  We multiply both sides by $x(x+1)$ to clear out the fractions.
+		\begin{align*}
+			\frac{2}{x} + \frac{3x}{x+1} &= 4	\\
+			x(x+1) \left( \frac{2}{x} + \frac{3x}{x+1} \right) &= x(x+1) ( 4 )\\
+			x(x+1) \cdot \frac{2}{x}  + x(x+1) \cdot \frac{3x}{x+1} &= 4x(x+1)\\
+			2(x+1) + 3x(x) &= 4x^2 + 4x\\
+			3x^2 + 2x + 2 &= 4x^2 + 4x\\
+			x^2 + 2x - 2 &= 0.
+		\end{align*}
+		The quadratic formula gives solutions as $\displaystyle x = \dfrac{-2 \pm \sqrt{12}}{2} = -1 \pm \sqrt{3}$.
+		
+		\textbf{Note:} If we look back at the original equation, we notice that there are some numbers that we are not allowed to plug in for $x$.  When $x=0$ or $x=-1$,
+		the left-hand side of the equation is not defined due to a division by zero issue.  Since neither $-1 + \sqrt{3}$ nor $-1-\sqrt{3}$ match either of these restricted numbers,
+		they are both solutions. In any problem where we use a common denominator to clear out fractions, we are obligated to compare our final answers with the restrictions of the original problem in this way.
+	\end{explanation}
+\end{example}
+
+\begin{question}
+	One solution of the equation \[ \dfrac{2}{x+1}+ \dfrac{1}{x+2} = 1 \] is $x = \sqrt{3}$.  Find another solution. 
+	\begin{prompt}
+		\[ x = \answer{-\sqrt{3}} \]
+	\end{prompt}
+\end{question}
+
+\subsection{Learning Objectives}
+After completing this section, students should be able to:
+\vspace{.05in}
+
+\noindent$\bullet$ multiply and divide rational expressions
+\\$\bullet$ add and subtract rational expressions using the least common denominator
+\\$\bullet$ solve rational equations by first multiplying by the least common denominator
+
+
+\end{document}

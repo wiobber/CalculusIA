@@ -1,0 +1,395 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Polynomials}
+\begin{document}
+
+\begin{abstract} \end{abstract}
+\maketitle
+
+
+The functions you are most familiar with are probably polynomial
+functions.
+
+\section{What are polynomial functions?}
+
+\begin{definition}
+  A \dfn{polynomial function} in the variable $x$ is a function
+  which can be written in the form
+  \[
+  f(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1 x + a_0
+  \]
+  where the $a_i$'s are all constants (called the \dfn{coefficients})
+  and $n$ is a nonnegative integer (called the \dfn{degree}). The notation for the degree of $f$ is written deg$(f)$. The domain of a polynomial function is $(-\infty,\infty)$.
+\end{definition}
+
+\begin{question}
+	Which of the following are polynomial functions?
+	\begin{selectAll}
+		\choice[correct]{$f(x) = 0$}
+		\choice[correct]{$f(x) = -9$}
+		\choice[correct]{$f(x) = 3x+1$}
+		\choice{$f(x) = x^{1/2}-x +8$}
+		\choice{$f(x) = -4x^{-3}+5x^{-1}+7-18x^2$}
+		\choice[correct]{$f(x) = (x+1)(x-1)+e^x - e^x $}
+		\choice{$f(x) = \frac{x^2 - 3x + 2}{x-2}$}
+		\choice[correct]{$f(x) = x^7-32x^6-\pi x^3+45/84$}
+	\end{selectAll}
+  \begin{feedback}\hfil
+    \begin{itemize}
+    \item $a_0$ in the definition is allowed to be any number, including $0$, so this is a polynomial. 
+    \item $a_0$ in the definition is allowed to be any number, including $-9$, so this is a polynomial. 
+    \item This is a degree one polynoimal.
+    \item Because $1/2$ is not a whole number, this is not a polynomial.
+    \item Because $-1$ is a whole number, this is a polynomial. (Notice it is still a polynomial even if the powers are not written in order.)
+    \item This is a polynomial, but to know whether it is, you have to simplify first. $(x+1)(x-1)+e^x-e^x=(x+1)(x-1)=x^2-1$.
+    \item This is not a polynomial. Even though you could simplify it as $\displaystyle \frac{(x-2)(x-1)}{x-2} = x-1,$ this simplification is not valid when $x=2$. Since the domain of this function excludes $2$, this cannot be a polynomial (in our definition, we said the domain of a polynomial function is $(-\infty,\infty)$.
+\item This is a polynomial.
+    \end{itemize}
+  \end{feedback}
+\end{question}
+
+
+\section{Multiplying}
+
+Multiplying polynomials is based on the familiar property of arithmetic, \dfn{distribution}: $\displaystyle a\cdot( b + c ) = ab + ac$.
+\begin{example}
+	Multiply $2x^3$ by $x^5 - 4x^4 + 7x - 2$.
+	\begin{explanation}
+		Use distribution. Recall that when you multiply the same base, you add the exponents, for example, $2^3\cdot2^2=(2\cdot2\cdot2)\cdot(2\cdot2) = 2\cdot2\cdot2\cdot2\cdot2 = 2^5$.
+		\begin{align*}
+			2x^3 \left( x^5 - 4x^4 + 7x - 2 \right) &= 2x^3 \cdot x^5 - 2x^3 \cdot 4x^4 + 2x^3 \cdot 7x \\
+				& - 2x^3 \cdot 2\\
+				&= 2 x^8 - 8x^7 + 14x^4 - 4x^3
+		\end{align*}
+	\end{explanation}
+\end{example}
+
+
+\begin{example}
+	Multiply $3x^2 + 2x - 1$ by $2x^4 + 5x^3+ x + 1$.
+	\begin{explanation}
+		We'll start by distributing the first polynomial into the second.  Then we'll distribute back, and finish by combining like terms.
+		\begin{align*}
+			(3x^2+ 2x-1)(2x^4 + 5x^3 + x +1) &= 2x^4(3x^2+ 2x-1) \\
+			 &+ 5x^3 (3x^2+ 2x-1) \\
+			 &+ x (3x^2+ 2x-1) \\
+			 &+ 1(3x^2+ 2x-1)\\
+				&= (6x^6 + 4x^5 - 2x^4) \\
+				&+ (15x^5 + 10x^4 - 5x^3) \\
+				&+ (3x^3+2x^2-x) \\
+				&+(3x^2+2x-1)
+		\end{align*}
+		After combining like-terms, we find \[6x^6 + 19x^5 +8x^4 - 2x^3 + 5x^2+ x - 1.\]
+	\end{explanation}
+\end{example}
+The result is that we have multiplied every term of the first polynomial by every term of the second, then added the results together.  In the case of two
+\dfn{binomials} (polynomials with only two terms), this is frequently referred to as \dfn{FOIL}. Example: $(a+b)^2 = (a+b)(a+b)=a(a+b)+b(a+b)=a^2+ab+ba+b^2=a^2+2ab+b^2$.
+
+There are several product formulas that arise repeatedly when working with binomials.  You will likely have seen most of these before.
+%\begin{xbox}{Multiplication Formulas}
+		\begin{align*}
+			(a + b)^2 &= a^2 + 2ab + b^2\\
+			(a-b)^2 &= a^2 - 2ab + b^2\\
+			(a+b)(a-b) &= a^2 - b^2\\
+			(a+b)^3 &= a^3 + 3 a^2 b + 3 ab^2 + b^3\\
+			(a-b)^3 &= a^3 - 3 a^2 b + 3 ab^2 - b^3\\
+			(a-b)(a^2 + ab + b^2) &= a^3 - b^3\\
+			(a+b)(a^2-ab+b^2) &= a^3 + b^3
+		\end{align*}
+%\end{xbox}
+
+
+\begin{example}
+	If $f$ is the polynomial function given by $f(x) = x^3-2x^2 +5$, find $f(x+1)$.  Find $f(2+h)$.
+	\begin{explanation}
+		Note that there are two ways to think of this,both leading to the same strategy.
+
+		First, remember the notation $f(1)$ means that 1 is the input, and the notation has not changed here. $f(x+1)$ means $x+1$ is the input, so replace all instances of $x$ with $x+1$ instead.
+		
+		Another way to think of this is as a function composition. Consider $x^3-2x^2+5$ to be the outside function and $x+1$ as the inside function.
+		\begin{align*}
+			f(x+1) &= (x+1)^3 - 2(x+1)^2 + 5 \\
+				&= (x^3 + 3x^2 + 3x + 1) - 2(x^2 + 2x + 1) + 5\\
+				&= x^3 + x^2 -x + 4
+		\end{align*}
+		In the same way, $f(2+h)$ asks us to replace $x$ by $2+h$.
+		\begin{align*}
+			f(2+h) &= (2+h)^3 - 2(2+h)^2 + 5\\
+				&= (8+12h + 6h^2 + h^3) - 2(4+4h+h^2) + 5\\
+				&= h^3 + 4h^2+4h+5
+		\end{align*}
+	\end{explanation}
+\end{example}
+
+\begin{problem}
+	If $f(x)=4x^2-3x+1$, find $f(x+h)-f(x)$.
+	\begin{multipleChoice}
+		\choice{$h$}
+		\choice{$4h^2-3h+1$}
+		\choice[correct]{$8xh + 4h^2 - 3h$}
+		\choice{$4x^2+8xh+4h^2-3x-3h+1$}
+	\end{multipleChoice}
+\end{problem}
+
+\section{Factoring}
+Factoring is a bit like an inverse operation of multiplying polynomials.  We start with the multiplied out polynomial, and ask what the individual factors were.
+
+The easiest factors to deal with are common factors.
+\begin{example}
+	Factor $8x^4 + 40x^3$.
+	\begin{explanation}
+		The coefficients of this polynomial have a greatest common divisor of $8$, and the least degree of the terms is $3$, so
+		$8x^3$ is a common factor.  Taking this out leaves:
+		$\displaystyle 8x^3( x+5)$.
+	\end{explanation}
+\end{example}
+
+
+For \dfn{trinomials} (polynomials with three terms) of the form $ax^2 + bx + c$, we try to factor as $(px+r)(qx+s)$.  We'll start with an example with $a=1$.
+\begin{example}
+	Factor $x^2+2x-24$.
+	\begin{explanation}
+		Since the leading coefficient is $1$, we want to factor $x^2+2x-24$ as $(x+r)(x+s)$.  If we multiply out $(x+r)(x+s)$ we get
+		$x^2 + (r+s)x + rs$.  We need to find two numbers that add to $2$,
+		and multiply to $-24$.  Look at the different ways of multiplying two numbers to get $-24$:  $-1 \cdot 24$, $-2 \cdot 12$, $-3 \cdot 8$, $-4 \cdot 6$...
+		That last one, $-4$ and $6$ are two numbers that add to $2$ and multiply to give $-24$.
+		
+		Our factorization is $x^2+2x-24 = (x-4)(x+6)$.
+	\end{explanation}
+\end{example}
+
+%The process is slightly more complicated when $a \neq 1$.
+%\begin{example}
+%	Factor $6x^2 + 11 x + 3$.
+%	\begin{explanation}
+%		In this case, want to find $(px+r)(qx+s) = pq x^2 + (ps+qr) x+ rs$.  Ignore that middle term for now, and just focus on the leading term and the constant term.
+%		We need to find numbers that multiply to $6$ for our coefficients, and that multiply to $3$ for the constants in each factor.
+%		That means we're looking at things like $(6x+1)(x+3)$, $(6x+3)(x+1)$, $(2x+3)(3x+1)$, $(2x+1)(3x+3)$.   Actually, that's it, as $6$ can only
+%		factor as $1 \cdot 6$ or $2 \cdot 3$, and $3$ only factors as $1 \cdot 3$.
+%		
+%		All of these possibilities will give the right $x^2$ term and the right constant term.  The only difference is the $x$-term they give.  Do any of them
+%		give an $x$-coefficient of $11$?  Yes!
+%		
+%		$6x^2+11x+3 = (2x+3)(3x+1)$.
+%	\end{explanation}
+%\end{example}
+
+Remember, a \dfn{root} of a polynomial function is an $x$-value where the polynomial is zero. 
+There is a close relationship between roots of a polynomial and factors of that polynomial. 
+\begin{theorem}
+If $x=c$ is a root of a polynomial, then $x-c$ is a factor of that polynomial.
+\end{theorem}
+In our previous example, notice that plugging 4 into $x^2+2x-24$ gives 0. This theorem claims that $x-4$ must be a factor, and that was true.
+
+%\begin{example}
+%	Factor $3x^3-13x^2+2x+8$.
+%	\begin{explanation}
+%		Notice that if we substitute $x=1$ into the polynomial, we get zero out.  That means $x-1$ is a factor of $3x^3-12x^2+2x+8$.
+%		Polynomial long division gives:
+%
+%		\begin{center}
+%\newdimen\digitwidth
+%	\settowidth\digitwidth{0}
+%\def~{\hspace{\digitwidth}}
+%\def\divrule#1#2{%
+%	\noalign{\moveright#1\digitwidth%
+%		\vbox{\hrule width#2\digitwidth}}}
+%$x-1$\,\begin{tabular}[b]{@{}r@{}}
+%$3x^2-10x-8$ \\ \hline
+%\big)\begin{tabular}[t]{@{}l@{}}
+%~$3x^3-13x^2+2x+8$ \\
+%$-3x^3+3x^2$ \\ \divrule{0}{10}
+%~~~~~$-10x^2+2x$ \\
+%~~~~~~$10x^2-10x$ \\ \divrule{6}{10}
+%~~~~~~~~~~~$-8x+8$ \\
+%~~~~~~~~~~~~~$8x-8$ \\ \divrule{12}{8}
+%~~~~~~~~~~~~~~~~~$0$
+%\end{tabular}
+%\end{tabular}
+%		\end{center}
+%		
+%		The quotient was $3x^2-10x-8$, so $3x^3-13x^2+2x+8 = (x-1)(3x^2-10x-8)$.  It remains to factor the quotient.
+%		
+%		The leading coefficient $3$ factors as $1 \cdot 3$, and $8$ factors as $1 \cdot 8$ and $2 \cdot 4$.  Examining the possibilities, we find the factorization
+%		of $3x^2-10x-8$ as $(3x+2)(x-4)$.  The entire polynomial factors as $(x-1)(3x+2)(x-4)$.
+%	\end{explanation}
+%\end{example}
+
+
+
+\section{Equations}
+A \emph{quadratic equation in $x$} is an equation which is equivalent to one with the form
+	$ax^2 + bx + c = 0$, where $a$, $b$, and $c$ are constants, with $a \neq 0$.
+
+There are three major techniques you are probably familiar with for solving quadratic equations:
+\begin{itemize}
+	\item Factoring.
+	\item Completing the Square.
+	\item Quadratic Formula.
+\end{itemize}
+
+Each of these methods are important.  Factoring is vital, because it is a valid approach to solve nearly any type of equation.  Completing
+the Square is a technique that becomes useful when we need to rewrite certain types of expressions.  The Quadratic Formula will always
+work, but has some limitations.
+
+\begin{example}
+	Solve the quadratic equation
+	\[ 2x^2 +5x = 27 x - 60. \]
+	\begin{explanation}
+		We'll start by writing this in it's standard form: $2x^2 - 22x + 60 = 0$.  Notice how there is a common factor of 2? Let's divide by 2.
+		
+		$x^2 - 11x + 30 = 0$.  Any of the above methods will work here, so let's try factoring.  What numbers add to $-11$ and multiply to $30$?
+		$-5$ and $-6$ do. That gives us:
+		\begin{align*}
+			x^2 - 11x + 30 &= 0\\
+			(x-5)(x-6) &= 0
+		\end{align*}
+		Either $x-5 = 0$ (giving us $x=5$) or $x-6 = 0$ (giving us $x=6$).  The two solutions are $x = 5, 6$.
+	\end{explanation}
+\end{example}	
+
+\begin{example}
+	Solve the quadratic equation
+	\[  x^2 = 6x -4.\]
+	\begin{explanation}
+		Again, we'll write it in standard form: $x^2 - 6x + 4 = 0$.  The quadratic $x^2 -6x+4$ does not factor, so we'll complete the square instead.
+		
+		Start by moving the constant term to the other side
+		\[ x^2 - 6x = -4. \]
+		This has $b = -6$.  That means $\displaystyle \dfrac{b}{2} = -3$ and $\displaystyle \left( \dfrac{b}{2}\right)^2 = 9$.  Add $9$ to both sides.
+		\[ x^2 - 6x + 9 = -4 + 9 = 5. \]
+		The left-hand side is now a perfect square, $\left(x-3\right)^2 = x^2 - 6x + 9$.  We can then solve using square roots.
+		\begin{align*}
+			x^2 - 6x + 9 &=  5\\
+			\left( x-3 \right)^2 &= 5\\
+			x-3 = \pm \sqrt{5} \\
+			x = 3 \pm \sqrt{5}.
+		\end{align*}
+	\end{explanation}
+\end{example}
+If you had used the quadratic formula, $\displaystyle x = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a}$, instead of factoring or completing the square above, you would have found the same solutions.
+
+\begin{problem}
+	Solve the quadratic equation $\displaystyle x^2 + 4 = 4\left(x+2\right)$.
+	\begin{multipleChoice}
+		\choice{$x = \pm 2$}
+		\choice[correct]{$x=2\pm 2\sqrt{2}$}
+		\choice{$x = -2, -4$}
+		\choice{none of the above}
+  \end{multipleChoice}
+\end{problem}
+
+
+
+
+%Building on these methods, we'll consider more general types of equations.
+%A polynomial equation is an equation which is equivalent to one of the form $a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0 = 0$. 
+%\begin{example}
+%	Solve the equation $x^4 = 6x^2 - 4$.
+%	\begin{explanation}
+%		Start by rewriting as $x^4 - 6x^2 + 4=0$.  This is not a quadratic equation in $x$, but it IS a quadratic in $x^2$.
+%		We continue by completing the square.
+%		\begin{align*}
+%			x^4 - 6x^2 &= 4 \\
+%			x^4 - 6x^2 + 9 &= 4 + 9\\
+%			(x^2 - 3)^2 &= 13\\
+%			x^2 - 3 &= \pm \sqrt{13}\\
+%			x^2 &= 3 \pm \sqrt{13}
+%		\end{align*}
+%		Either $x^2 = 3 + \sqrt{13}$, or $x^2 = 3 - \sqrt{13}$.  Since $3 - \sqrt{13}$ is negative, only $x^2 = 3 + \sqrt{13}$ is possible.
+%		
+%		The only real solutions are $x = \pm \sqrt{3 + \sqrt{13}}$.
+%	\end{explanation}
+%\end{example}
+%
+Factoring is a process that helps us solve more than just quadratic equations, as long as we first get one side of the equation equal to zero.
+\begin{problem}
+	Solve the equation
+	\[ 2x^2 \left( x-4 \right) \left( 2x-5\right)^3 = 0. \] Enter your answers from smallest to largest value.
+	\begin{prompt}
+		$x=\answer{0}$, $x=\answer{\frac{5}{4}}$,$x=\answer{4}$.
+	\end{prompt}
+
+\end{problem}
+
+%
+%\begin{example}
+%	Solve  $2x(2x^2 + 1) = x^2(x +13) - 8$.
+%	\begin{explanation}
+%		Start by rewriting the equation as $3x^3-13x^2+2x+8 = 0$.  This is not a quadratic-type equation, so we resort to factoring.
+%		\begin{align*}
+%			3x^3-13x^2+2x+8 &= 0\\
+%			(x-1)(3x^2-10x-8) &= 0\\
+%			(x-1)(3x+2)(x-4) &= 0
+%		\end{align*}
+%		Thus, either $x -1 = 0$ (so $x = 1$), or $3x+2=0$ (so $x = -2/3$), or $x-4 = 0$ (so $x=4$).
+%		
+%		The solutions are $x = 1, 4, -3/2$.
+%	\end{explanation}
+%\end{example}
+
+
+The next theorem above is a deep fact of mathematics. The great mathematician Gauss proved the theorem in 1799. 
+\begin{theorem}[The Fundamental Theorem of Algebra]\index{Fundamental Theorem of Algebra}
+  Every polynomial of the form
+  \[
+  a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0
+  \]
+  where the $a_i$'s are real (or even complex!) numbers and $a_n \ne 0$ has exactly
+  $n$ (possibly repeated) complex roots.
+\end{theorem}
+
+Recall that the \dfn{multiplicity} of a root indicates how many times that particular root is repeated.
+The Fundamental Theorem of Algebra tells us that a polynomial equation of degree $n$, will have exactly $n$ complex solutions, once multiplicity
+is taken into account.  As non-real solutions appear in complex-conjugate pairs  (if our equation has real coefficients), we will always have an even number of non-real
+solutions.  That means, taking multiplicity into account, a quadratic equation will have either $2$ or $0$ real solutions.  A cubic equation will have either $3$ or $1$ real
+solution.
+
+
+\begin{problem}
+
+	The equation $x^3 = 3x-2$ has $x=1$ as one solution.  Find another solution.
+	
+	\begin{prompt}
+		\[ x= \answer{-2} \]
+	\end{prompt}
+	\begin{feedback}
+  		Notice that there were only two real numbers that solve this equation.  How is that possible, if we said a cubic equation has to have either
+		$3$ or $1$ real solutions?
+  	\end{feedback}
+\end{problem}
+
+Learning Objectives:
+
+The following are \textbf{facts} or \textbf{definitions} you must memorize from this section:
+\begin{itemize}
+\item A \dfn{polynomial function} in the variable $x$ is a function
+  which can be written in the form
+  \[
+  f(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1 x + a_0
+  \]
+  where the $a_i$'s are all constants (called the \dfn{coefficients})
+  and $n$ is a nonnegative integer (called the \dfn{degree}). The notation for the degree of $f$ is written deg$(f)$. The domain of a polynomial function is $(-\infty,\infty)$.
+\item The distributive law: $\displaystyle a\cdot( b + c ) = ab + ac$
+\item Multiplying exponents: $x^m\cdot x^n = x^{m+n}$
+\item A \dfn{root} of a polynomial function is an $x$-value where the polynomial is zero. 
+\item The Fundamental Theorem of Algebra: a degree $n$ polynomial has exactly $n$ (possibly complex) roots, up to multiplicity.
+\end{itemize}
+
+The following are \textbf{procedures} you must be able to perform from this section:
+\begin{itemize}
+\item FOIL: $(a+b)^2 = (a+b)(a+b)=a(a+b)+b(a+b)=a^2+ab+ba+b^2=a^2+2ab+b^2$
+\item Finding a function value of an expression; such as $f(a+h)$ given a formula for $f(x)$.
+\item Factoring common factors out of an expression
+\item Factoring a trinomial
+\item Factoring to solve an equation
+\item Completing the square: first factor constants if necessary to get your polynomial in the form $x^2+bx+c=0$, move $c$ to the other side and add $\displaystyle \left(\frac{b}{2}\right)^2$ to both sides. The left hand side will factor as a perfect square.
+\item The quadratic formula: the solutions to $ax^2+bx+c=0$ are 
+
+$x=\displaystyle \frac{-b\pm \sqrt{b^2-4ac}}{2a}$.
+\end{itemize}
+
+
+\end{document}
