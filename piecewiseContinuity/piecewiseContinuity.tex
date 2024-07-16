@@ -1,0 +1,204 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+%\outcome{Identify where a function is, and is not, continuous.}
+%\outcome{Understand the connection between continuity of a function and
+%  the value of a limit.}
+%\outcome{Make a piecewise function continuous.}
+
+\title{Continuity of piecewise functions}
+
+\begin{document}
+\begin{abstract}
+Here we use limits to ensure piecewise functions are continuous.
+\end{abstract}
+\maketitle
+Before we start talking about continuity of piecewise functions, let's remind ourselves of all famous functions that we found to be continuous on their domains:
+
+power functions
+\\polynomials
+\\rational functions
+\\exponential functions
+%\begin{theorem}[Continuity of Famous Functions]\index{continuity of famous functions}\label{theorem:continuity}
+%he following functions are continuous on their natural domains:
+%\begin{description}
+
+%\item[Constant function]\index{constant function}
+%\item[Polynomials]\index{polynomials}
+%\item[Rational functions]\index{rational functions}
+%\item[Power function]\index{power function}
+%\item[Exponential function]\index{exponential function} 
+
+%\item[Logarithmic function]\index{logarithmic function} 
+%\item[Trig functions]\index{trigonometric functions}  
+%\item[Inverse trig functions] \index{inverse trigonometric functions}    
+%\end{description}
+%In essence, we are saying that the functions listed above arecontinuous wherever they are defined.
+
+%We  proved continuity of polynomials earlier using the Sum Law, Product Law and continuity of power functions.
+
+%We  proved continuity of rational functions earlier using the Quotient Law and  continuity of polynomials.
+
+Note that this list will eventually also include trig functions, inverse trig functions, and logarithmic functions as well. These function types are introduced later in this course.
+%We can  prove continuity of the remaining four trig functions using the Quotient Law and continuity of sine and cosine functions.\\
+
+%Since a continuous function and its inverse have ``unbroken" graphs, it follows that an inverse of a continuous function is continuous on its domain.\\
+%This implies that inverse trig functions are continuous on their domains. \\
+
+%\end{theorem}
+
+In this section we will use our new limit skills to revisit continuity, specifically in the context of piecewise functions. Recall that $f(x)$ is continuous at $a$ if $\displaystyle\lim_{x\rightarrow a}f(x)=f(a)$, and $f(x)$ is continuous on an interval $I$ if it is continuous at every point in $I$ (considering one-sided limits at any endpoints).
+%work a couple of examples involving limits, continuity, and piecewise functions.
+
+\begin{example}
+Consider the following piecewise function
+\[
+f(x) = 
+\begin{cases}
+  \frac{x}{x-1} &\text{if $x<0$}\vspace{.1in}\\
+  \frac{x+1}{x^2+1} + c &\text{if $x\ge 0$}.
+\end{cases}
+\]
+Find $c$ so that $f$ is continuous at $x=0$.
+\begin{explanation}
+  To find $c$ such that $f$ is continuous at $x=0$, we need to find
+  $c$ such that
+  \[
+  \lim_{x\to 0^-} f(x) = \lim_{x\to 0^+}f(x) = f(\answer[given]{0}).
+  \]
+  In this case
+  \begin{align*}
+    \lim_{x\to 0^-} f(x) &= \lim_{x\to 0^-}\answer[given]{\frac{x}{x-1}}\\
+    &= \answer[given]{\frac{0}{-1}}\\
+    &=\answer[given]{0}.
+  \end{align*}
+  On the other hand
+  \begin{align*}
+    \lim_{x\to 0^+} f(x) &= \lim_{x\to 0^+}\left(\answer[given]{\frac{x+1}{x^2+1} + c}\right)\\
+    &= \answer[given]{\frac{0+1}{0^2+1} + c}\\
+    &= \answer[given]{1+ c}
+  \end{align*}
+ Notice that based on the domain partitions of $f$, $f(0)=\lim_{x\to 0^+} f(x)$. Hence for our function to be continuous, we need
+  \[
+  1 + c = 0\qquad\text{so}\qquad c = \answer[given]{-1}.
+  \]
+  Now, $\lim_{x\to 0} f(x) = f(\answer[given]{0})$, and so $f$ is continuous.
+\end{explanation}
+\end{example}
+
+
+Consider the next, more challenging example.
+
+\begin{example}
+Consider the following piecewise defined function
+\[
+f(x) = 
+\begin{cases}
+  x+4 &\text{if $x<1$}\\
+  ax^2+bx+2 &\text{if $1\le x< 3$}\\
+  6x+a-b &\text{if $x\ge 3$}
+\end{cases}
+\]
+Find $a$ and $b$ so that $f$ is continuous at both $x=1$ and $x=3$.
+\begin{explanation}
+This problem is more challenging because we have more
+unknowns. To find $a$ and
+$b$ that make $f$ continuous at $x=1$, we need to find $a$ and $b$
+such that
+\[
+\lim_{x\to 1^-} f(x) = \lim_{x\to 1^+}f(x)=f(\answer[given]{1}).
+\]
+Looking at the limit from the left, we have
+\begin{align*}
+  \lim_{x\to 1^-} f(x) &= \lim_{x\to 1^-} \left(\answer[given]{x+4}\right) \\
+  &=\answer[given]{5}.
+\end{align*}
+Looking at the limit from the right, we have
+\begin{align*}
+  \lim_{x\to 1^+} f(x) &= \lim_{x\to 1^+} \left(\answer[given]{ax^2+bx+2}\right) \\
+  &= \answer[given]{a+b+2}.
+\end{align*}
+Hence for this function to be continuous at $x=1$, we must have that
+\begin{align*}
+  5 &= a+b+2\\
+  3 &= \answer[given]{a+b}.
+\end{align*}
+Notice that based on the domain partitions of $f$, $f(1)=\lim_{x\to 1^+} f(x)$. We will encounter a second requirement that results from continuity at $x=3$. Once the two requirements are combined, we will be able to solve for the values of $a$ and $b$.
+
+To find $a$ and $b$ that make $f$ is continuous at $x=3$, we need to
+find $a$ and $b$ such that
+\[
+\lim_{x\to 3^-} f(x) =\lim_{x\to 3^+}f(x) =f(\answer[given]{3}).
+\]
+Looking at the limit from the left, we have
+\begin{align*}
+  \lim_{x\to 3^-} f(x) &= \lim_{x\to 3^-} \left(\answer[given]{ax^2+bx+2}\right) \\
+  &=\answer[given]{9a + 3b + 2}.
+\end{align*}
+Looking at the limit from the right, we have
+\begin{align*}
+  \lim_{x\to 3^+} f(x) &= \lim_{x\to 3^+} \left(\answer[given]{6x+a-b}\right) \\
+  &= \answer[given]{18+a-b}.
+\end{align*}
+Notice that based on the domain partitions of $f$, $f(3)=\lim_{x\to 3^+} f(x)$. Hence for this function to be continuous at $x=3$, we must have that
+\begin{align*}
+  9a + 3b + 2 &= 18+a-b\\
+  8a + 4b -16 &= 0\\
+  2a + b -4 &= 0
+\end{align*}
+So now we have two equations and two unknowns:
+\[
+ 3=a+b \qquad\text{and}\qquad 2a + b -4 = 0.
+ \]
+ Solve the first equation for $b = 3-a$ and substitute into the second equation:
+ \begin{align*}
+   2a + (3-a) -4&=0 \\
+    a -1&=0,
+ \end{align*}
+ hence
+ \[
+ a=\answer[given]{1}\qquad\text{and so}\qquad b =3-a=\answer[given]{2}.
+ \]
+ Let's check, so now plugging in values for both $a$ and $b$ we find
+ \[
+ f(x) = 
+ \begin{cases}
+   x+4 &\text{if $x<1$,}\\
+   \answer[given]{x^2+2x+2} &\text{if $1\le x< 3$,}\\
+   \answer[given]{6x-1} &\text{if $x\ge 3$.}
+\end{cases}
+ \]
+ Now
+ \[
+ \lim_{x\to 1^-} f(x) =\lim_{x\to 1^+}f(x) =f(1) =  5,
+ \]
+ and
+ \[
+ \lim_{x\to 3^-} f(x) =\lim_{x\to 3^+}f(x) =f(3) = 17.  
+ \]
+ So setting $a= \answer[given]{1}$ and $b=\answer[given]{2}$ makes $f$ continuous at $x=1$ and $x=3$.
+ \begin{onlineOnly}
+   We can confirm our results by looking at the graph of $y=f(x)$:
+   \[
+   \graph[xmin=-10,xmax=10,ymin=0,ymax=30]{y=x+4\left\{x<1\right\},y=x^2+2x+2\left\{1\leq x<3\right\},y=6x-1\left\{3 \leq x\right\}} 
+   \]
+ \end{onlineOnly}
+\end{explanation}
+\end{example}
+
+\subsection{Learning Objectives}
+After completing this section, students should be able to:
+\vspace{.05in}
+
+\noindent$\bullet$ Identify where a function is, and is not, continuous.
+\\$\bullet$ Understand the connection between continuity of a function and the value of a limit.
+\\$\bullet$ Make a piecewise function continuous.
+
+%\outcome{Identify where a function is, and is not, continuous.}
+%\outcome{Understand the connection between continuity of a function and
+%  the value of a limit.}
+%\outcome{Make a piecewise function continuous.}
+
+
+\end{document}

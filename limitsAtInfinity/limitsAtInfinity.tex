@@ -1,0 +1,306 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Limits at infinity and horizontal asymptotes}
+
+
+
+\begin{document}
+\begin{abstract}
+We explore functions that behave like horizontal lines as the input
+grows without bound.
+\end{abstract}
+\maketitle
+
+In a limit, the input can approach $\infty$ or $-\infty$ instead of a number. The output of such a limit conveys the behavior of the graph at its far right or far left end.
+
+\begin{definition}\label{def:limitAtInfty}\index{limit!at infinity}
+If, as we plug in values of $x$ increasingly large in magnitude, the corresponding outputs get as close as desired to $L$, we write
+\[
+\lim_{x\to \infty} f(x) = L
+\]
+and we say, the \dfn{limit at infinity} of $f(x)$ is $L$. Equivalently, as $x\rightarrow\infty$, $f(x)\rightarrow L$.
+
+If, as we plug in negative values of $x$ increasingly large in magnitude, the corresponding outputs get as close as desired to $L$, we write
+\[
+\lim_{x\to -\infty} f(x) = L
+\]
+and we say, the \dfn{limit at negative infinity} of $f(x)$ is $L$. Equivalently, as $x\rightarrow -\infty$, $f(x)\rightarrow L$. 
+\end{definition}
+
+Since we already know a lot about the end behavior of rational functions, we begin there.
+
+\begin{example}
+	Consider $\displaystyle\lim_{x\rightarrow\infty}\dfrac{1}{x^2}$ and $\displaystyle\lim_{x\rightarrow -\infty}\dfrac{1}{x^2}$.
+	\begin{explanation}
+		From the Rational Functions section, we know that for large magnitude $x$, the outputs of a function like this will approach $0$. Thus we conclude that $\displaystyle\lim_{x\rightarrow\infty}\dfrac{1}{x^2}=0$ and $\displaystyle\lim_{x\rightarrow -\infty}\dfrac{1}{x^2}=0$.
+	\end{explanation}
+\end{example}
+
+\begin{example}
+	Consider $\displaystyle\lim_{x\rightarrow\infty}\dfrac{6x^2-12x}{x^2+1}$.
+  \begin{explanation} Since $$\dfrac{6x^2-12x}{x^2+1}=\dfrac{x^2(6-\frac{12}{x})}{x^2(1+\frac{1}{x^2})},$$ we can see that $f(x)=\dfrac{6x^2-12x}{x^2+1}$ behaves like $y=\frac{6x^2}{x^2}=6$ for large magnitude $x$. Thus we conclude that $\displaystyle\lim_{x\rightarrow\infty}\dfrac{6x^2-12x}{x^2+1}=\answer[given]{6}$.
+  \end{explanation}
+\end{example}
+
+\begin{example}
+	Consider $\displaystyle\lim_{x\rightarrow\infty}\dfrac{x^5+7x^2}{4x^2+x-5}$.
+  \begin{explanation} Since the degree of the numerator is larger than that of the denominator, we know that this function does not have a horizontal asymptote. That is, the outputs of the function don't approach any particular value for large magnitude $x$. Thus, this limit does not exist.
+  \end{explanation}
+\end{example}
+
+The connection between horizontal asymptotes and limits at infinity is strong. In fact, we can update our definition of a horizontal asymptote to include our new limit notation.
+
+\begin{definition}\label{def:horiz asymptote}\index{asymptote!horizontal}\index{horizontal asymptote}
+If  
+\[
+\lim_{x\to \infty} f(x) = L \qquad\text{or}\qquad \lim_{x\to -\infty} f(x) = L,
+\]
+then the line $y=L$ is a \dfn{horizontal asymptote} of $f(x)$.
+\end{definition}
+
+This means that our method of computing the horizontal asymptote of a rational function is now our method for computing their limits at positive and negative infinity! 
+
+\begin{example} 
+Give the horizontal asymptotes of
+\[
+f(x) = \frac{6x-9}{x-1}
+\]
+\begin{explanation}
+We compute $\lim_{x\to \infty} f(x) = 6$, so we conclude that $y=6$ is a horizontal asymptote of the function. Since $\lim_{x\to -\infty} f(x) =6$ as well, this is the only horizontal asymptote of $f(x)$.
+\end{explanation}
+\end{example}
+
+Recall, however, that rational functions aren't the only functions with horizontal asymptotes. We now turn our attention to limits at infinity of non-rational functions.
+\\
+\\First, we make an update to our rule that rationals of the form $\frac{1}{x^n}$ for $n>0$, where defined, shrink to $0$ for large magnitude $x$. In general, any expression with a constant numerator and a denominator getting larger without bound will shrink to $0$ for the same reasons that $\frac{1}{x^n}$ will. This means we can compute limits like the following without much work required.
+
+\begin{example} $$\displaystyle\lim_{x\rightarrow\infty}\frac{2}{\sqrt{x}}=\answer[given]{0}$$
+ $$\displaystyle\lim_{x\rightarrow\infty}\frac{5}{3x^{2/3}}=\answer[given]{0}$$
+ $$\displaystyle\lim_{x\rightarrow -\infty}\frac{100}{\sqrt[3]{x}}=\answer[given]{0}$$
+ $$\displaystyle\lim_{x\rightarrow -\infty}\frac{7}{xe^x}=\answer[given]{0}$$
+  $$\mbox{and }\displaystyle\lim_{x\rightarrow \infty}\frac{6+\frac{1}{e^x}}{3-\frac{1}{x}}=\lim_{x\rightarrow \infty}\frac{6+\answer[given]{0}}{3-\answer[given]{0}}=\answer[given]{2}\mbox{  using limit laws.}$$
+\end{example}
+
+We also have a few reliable ``tricks" for specific situations. For example, in limits at infinity of some ratios, it is useful to divide the numerator and denominator by some $x^n$.
+
+\begin{example}
+$$\displaystyle\lim_{x\rightarrow \infty}\frac{\sqrt{5x^4-3x^2+1}}{3x^2+4x+5}$$
+
+In this case we divide the numerator and denominator by $x^2$, which is the highest power of $x$ in the denominator.
+\begin{align*}
+\displaystyle\lim_{x\rightarrow \infty}\frac{\sqrt{5x^4-3x^2+1}}{3x^2+4x+5}&=\lim_{x\rightarrow \infty}\frac{\sqrt{5x^4-3x^2+1}}{3x^2+4x+5}\cdot\frac{1/x^2}{1/x^2}\\
+&=\lim_{x\rightarrow \infty}\frac{\sqrt{1/x^4}\sqrt{5x^4-3x^2+1}}{(3x^2+4x+5)/x^2}\\
+&=\lim_{x\rightarrow \infty}\frac{\sqrt{5-3/x^2+1/x^4}}{3+4/x+5/x^2}\\
+&=\lim_{x\rightarrow \infty}\frac{\sqrt{5-\answer[given]{0}+\answer[given]{0}}}{3+\answer[given]{0}+\answer[given]{0}}\\
+&=\frac{\sqrt{\answer[given]{5}}}{\answer[given]{3}}\end{align*}
+\vspace{.2in}
+
+\textbf{Alternative:} As an alternative to the method above, we can also compute this limit by factoring $\sqrt{x^4}=x^2$ (for positive $x$) out of the numerator and denominator instead of multiplying anything in. As you might imagine, we arrive at the same conclusion either way.
+\begin{align*}
+\displaystyle\lim_{x\rightarrow \infty}\frac{\sqrt{5x^4-3x^2+1}}{3x^2+4x+5}&=\lim_{x\rightarrow \infty}\frac{\sqrt{x^4(5-3/x^2+1/x^4)}}{x^2(3+4/x+5/x^2)}\\
+&=\lim_{x\rightarrow \infty}\frac{\cancel{x^2}\sqrt{5-3/x^2+1/x^4}}{\cancel{x^2}(3+4/x+5/x^2)}\\
+&=\lim_{x\rightarrow \infty}\frac{\sqrt{5-3/x^2+1/x^4}}{3+4/x+5/x^2}\\
+&=\lim_{x\rightarrow \infty}\frac{\sqrt{5-\answer[given]{0}+\answer[given]{0}}}{3+\answer[given]{0}+\answer[given]{0}}\\
+&=\frac{\sqrt{\answer[given]{5}}}{\answer[given]{3}}\end{align*}
+\end{example}
+
+We must be particularly careful in this process when $x\rightarrow -\infty$, as shown below.
+
+\begin{example}
+
+\[
+\lim_{x\to -\infty} \frac{x^3+1}{\sqrt{x^6+5}}
+\]
+\begin{explanation}
+In this case we divide the numerator and denominator by $x^3$; this is the highest power of $x$ we can use that won't reduce the entire denominator to zeroes. However, since $x$ is negative here we have $1/x^3=-\sqrt{1/x^6}$.
+\begin{align*}
+\lim_{x\to -\infty} \frac{x^3+1}{\sqrt{x^6+5}} &= \lim_{x\to -\infty} \frac{x^3+1}{\sqrt{x^6+5}} \cdot \frac{1/x^3}{1/x^3}\\
+&= \lim_{x\to -\infty} \frac{1+1/x^3}{-\sqrt{x^6/x^6+5/x^6}}\\
+&= \lim_{x\to -\infty} \frac{1+1/x^3}{-\sqrt{1+5/x^6}}\\
+&= \lim_{x\to -\infty}\frac{1+0}{-\sqrt{1+0}}\\
+&= \frac{1+0}{-\sqrt{1+0}}\\
+&= -1.
+\end{align*}
+\end{explanation}
+\end{example}
+
+Notice that if the limit in the above example had gone to positive infinity, we would have gotten a different result ($1$). This is our first example of a non-rational function that can have two different horizontal asymptotes. 
+\\
+\\We can adapt this method to other situations as needed.
+
+\begin{example}
+$$\displaystyle\lim_{x\rightarrow \infty}\frac{5e^{2x}+3e^x}{9+e^{2x}}$$
+
+In this case we divide the numerator and denominator by $e^{2x}$, which is the dominant term in the denominator.
+\begin{align*}
+\displaystyle\lim_{x\rightarrow \infty}\frac{5e^{2x}+3e^x}{9+e^{2x}}&=\lim_{x\rightarrow \infty}\frac{5e^{2x}+3e^x}{9+e^{2x}}\cdot\frac{1/e^{2x}}{1/e^{2x}}\\
+&=\lim_{x\rightarrow \infty}\frac{5+3/e^x}{9/e^{2x}+1}\\
+&=\lim_{x\rightarrow \infty}\frac{5+\answer[given]{0}}{\answer[given]{0}+1}\\
+&=\answer[given]{5}\end{align*}
+
+\end{example}
+
+We can also adapt the conjugate trick to limits at infinity that take the form $\infty-\infty$, as shown below.
+
+\begin{example}
+$$\displaystyle\lim_{x\rightarrow \infty}\left(x^2-\sqrt{x^4+3}\right)$$
+
+In this case we multiply and divide by the conjugate.
+\begin{align*}
+\displaystyle\lim_{x\rightarrow \infty}\left(x^2-\sqrt{x^4+3}\right)&=\lim_{x\rightarrow \infty}(x^2-\sqrt{x^4+3})\cdot\dfrac{x^2+\sqrt{x^4+3}}{x^2+\sqrt{x^4+3}}\\
+&=\lim_{x\rightarrow \infty}\frac{(x^2)^2-(\sqrt{x^4+3})^2}{x^2+\sqrt{x^4+3}}\\
+&=\lim_{x\rightarrow \infty}\frac{x^4-(x^4+3)}{x^2+\sqrt{x^4+3}}\\
+&=\lim_{x\rightarrow \infty}\frac{-3}{x^2+\sqrt{x^4+3}}\\
+&=0\end{align*}
+
+\end{example}
+
+
+Also note that since
+\(
+\lim_{x\to \infty} f(x) = \lim_{x\to 0^+} f\left(\frac{1}{x}\right)
+\)
+and
+\(
+\lim_{x\to -\infty} f(x) = \lim_{x\to 0^-} f\left(\frac{1}{x}\right)
+\)
+we can apply the Squeeze Theorem when taking limits at infinity.
+Here is an example of a limit at infinity that uses the Squeeze
+Theorem, and shows that functions can, in fact, cross their horizontal
+asymptotes.
+
+
+\begin{example}
+Compute $\lim_{x\to \infty} f(x)$ given that for all $x>0$, $$\frac{4x-1}{x}\leq f(x)\leq \frac{4x+1}{x}.$$
+
+\begin{image}
+\begin{tikzpicture}
+	\begin{axis}[
+            domain=2:20,
+            ymax=5,
+            ymin=3,
+            samples=100,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+	  \addplot [dashed, penColor, smooth] {(1/x) * 1+4};
+	  	  \addplot [dashed, penColor, smooth] {(1/x) * -1+4};
+	  	  	  \addplot [very thick, penColor, smooth] {(1/x) * sin(deg(7*x))+4};
+        \end{axis}
+\end{tikzpicture}
+\end{image}
+
+In the image above, $f(x)$ is the oscillating function, with $g(x)=\frac{4x-1}{x}$ below and $h(x)=\frac{4x+1}{x}$ above it. In this case the exact formula for $f(x)$ involves trigonometry, which we will cover later in the course.
+
+\begin{explanation}
+We can bound our function
+\[
+g(x)\leq f(x)\leq h(x).
+\]
+Then
+\begin{align*}
+\lim_{x\to\infty}g(x) &= \lim_{x\to\infty}\frac{4-1/x}{1}\\
+&=\answer[given]{4}.
+\end{align*}
+And we also have
+\begin{align*}
+\lim_{x\to\infty}\frac{4x+1}{x} \cdot \frac{1/x}{1/x} &= \lim_{x\to\infty}\frac{4+1/x}{1}\\
+&=\answer[given]{4}.
+\end{align*}
+Since 
+\[
+\lim_{x\to \infty} \frac{4x-1}{x}  = \answer[given]{4} = \lim_{x\to \infty}\frac{4x+1}{x} 
+\] 
+we conclude by the Squeeze Theorem,
+$\lim_{x\to\infty}f(x) = \answer[given]{4}$.
+\end{explanation}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+%It is a common misconception that a function cannot cross an
+%asymptote. As the next example shows, a function can cross a horizontal
+%asymptote, and in the example this occurs an infinite number of times!
+%
+%\begin{example}
+%Give a horizontal asymptote of
+%\[
+%	f(x) = \frac{\sin(7x)+4x}{x}.
+%\]
+%\begin{explanation}
+%Again from previous work, we see that $\lim_{x\to \infty} f(x) =
+%\answer{4}$. Hence $y=\answer{4}$ is a horizontal asymptote of $f(x)$.
+%\end{explanation}
+%\end{example}
+
+%CUT THIS BECAUSE LIM=INF HASNT BEEN COVERED YET
+
+%We conclude with an infinite limit at infinity.
+%
+%\begin{example}
+%Compute
+%\[ \lim_{x\to\infty}\sqrt{x}. \]
+%\begin{image}
+%\begin{tikzpicture}
+%	\begin{axis}[
+%            domain=0:10,
+%            ymax=4,
+%            ymin=-1,
+%            samples=100,
+%            axis lines =middle, xlabel=$x$, ylabel=$y$,
+%            every axis y label/.style={at=(current axis.above origin),anchor=south},
+%            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+%          ]
+%	  \addplot [very thick, penColor, smooth] {x^(1/2)};
+%        \end{axis}
+%\end{tikzpicture}
+%\end{image}
+%
+%\begin{explanation}
+%The function $\sqrt{x}$ grows slowly, and seems like it may have a
+%horizontal asymptote, see the graph above. However, if we consider the
+%square root as the inverse of the function $f(x) = x^2 , \quad x \geq 0$.
+%
+%\begin{quote}
+%  $\sqrt{x} = y$ means that $y^2 = x$ and that $y \geq 0$.
+%\end{quote}
+%
+%We see that we may square higher and higher values to obtain
+%larger outputs.  This means that $\sqrt{x}$ is unbounded, and hence
+%$\displaystyle \lim_{x\to\infty}\sqrt{x}=\infty$.
+%\end{explanation}
+%\end{example}
+
+\subsection{Learning Objectives}
+After completing this section, students should be able to:
+\vspace{.05in}
+
+\noindent$\bullet$ understand the limit definition of a horizontal asymptote
+\\$\bullet$ compute limits at $\pm\infty$ of rational functions
+\\$\bullet$ compute limits at $\pm\infty$ of non-rational functions
+\\$\bullet$ divide the numerator and denominator of a ratio by a carefully chosen term to compute the limit
+\\$\bullet$ adapt this strategy in similar scenarios
+\\$\bullet$ use the conjugate trick to compute limits of the form $\infty-\infty$
+\\$\bullet$ use the Squeeze Theorem in limits at $\pm\infty$
+
+%END WITH LEARNING OBJECTIVES
+%\outcome{Find horizontal asymptotes using limits.}
+%\outcome{Recognize that a curve can cross a horizontal asymptote.}
+%\outcome{Calculate the limit as $x$ approaches $\pm \infty$ of common functions algebraically.}
+%\outcome{Find the limit as $x$ approaches $\pm \infty$ from a graph.}
+%\outcome{Define a horizontal asymptote.}
+%\outcome{Compute limits at infinity of famous functions.}
+%\outcome{Identify horizontal asymptotes by looking at a graph.}
+
+\end{document}
