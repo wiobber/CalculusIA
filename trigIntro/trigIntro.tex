@@ -46,6 +46,7 @@ An angle is the amount of rotation between two vectors--and initial side and a t
 
 Angles can be measured in degrees or in radians. \dfn{Degrees} simply divide the full circle into $360$ equal pizza slices, so $360^{\circ}$ is a full rotation, $180^{\circ}$ is a half rotation, and $90^{\circ}$ is a right angle in standard position. Mathematicians typically prefer to use radians, however. The \dfn{radian} measure of an angle is exactly the length of the intercepted edge of the unit circle it traces out. Since the unit circle has circumference $2\pi r=2\pi(1)=2\pi$, that means $360^{\circ}$ and $2\pi$ radians are equivalent, as are $90^{\circ}$ and $\pi/2$ radians.  The $16$ standard angles of the unit circle are shown below, in both degrees and radians.
 
+\begin{image}
 \begin{tikzpicture}[scale=5,cap=round,>=latex]
         % draw the coordinates
         \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
@@ -117,6 +118,7 @@ Angles can be measured in degrees or in radians. \dfn{Degrees} simply divide the
               (0cm,-1.25cm) node[fill=white] {$(0,-1)$}
               (0cm,1.25cm)  node[fill=white] {$(0,1)$};
     \end{tikzpicture}
+\end{image}
     
 \begin{example}
 Which of the $16$ standard angles above has the same terminal side as $-\dfrac{\pi}{4}$ radians? 
@@ -163,7 +165,7 @@ The \dfn{cosine} of angle $\theta$, written $\cos(\theta)$, is the $x$ value of 
 
 For example, the angle $\theta=\pi/2$ intersects the unit circle at the point $(0,1)$, so $\cos(\pi/2)=0$ and $\sin(\pi/2)=1$. We can use the Pythagorean Theorem to compute the $x$ and $y$ values of all $16$ standard points on the unit circle:
 
-
+\begin{image}
 \begin{tikzpicture}[scale=5,cap=round,>=latex]
         % draw the coordinates
         \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
@@ -234,7 +236,7 @@ For example, the angle $\theta=\pi/2$ intersects the unit circle at the point $(
               (1.25cm,0cm)  node[above=1pt] {$(1,0)$}
               (0cm,-1.25cm) node[fill=white] {$(0,-1)$}
               (0cm,1.25cm)  node[fill=white] {$(0,1)$};
-    \end{tikzpicture}
+    \end{tikzpicture} \end{image}
 
 \begin{example}
 Using the unit circle above, determine the given trigonometric value.
@@ -246,7 +248,7 @@ Using the unit circle above, determine the given trigonometric value.
 
 Without access to a unit circle or a calculator, this at first appears to be an astronomical amount of memorization, but the key is to observe a pattern in the coordinates of the points. Notice that all four angles sitting $\pi/6$ (or $30^{\circ}$) from the $x$-axis in any direction all have the same $(x,y)$ coordinates, give or take a few minus signs. This is also true about the four angles that are $\pi/$ (or $45^{\circ}$) from the $x$-axis and all four angles $\pi/3$ (or $60^{\circ}$) from the $x$-axis.
 
-
+\begin{image}
 \begin{tikzpicture}[scale=3,cap=round,>=latex]
         % draw the coordinates
         \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
@@ -282,9 +284,9 @@ Without access to a unit circle or a calculator, this at first appears to be an 
         % draw the horizontal and vertical coordinates
         % the placement is better this way
 
-    \end{tikzpicture}
+    \end{tikzpicture} \end{image}
     
-\begin{tikzpicture}[scale=3,cap=round,>=latex]
+\begin{image}\begin{tikzpicture}[scale=3,cap=round,>=latex]
         % draw the coordinates
         \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
         \draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
@@ -315,9 +317,9 @@ Without access to a unit circle or a calculator, this at first appears to be an 
             225/-\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},
             315/\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2}}
                 \draw (\x:1.25cm) node[fill=white] {$\left(\xtext,\y\right)$};
-    \end{tikzpicture}
+    \end{tikzpicture} \end{image}
 
-\begin{tikzpicture}[scale=3,cap=round,>=latex]
+\begin{image}\begin{tikzpicture}[scale=3,cap=round,>=latex]
         % draw the coordinates
         \draw[->] (-1.5cm,0cm) -- (1.5cm,0cm) node[right,fill=white] {$x$};
         \draw[->] (0cm,-1.5cm) -- (0cm,1.5cm) node[above,fill=white] {$y$};
@@ -347,7 +349,7 @@ Without access to a unit circle or a calculator, this at first appears to be an 
             240/-\frac{1}{2}/-\frac{\sqrt{3}}{2},
             300/\frac{1}{2}/-\frac{\sqrt{3}}{2}}
                 \draw (\x:1.25cm) node[fill=white] {$\left(\xtext,\y\right)$};
-    \end{tikzpicture}
+    \end{tikzpicture} \end{image}
     
 Thus we need only memorize the $(x,y)$ coordinates of the angles in the first quadrant. When we are presented with an angle $\theta$, we associate it with one of these three angles (its ``reference angle") to determine the magnitude. Then we use its quadrant to determine the sign.
 
@@ -534,6 +536,7 @@ circle) we obtain ratio definitions for all of the trigonometric functions.
 \begin{question}
 Given the right triangle below, determine all six trig functions of unknown angle $\theta$.
 
+\begin{image}
 \begin{tikzpicture}
     \coordinate (C) at (0,0);
     \coordinate (D) at (3,0);
@@ -543,7 +546,7 @@ Given the right triangle below, determine all six trig functions of unknown angl
    -- (0,0) node[midway,left] {$5$};
        \node at (0.4,0.3) {$\theta$};
        \tkzMarkRightAngle(C,D,E)
-\end{tikzpicture}
+\end{tikzpicture} \end{image}
 \begin{explanation}
 Observe that in this triangle, adjacent=$3$, opposite=$4$, and hypotenuse=$5$. Thus without even knowing the exact value of $\theta$ we can compute:
 \\$\sin(\theta)=\frac{\text{opp}}{\text{hyp}}=\frac{4}{5}$
