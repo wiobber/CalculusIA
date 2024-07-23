@@ -1,0 +1,177 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+
+\title{Riemann Sums Computations}
+
+
+\begin{document}
+
+\maketitle
+In the previous section, we discussed the basics of sigma notation. Now we want to see how we can use it to help us calculate larger sums and eventually how we can use it to find an exact area of a region that lies under a curve.
+
+\subsection{Calculating with Sigma Notation}
+ We want to use sigma notation to simplify our calculations.  To do that, we will need to know some basic sums.  
+ First, let's talk about the sum of a constant.  (Notice here, that our upper limit of summation is $n$.  $n$ is not the index 
+ variable, here, but the highest value that the index variable will take.)
+ \[ \sum_{k=1}^n c \] 
+ This is a sum of $n$ terms, each of them having a value $c$.  That is, we are adding $n$ copies of $c$.  This sum is just $nc$.
+ The other basic sums that we need are much more complicated to derive.  Rather than explaining where they come from, we'll just give you
+ a list of the final formulas, that you can use.
+ 
+ \begin{align*}
+	\sum_{k=1}^n c &= nc \\ \\
+	\sum_{k=1}^n k &= \frac{n(n+1)}{2} \\ \\
+	\sum_{k=1}^n k^2 &= \frac{n(n+1)(2n+1)}{6} \\ \\
+	\sum_{k=1}^n k^3 &= \left(\frac{n(n+1)}{2}\right)^2
+\end{align*} 
+
+
+Now that we have this list, let's use them to compute.
+\begin{example}
+	Find the value of the sum $\displaystyle \sum_{k=1}^{5} 9$.
+	\begin{explanation}
+		This is just the sum of a constant, with $c=\answer{9}$ and $n=\answer{5}$.  The value is $nc=\answer{45}$.	
+	\end{explanation}
+\end{example}
+
+ 
+
+\begin{example}
+	Find the value of the sum $\displaystyle \sum_{k=1}^{100} k$.
+	\begin{explanation}
+		This is the sum $1+2+3+ \ldots + 100$.  According to Formula 2 above (with $n=\answer{100}$), this is $\frac{\answer{100}(\answer{101})}{2} = \answer{5050}$.	
+	\end{explanation}
+\end{example}
+
+ 
+
+ Because sigma notation is just a new way of writing addition, the usual properties of addition still apply, but a couple of the important ones look a little different.
+\[ \text{Commutativity:} \quad \sum_{k=1}^{n} (a_k + b_k) = \sum_{k=1}^n a_k + \sum_{k=1}^n b_k \]
+Notice that the left sum is calculating 
+\[(a_1+b_1)+(a_2+b_2)+\dots+(a_n+b_n).\]
+While the right sums are calculating
+\[(a_1+a_2+\dots + a_n)+(b_1+b_2+\dots+b_n).\]
+It may not look exactly the same as the commutative property that you are used to, but it still is saying the order that you add things up doesn't matter.
+\[ \text{Distribution:}  \quad \sum_{k=1}^{n} c \cdot a_k = c \sum_{k=1}^n a_k \]
+
+Notice here, the left sum is giving us 
+\[c\cdot a_1+c\cdot a_2+\dots +c\cdot a_n.\] 
+Since $c$ is a constant that shows up in each term of the sum, we can factor it out and rewrite as 
+\[c(a_1+a_2+\dots +a_n)\]
+which is equivalent to the right sum. Further it looks just like the distributive property that we are familiar with.
+\begin{example}
+	Find the value of the sum $\displaystyle \sum_{k=1}^{10} \left(2k^2+5\right)$.
+	\begin{explanation}
+		First, we'll use the properties above to split this into two sums, then factor the $2$ out of the first sum.
+		\begin{eqnarray*}
+			\sum_{k=1}^{10} \left(2k^2+5\right) &=& \sum_{k=1}^{10} 2k^2 + \sum_{k=1}^{10} 5\\
+				&=& 2 \sum_{k=1}^{10} \answer{k^2} + \sum_{k=1}^{10} 5
+		\end{eqnarray*}
+		The two sums we have left, can be found using formulas 1 and 3 above!
+		
+		 We see that $\displaystyle \sum_{k=1}^{10} k^2 = \frac{\answer{10}(\answer{10}+1)(2\cdot \answer{10}+1)}{6} = \answer{385}$.  Similarly, $\displaystyle \sum_{k=1}^{10} 5 = \answer{50}$.
+		
+		 Putting all that together, $\displaystyle \sum_{k=1}^{10}\left(2k^2+5\right) = 2 \cdot 385 + 50 = \answer{820}$.
+	\end{explanation}
+\end{example}
+ 
+
+\begin{example}
+	Find the value of the sum $\displaystyle \sum_{k=1}^{200} \left(2k^3-6k^2+3\right)$.
+	\begin{explanation}
+		Let's use the same approach as in the previous example.  First, we'll use the properties to split this into individual sums, then factor out the coefficients.  
+		After that, we'll use the formulas above to evaluate it.
+		\begin{eqnarray*}
+			\sum_{k=1}^{200} \left(2k^3-6k^2+3\right) &=& \sum_{k=1}^{200} 2k^3 - \sum_{k=1}^{200} 6k^2 + \sum_{k=1}^{200}3\\
+				&=& 2 \sum_{k=1}^{200} \answer{k^3} - 6 \sum_{k=1}^{200} \answer{k^2} + \sum_{k=1}^{200}\answer{3}\\
+				&=& 2 \left( \frac{200(201)}{2}\right)^2 - 6 \left( \frac{200(201)(401)}{6}\right) + 200 \cdot 3\\
+%				&=& 2 \cdot 404010000 - 6 \cdot 2686700 + 200 \cdot 3\\
+				&=& \answer{791900400}
+		\end{eqnarray*}
+	The numbers in this example were horribly ugly, but we were able to evaluate the sum without having to actually calculate all 200 terms, then add them all up.
+	In 4 small lines, we were able to add 200 numbers.
+	
+	\end{explanation}
+\end{example}
+
+ 
+
+Try one on your own.
+\begin{problem}
+	Find the value of the sum $\displaystyle \sum_{k=1}^{50} \left( 4k^2-18k + 2(-1)^k \right)$
+	
+	\[ \sum_{k=1}^{50} \left( 4k^2 - 18k + 2(-1)^k \right) = \answer{148750} \]
+\end{problem}
+
+\section{Riemann Sums}
+Let's now switch gears to Riemann sums and how we can use sigma notation to simplify the writing and evaluation of our expressions.
+
+  Remember the Riemann sum, written as:
+\[ f(x_1^*) \Delta x + f(x_2^*) \Delta x + \ldots + f(x_n^*) \Delta x\]
+
+The only change from one term to the next, is the subscript of the sample point.
+That subscript runs from $1$ to $n$.  That means we can write this Riemann sum
+in sigma notation as:
+\[ \sum_{k=1}^n f(x_k^*) \Delta x \]
+
+We found formulas for the sample points in certain cases.
+
+The left Riemann sum is
+\[ \sum_{k=1}^n f(a + (k-1)\Delta x) \Delta x \]
+
+The right Riemann sum is
+\[ \sum_{k=1}^n f(a + k \Delta x) \Delta x \]
+
+The midpoint Riemann sum is
+\[ \sum_{k=1}^n f\left(a + \left(k-\frac{1}{2}\right)\Delta x\right) \Delta x \]
+  
+  
+\begin{example}
+	Approximate the area under the graph of $f(x) = x^2+1$ on the interval $[2,4]$ using $100$ rectangles and right-hand endpoints.
+	\begin{explanation}
+		Let's start by finding $\Delta x$.  
+		
+		$\Delta x = \frac{b-a}{n} = \frac{1}{50}$.
+
+
+		For right-hand endpoints, $x_k^* = a + k \Delta x$.  
+		That is, $x_k^* = \answer{2} + k \answer{1/50}$.
+		
+		The Riemann sum is:
+		\begin{align*}
+			\sum_{k=1}^{100} f\left( x_k^* \right) \Delta x
+				&=\sum_{k=1}^{100} f\left( 2 + \frac{k}{50} \right) \frac{1}{50}\\
+				&=\sum_{k=1}^{100}\left( \left( 2 + \frac{k}{50} \right)^2+1 \right)\frac{1}{50}\\
+				&= \sum_{k=1}^{100} \left( \frac{k^2}{50^2} + \frac{2}{25}k+5\right) \frac{1}{50}\\
+				&= \frac{1}{50}\sum_{k=1}^{100} \left( \frac{k^2}{50^2} + \frac{2}{25}k+5\right)\\
+				&= \frac{1}{50}\left(\frac{1}{50^2}\sum_{k=1}^{100} k^2 + \frac{2}{25}\sum_{k=1}^{100}k+ \sum_{k=1}^{100}5\right)
+		\end{align*}
+
+		We have formulas for calculating the individual sums here!
+		
+		\begin{align*} 
+			\sum_{k=1}^{100} k^2 &= \frac{(100)(100+1)(2\cdot100+1)}{6} \\ \\
+				&= \answer{338350}\\
+			\sum_{k=1}^{100} k &= \frac{(100)(100+1)}{2} \\ \\
+				&= \answer{5050}\\
+			\sum_{k=1}^{100} 5 &= 5 \cdot 100 \\
+				&= \answer{500}
+		\end{align*}
+		
+		Then
+		\begin{align*}
+			\sum_{k=1}^{100} f\left( x_k^* \right) \Delta x
+				&=\frac{1}{50}\left(\frac{1}{50^2}\sum_{k=1}^{100} k^2 + \frac{2}{25}\sum_{k=1}^{100}k+ \sum_{k=1}^{100}5\right) \\
+				&= \frac{1}{50}\left(\frac{1}{50^2}\answer{338350} + \frac{2}{25}\answer{5050}+ \answer{500}\right) \\
+				&= \answer{62/3}
+		\end{align*}
+	\end{explanation}
+\end{example}
+ 
+The process used in this example is the same for almost all of these approximations.  Plug $\Delta x$ and $x_k^*$ into the Riemann sum formula and simplify,
+then use our summation formulas.
+  
+\end{document}

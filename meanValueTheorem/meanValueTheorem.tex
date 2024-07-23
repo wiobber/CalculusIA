@@ -1,0 +1,271 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{The Mean Value Theorem}
+
+\outcome{Understand the statement of the Mean Value Theorem.}
+\outcome{Sketch pictures to illustrate why the Mean Value Theorem is true.}
+\outcome{Determine whether Rolle's Theorem or the Mean Value Theorem can be applied.}
+\outcome{Find the values guaranteed by Rolle's Theorem or the Mean Value Theorem.}
+\outcome{Use the Mean Value Theorem to solve word problems.}
+\outcome{Compare and contrast the Intermediate Value Theorem, Mean Value Theorem, and Rolle's Theorem.}
+\outcome{Identify calculus ideas which are consequences of the Mean Value Theorem.}
+
+\begin{document}
+\begin{abstract}
+  Here we see a key theorem of calculus.
+\end{abstract}
+\maketitle
+
+
+Here are some interesting questions involving derivatives:
+
+\begin{enumerate}
+\item Suppose you toss a ball upward into the air and then catch it. Must the
+  ball's  velocity have been zero at some point?
+\item Suppose you drive a car on a straight stretch of highway from toll booth to
+  another toll booth $30$ miles away in half of an hour. Must you have
+  been driving at $60$ miles per hour at some point?
+\end{enumerate}
+
+While these problems sound very different, it turns out that the
+problems are very closely related. We'll start simply:
+
+\begin{theorem}[Rolle's Theorem]\index{Rolle's Theorem} 
+Suppose that $f$ is differentiable on the interval $(a,b)$,
+continuous on the interval $[a,b]$, and  that $f(a)=f(b)$.
+\begin{image}
+\begin{tikzpicture}
+	\begin{axis}[
+            xmin=0, xmax=4.5,ymin=1,ymax=5,
+            axis lines =left, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+            xtick={1,2,3}, xticklabels={$a$,$c$,$b$},
+            ytickmin=1, ytickmax=0,
+            axis on top,
+          ]       
+          \addplot [draw=none, fill=fill1,domain=(1:3)] {5} \closedcycle;       
+	  \addplot [very thick,penColor, smooth] {-(x-2)^2+4};
+          \addplot [very thick,penColor2, smooth] {4};
+          \node at (axis cs:.4,2.5) [penColor] {$f$}; 
+          \addplot [textColor,dashed] plot coordinates {(2,0) (2,4)};
+          \addplot [textColor,dashed] plot coordinates {(1,3) (3,3)};
+          \addplot[color=penColor3,fill=penColor3,only marks,mark=*] coordinates{(2,4)};  %% closed hole          
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,3)};  %% closed hole          
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(3,3)};  %% closed hole          
+        \end{axis}
+\end{tikzpicture}
+%% \caption{A geometric interpretation of Rolle's Theorem.}
+%% \label{figure:geoRolle}
+%% \end{marginfigure}
+\end{image}
+Then
+\[
+f'(c)=0
+\]
+for some $c$ in the open interval $(a,b)$.
+%% \begin{explanation}
+%% By the Extreme Value Theorem, Theorem, we know that $f$ has a
+%% maximum and minimum value on $[a,b]$.
+
+%% If maximum and minimum both occur at the endpoints, then
+%% $f(x)=f(a)=f(b)$ at every point in $[a,b]$. Hence the function is a
+%% horizontal line, and it has derivative zero everywhere on
+%% $(a,b)$. We may choose any $c$ at all to get $f'(c)=0$.
+
+%% If the maximum or minimum occurs at a point $c$ with $a<c<b$, then by
+%% Fermat's Theorem, $f'(c)=0$.
+%% \end{explanation}
+\end{theorem}
+\begin{explanation}
+If the function $f$ happens to be  a constant, then $f'(c)=0$ for all points $c$ in the open interval $(a,b)$.
+
+If $f$ is not a constant,  then it must attain both global extrema in the interval $[a,b]$, by the Extreme Value Theorem.
+One of these two different extrema is attained in the open interval $(a,b)$ at some point $c$, and the function $f$ has a critical point there. Since $f$ is differentiable on $(a,b)$, it follows that $f'(c)=0$.
+\end{explanation}
+
+We can now answer our first question above.
+
+\begin{example}
+Suppose you toss a ball upward into the air and then catch it at the same point where you tossed it from. Must the
+ball's  velocity have been zero at some point?
+\begin{explanation}
+  Let $p(t)$ be the position  of the ball (on the vertical line) at time $t$. Our time interval in question will be
+  \[
+  [t_\mathrm{start},t_\mathrm{finish}].
+  \]
+  We may assume that $p$ is continuous on $ [t_\mathrm{start},t_\mathrm{finish}]$ and differentiable
+  on $ (t_\mathrm{start},t_\mathrm{finish})$. Since $p(t_\mathrm{start})=p(t_\mathrm{finish})$, we may now apply Rolle's Theorem and conclude that at some time
+  $c$ in the given time interval, $p'(c)=\answer[given]{0}$. Hence the velocity must be zero at
+  some point.
+\end{explanation}
+\end{example}
+
+Rolle's Theorem is a special case of a more general theorem.
+
+\begin{theorem}[Mean Value Theorem]\label{thm:mvt}\index{Mean Value Theorem}
+Suppose that $f$ has a derivative on the interval $(a,b)$ and is
+continuous on the interval $[a,b]$.
+%\begin{marginfigure}[.5in]
+\begin{image}
+\begin{tikzpicture}
+	\begin{axis}[
+            xmin=.5, xmax=5.5,ymin=0,ymax=3.1,
+            axis lines =center, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+            xtick={1,2.04,5}, xticklabels={$a$,$c$,$b$},
+            ytickmin=1, ytickmax=0,
+            axis on top,
+          ] 
+          \addplot [draw=none, fill=fill1,domain=(1:5)] {3.1} \closedcycle;       
+          \addplot [penColor2!40!background,very thick,dashed] plot coordinates {(1,.84+1.5) (5,1.5-.96)};        
+          \addplot [textColor,dashed] plot coordinates {(2.04,0) (2.04,1.5+.89)};        
+	  \addplot [very thick,penColor, smooth,domain=(1:5)] {sin(deg(x))+1.5};
+          \addplot [very thick,penColor2,domain=(.5:5.5)] {-.45*(x-2.04)+.89+1.5};
+          %\node at (axis cs:.4,2.5) [penColor] {$f(x)$}; 
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,.84+1.5)};  %% closed hole          
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(5,-.96+1.5)};  %% closed hole          
+          \addplot[color=penColor3,fill=penColor3,only marks,mark=*] coordinates{(2.04,.89+1.5)};  %% closed hole          
+        \end{axis}
+\end{tikzpicture}
+%% \caption{A geometric interpretation of the Mean Value Theorem}
+%% \label{figure:geoMVT}
+%% \end{marginfigure}
+\end{image}
+Then
+\[
+f'(c)=\frac{f(b)-f(a)}{b-a}
+\]
+for some $c$ in $(a,b)$. 
+%% \begin{explanation}
+%% Let 
+%% \[
+%% m=\frac{f(b)-f(a)}{b-a},
+%% \] 
+%% and consider a new function $g(x)=f(x) - m(x-a)-f(a)$.  We know that
+%% $g(x)$ has a derivative on $[a,b]$, since $g'(x)=f'(x)-m$. We can
+%% compute $g(a)=f(a)- m(a-a)-f(a) =0$ and
+%% \begin{align*}
+%% g(b)=f(b)-m(b-a)-f(a)&=f(b)-{f(b)-f(a)\over b-a}(b-a)-f(a) \\
+%% &=f(b)-(f(b)-f(a))-f(a)\\
+%% &=0. 
+%% \end{align*}
+%% So $g(a) = g(b) = 0$. Now by Rolle's Theorem, that at some $c$,
+%% \[
+%% g'(c)=0\qquad\text{for some $a<c<b$}.
+%% \]
+%% But we know that $g'(c)=f'(c)-m$, so
+%% \[
+%% 0=f'(c)-m=f'(c)-\frac{f(b)-f(a)}{b-a}.
+%% \]
+%% Hence
+%% \[
+%% f'(c)=\frac{f(b)-f(a)}{b-a}.
+%% \]
+%% \end{explanation}
+\end{theorem}
+Let's consider a straightforward usage of the Mean Value Theorem.
+
+\begin{example}
+    Consider $f(x)=3x^2+2x+1$ on the interval [1,3]. Determine if there exists a point that satisfies the conclusion of the Mean Value Theorem. If so, find it.
+    \begin{explanation}
+        Notice that $f$ is a polynomial. Therefore it is both continuous and differentiable everywhere, so it certainly is continuous on the interval $[1,3]$ and differentiable on the interval $(1,3)$. Since the hypothesis of the Mean Value Theorem is satisfied, that means the the conclusion follows. Thus we know that there exists some $c$ in $(a,b)$ such that
+        
+        \[ f'(c)=\frac{f(3)-f(1)}{3-1}.\]
+        Let's now find that $c$ value.
+
+    First, we need to find the derivative, $f'(x)$. Thus, $f'(x)=\answer[given]{6x+2}$. Thus,
+    \[ f'(c)=6c+2=\frac{f(3)-f(1)}{3-1}=\frac{\answer[given]{34}-6}{2}=\frac{28}{2}=\answer[given]{14}.\]
+
+    Thus, we are solving for $c$ in the equation
+    \[6c+2=14.\]
+
+    Solving, we get $c=\answer[given]{2}$. Therefore, we have found the value of $c$ that satisfies the conclusion of the Mean Value Theorem.
+    \end{explanation}
+\end{example}
+We can now answer our second question above.  
+
+\begin{example}
+Suppose you drive a car on a straight stretch of highway from toll booth to another toll
+booth $30$ miles away in half of an hour. Must you have been driving
+at $60$ miles per hour at some point?
+
+\begin{explanation}
+Let $p(t)$ be the position of the car at time $t$, and $0$ hours is the
+starting time with $1/2$ hours being the final time, where $p(0)=0$, and $p(1/2)=30$.
+We can assume that $p$ is continuous on $[0,1/2]$ and differentiable on
+$(0,1/2)$. Now the Mean Value Theorem states that there is a time $c$ such that
+\[
+p'(c) = \frac{30-0}{1/2-0} = \answer[given]{60}\qquad \text{where $0<c<1/2$.}
+\]
+Since the derivative of position is velocity, this says that the car
+must have been driving at $60$ miles per hour at some point.
+\end{explanation}
+\end{example}
+Let's examine one more example.
+
+\begin{example}
+   Assume $f$ is a polynomial. Suppose $f(0)=-3$ and $f'(x)\leq 5$ for all values of $x$. What is the maximum value of $f(2)$?
+    \begin{explanation}
+        This question may not feel like it is related to the Mean Value Theorem, but it is! Let's see how we can apply it to this situation. 
+        
+        Since $f$ is a polynomial, we know it is continuous and differentiable everywhere. That means that the Mean Value Theorem can be applied over any interval, including the interval $[0,2]$. With that in mind, we know that 
+        \[ f'(c)=\frac{f(2)-f(0)}{2-0}.\]
+Notice we can fill in $f(0)=-3$ and since $f'(c)\leq 5$, we will opt to let $f(c)=5$ since we are looking for the maximum value of $f(2)$. Thus,
+
+\[ f'(c)=5=\frac{f(2)-f(0)}{2-0}=\frac{f(2)+3}{2}.\]
+
+Now, we can solve for $f(2)$. We have,
+
+\[5=\frac{f(2)+3}{2}.\]
+
+Thus,
+
+\[f(2)+3=\answer[given]{10}.\]
+
+So $f(2)=\answer[given]{7}$.
+
+Thus, the maximum value of $f(2)$ is $7$.
+
+    \end{explanation}
+\end{example}
+Now we will address the unthinkable: could there be a continuous
+function $f$ on $[a,b]$ whose derivative is zero on $(a,b)$ that is
+not constant? As we will see, the answer is ``no.''
+
+\begin{theorem} 
+If $f'(x)=0$ for all $x$ in an interval $I$, then $f(x)$ is constant
+on $I$.
+\begin{explanation}
+Let $a< b$ be two points in $I$. Since $f$ is continuous on $[a,b]$
+and differentiable on $(a,b)$, by the Mean Value Theorem we know
+\[
+\frac{f(b)-f(a)}{b-a} = f'(c)
+\]
+for some $c$ in the interval $(a,b)$. Since $f'(c)=0$ we see that
+$f(b)=f(a)$. %%BADBAD I would like to ask a question here.
+Moreover, since $a$ and $b$ were arbitrarily chosen,
+$f(x)$ must be the constant function.
+\end{explanation}
+\end{theorem}
+
+
+
+In conclusion, the Mean Value Theorem relates the function $f$ and its derivative, $f'$. Since the derivative has many interpretations, e.g. instantaneous rate of change, slope of the tangent line, velocity, it is no surprise that we can use the MVT in different contexts.
+
+Therefore, if the the function $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then the MVT guarantees that
+\begin{enumerate}
+\item there is a point $c$ in $(a,b)$ where the instantaneous rate of change of $f$ is equal to the average rate of change of $f$ over the interval $[a,b]$;
+
+or
+
+\item there is a point $c$ in $(a,b)$ where the slope of the tangent line to the curve $y=f(x)$ is equal to the slope of the secant line through the points $(a,f(a))$  and $(b,f(b))$; 
+
+or
+
+\item there is a point $c$ in the time interval $(a,b)$ where the instantaneous velocity is equal to the average velocity over the time interval $[a,b]$. Here, we assume that $f$ is the position function for the object moving along a straight line.
+\end{enumerate}
+\end{document}

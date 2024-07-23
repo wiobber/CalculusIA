@@ -1,0 +1,261 @@
+\documentclass{ximera}
+
+\input{../preamble}
+
+\outcome{To be able to use the method of substitution to solve some ``simple'' integrals, with an emphasis on being able to correctly identify what to substitute for.}
+\outcome{Undo the Chain Rule.}
+\outcome{Calculate indefinite integrals (antiderivatives) using basic substitution.}
+\outcome{Calculate definite integrals using basic substitution.}
+\title{The Substitution Rule with Definite Integrals}
+\begin{document}
+
+\maketitle
+
+
+In the previous section we discussed solving indefinite integrals using the method of substitution. In this section, we will continue using substitution, but will now apply the method to definite integrals. 
+
+Once again, consider chain rule. 
+
+We know that if the functions $f,g$ are differentiable, we can apply the chain rule and obtain
+\[
+\ddx f(g(x)) = f'(g(x))g'(x)
+\]
+If the derivatives are continuous, we can use this equality to evaluate a definite integral. Namely,
+\begin{align*}
+  \int_a^b f'(g(x))g'(x) \d x &= \eval{f(g(x))}_a^b \\
+  &= f(g(b)) - f(g(a)). \\
+ \end{align*}
+On the other hand, it is also true that
+\begin{align*}
+  \int_{g(a)}^{g(b)} f'(u)\d u &= \eval{f(u)}_{g(a)}^{g(b)}\\
+  &= f(g(b)) - f(g(a)). \\
+ \end{align*}
+ Since the right hand sides of these equalities are equal,  the left hand sides must be equal, too. So, it follows that
+ 
+\[
+  \int_a^b f'(g(x))g'(x) \d x =  \int_{g(a)}^{g(b)} f'(u)\d u .
+\]
+
+ 
+This simple observation  leads to the following theorem. 
+
+
+\begin{theorem}[Integral Substitution Formula]\index{integral substitution formula} 
+Let $g'$ be the derivative of a  function $g$ and let $f'$ be the derivative of a function $f$. If $g'$ is continuous on the interval $[a,b]$ and  $f'$ is
+continuous on the interval $[g(a),g(b)]$, then
+\[
+\int_a^b f'(g(x)) g'(x) \d x =\int_{g(a)}^{g(b)} f'(u) \d u.
+\]
+\end{theorem}
+Just as we saw with indefinite integrals, sometimes we can find a substitution that will make a more complicated integral into a much easier integral. Notice a key difference between substitution for a definite integral versus an indefinite integral is that we will be changing the limits of integration. 
+
+Let's jump in with an example.
+
+\begin{example}
+Compute:
+\[
+\int_0^2 x e^{x^2}\d x
+\]
+\begin{explanation}
+We, as usual, start by selecting our $u$.
+
+Notice,
+\begin{align*}
+u&=x^2\\
+du&=2xdx\\
+\frac{1}{2}du&=xdx.
+\end{align*}
+Further, we need to substitute the limits of integration since at the moment our integral is going from $x=0$ to $x=2$ and we need it to go between $u=?$ and $u=?$.
+
+We get,
+\begin{align*}
+u(0) &= 0^2 = 0  \\
+u(2) &=2^2 = 4.
+\end{align*}
+Finally, we can substitute our integral
+\[
+\int_0^2 x e^{x^2}\d x
+=\frac{1}{2}\int_0^{4} e^{u}}\d u=\frac{1}{2}\eval {e^u}_0^4=\frac{1}{2}[e^4-e^0]=\frac{1}{2}[e^4-1]\]
+Here you will notice the second key difference between evaluating a definite versus indefinite integral using the method of substitution: we do not need to back-substitute! Since we changed the limits of integration to be $u$-values, once we complete all of our substitution, we are able to evaluate the integral as normal. 
+
+
+Notice, that we have just shown that
+
+\[
+\int_0^2 x e^{x^2}\d x=\frac{1}{2}\int_{0}^{4} e^{u}\d u.
+\]
+  The figure below illustrates both integrals.
+\begin{image}
+  \begin{tikzpicture}
+    \begin{axis}[
+        xmin=-0.3,xmax=4.2,ymin=-0.3,ymax=3.5,
+        clip=true,
+        unit vector ratio*=2 2 2,
+        axis lines=center,
+        grid = major,
+         width=3in,
+        height=3in,
+        ytick={0,3.125},
+        xtick={0,2,4},
+         yticklabels={0,100},
+        xlabel=$x$, ylabel=$y$,
+        every axis y label/.style={at=(current axis.above origin),anchor=south},
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      ]
+     \addplot[fill=penColor,fill opacity=0.3,draw=none,domain=0:{2},samples=50]  {((1/32)*x*e^(x^2)} \closedcycle;;   
+      \addplot[thick,penColor,domain=0:{2},samples=150] {((1/32)*x*e^(x^2)};   
+  % \addplot [draw=none,fill=fillp,domain=8:9, smooth] {f(x)} \closedcycle;
+	  \node at (axis cs:1.75,0.55) { $A$};  
+	   \node at (axis cs:3,2.55) { $A=\int_0^2 xe^{x^2}\d x$};       
+      \node at (axis cs:1.2,1.75) {$y=xe^{x^2}$};
+      \end{axis}`
+  \end{tikzpicture}
+  \begin{tikzpicture}
+	  \begin{axis}[
+        xmin=-0.3,xmax=4.2,ymin=-0.3,ymax=3.5,
+        clip=true,
+        unit vector ratio*=2 2 2,
+        axis lines=center,
+        grid = major,
+         width=3in,
+        height=3in,
+        ytick={0,3.125},
+        xtick={0,2,4},
+         yticklabels={0,100},
+        xlabel=$u$, ylabel=$y$,
+        every axis y label/.style={at=(current axis.above origin),anchor=south},
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      ]
+      \addplot[fill=penColor,fill opacity=0.3,draw=none,domain=0:{4},samples=50] {(1/64)*e^x} \closedcycle;
+      \addplot[thick,draw=penColor,domain=0:{4},samples=50] {(1/64)*e^x};
+
+	  \node at (axis cs:3.6,0.3) { $B$}; 
+	   \node at (axis cs:1,2.55) {$B=\int_0^4 \frac{1}{2}e^{u}\d u$};           
+      \node at (axis cs:2.8,0.7) {$y=\frac{1}{2}e^u$};
+      \end{axis}`
+  \end{tikzpicture}
+\end{image}
+The two shaded areas in the figure, $A= \int_0^2 x e^{x^2}\d x$ and $B=\frac{1}{2}\int_{0}^{4} e^{u}\d u$, appear to be equal,
+and this confirms what was established by computation before.
+  
+  
+Therefore, whenever we are faced with a problem of evaluating a difficult integral, we try to  replace it with  a simpler one, as long as  both  integrals represent the same net area.
+
+
+\end{explanation}
+\end{example}
+
+\section{More examples}
+
+Let's continue sharpening our substitution skills with additional practice.
+
+
+\begin{example}
+Compute:
+\[
+\int_{-1}^0 12x^3 \cos({x^4}) \d x
+\]
+\begin{explanation}
+Let's start by selecting our $u$:
+\[
+u = x^4.
+\]
+Then
+\[
+\d u = \answer[given]{4x^3} \d x 	\qquad	\Rightarrow	\qquad	\frac{1}{4}\d u = \answer[given]{x^3} \d x.
+\]
+Substituting our endpoints, we get
+\[u(-1)=(-1)^4=\answer[given]{1}\]
+\[u(0)=(0)^4=\answer[given]{0}\]
+\begin{align*}
+\int_{-1}^0 12x^3 \cos({x^4}) \d x &= \int_{\answer[given]{1}}^{\answer[given]{0}} \frac{1}{4}(12\cos({u})) \d u  \\
+&= \int_{\answer[given]{1}}^{\answer[given]{0}} 3 \cos({u}) \d u  \\
+&= \eval{3\sin({u})}_{\answer[given]{1}}^{\answer[given]{0}}  \\
+&= \answer[given]{3(0-\sin({1}))}.
+\end{align*}
+\end{explanation}
+\end{example}
+
+
+
+
+\begin{example}
+Compute:
+\[
+\int_{2}^{3} \frac{1}{x\ln(x)} \d x
+\]
+\begin{explanation}
+  Let
+  \[
+  u =\answer[given]{\ln(x)},
+  \]
+  computing $\d u$, we find
+  \[
+  \d u =\answer[given]{\frac{1}{x}}\d x.
+  \]
+Notice that we do not need to adjust any further since $\frac{1}{x}$ is present in our integrand. Meaning that we can do directly substitute $\d u$ for $\frac{1}{x} \d x$.
+
+Now for the limits of integration,
+\[u(2)=\answer[given]{\ln(2)}\]
+\[u(3)=\answer[given]{\ln(3)}\]
+  Now
+\begin{align*}
+\int_{2}^{3} \frac{1}{x\ln(x)} \d x &=  \int_{\answer[given]{\ln(2)}}^{\answer[given]{\ln(3)}} \answer[given]{\frac{1}{u}} \d u\\
+&= \eval{\answer[given]{\ln(u)}}_{\answer[given]{\ln(2)}}^{\answer[given]{\ln(3)}}\\
+& = \ln(\ln(3)) - \ln(\ln(2)).
+\end{align*}
+\end{explanation}
+\end{example}
+
+ Sometimes in the course of evaluating an integral with the method of substitution, you will find that completing one substitution leads to an integral that requires a second one. In those cases, be sure to use different variable names for each substitution.
+\begin{example}
+Compute:
+\[
+\int_0^{16} \sqrt{4 - \sqrt{x}} \d x
+\]
+\begin{explanation}
+While it is not obvious at all, let us try the substitution
+\[
+u = \sqrt{x}.
+\]
+Then
+\begin{align*}
+\d u &= \answer[given]{\frac{1}{2 \sqrt{x}}} \d x=\frac{1}{2u}dx,\\
+2u \d u &= \d x.
+\end{align*}
+Then, the limits of integration will be adjusted:
+\[u(0)=\sqrt{0}=\answer[given]{0}\]
+\[u(16)=\sqrt{16}=\answer[given]{4}.\]
+Substituting in, we get,
+
+\[\int_0^{16} \sqrt{4 - \sqrt{x}} \d x =\int_{\answer[given]{0}}^{\answer[given]{4}} \answer[given]{2u \sqrt{4-u}} \d u.\]
+
+From here we now make the second (and more obvious) substitution
+\[
+w = 4-u.
+\]
+Then $u = 4-w$, and
+\begin{align*}
+\d w &= - \d u,\\
+-\d w &=  \d u.
+\end{align*}
+Again, changing the limits of integration again, we get
+\[w(0)=\answer[given]{4}\]
+\[w(4)=\answer[given]{0}\]
+So
+\begin{align*}
+\int_0^{16} \sqrt{4 - \sqrt{x}} \d x &= \int_0^4 2u \sqrt{4-u} \d u  \\
+&= \int_{\answer[given]{4}}^{\answer[given]{0}} 2 (4-w) \sqrt{w} (-1) \d w  \\
+&= - \int_{\answer[given]{4}}^{\answer[given]{0}} ( 8w^{\frac{1}{2}} - 2w^{\frac{3}{2}} ) \d w  \\
+&= \int_{\answer[given]{0}}^{\answer[given]{4}} ( 8w^{\frac{1}{2}} - 2w^{\frac{3}{2}} ) \d w  \\
+&= \eval{ \answer[given]{8 \left( \frac{2}{3} \right) w^{\frac{3}{2}} - 2 \left( \frac{2}{5} \right) w^{\frac{5}{2}}} }_{0}^{4}  \\
+&= \left( \frac{16}{3} (4)^{\frac{3}{2}} - \frac{4}{5} (4)^{\frac{5}{2}} \right) - \left( 0 - 0 \right)  \\
+&= \frac{128}{3} - \frac{128}{5}   \\
+&= \frac{256}{15}.
+\end{align*}
+\end{explanation}
+\end{example}
+
+
+
+\end{document}

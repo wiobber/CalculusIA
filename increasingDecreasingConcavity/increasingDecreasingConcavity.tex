@@ -1,0 +1,626 @@
+
+
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+\title{Increasing, Decreasing, and Concavity}
+
+\begin{document}
+\begin{abstract}
+\end{abstract}
+\maketitle
+
+Derivatives can tell us a lot about the shape of a graph.
+
+\section{Increasing and Decreasing Functions}
+
+Let's compare the graphs of $f$ and $f'$ for some derivatives we have computed before:
+
+\[f(x)=x^2, f'(x)=2x\]
+\begin{image}
+    \begin{tikzpicture}
+      \begin{axis}[
+          xmin=-2,xmax=2,ymin=-4,ymax=4,
+          axis lines=center,
+          ticks=none,
+          width=6in,
+          height=3in,
+          every axis y label/.style={at=(current axis.above origin),anchor=south},
+          every axis x label/.style={at=(current axis.right of origin),anchor=west},
+        ]
+        %\addplot [ultra thick,dashed, penColor,smooth, domain=(-2:2)] {x^3+.3*x^2-2*x)};
+        \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {x^2} node [pos=0.9, below right] {$f$};
+        \addplot [ultra thick,penColor2,smooth, domain=(-2:2)] {2*x} node [pos=0.9, above left] {$f'$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{image}
+
+\[f(x)=3x+2, f'(x)=3\]
+\begin{image}
+    \begin{tikzpicture}
+      \begin{axis}[
+          xmin=-2,xmax=2,ymin=-4,ymax=8,
+          axis lines=center,
+          ticks=none,
+          width=6in,
+          height=3in,
+          every axis y label/.style={at=(current axis.above origin),anchor=south},
+          every axis x label/.style={at=(current axis.right of origin),anchor=west},
+        ]
+        %\addplot [ultra thick,dashed, penColor,smooth, domain=(-2:2)] {x^3+.3*x^2-2*x)};
+        \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {3*x+2} node [pos=0.9, below right] {$f$};
+        \addplot [ultra thick,penColor2,smooth, domain=(-2:2)] {3} node [pos=0.9, below right] {$f'$};
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{image}
+
+  % (su18:TK) fixed an error below
+  % $$f(x)=|x|, f'(x)=\begin{cases} 1 &  \text{for } x<0 \\ -1 &
+  %   \text{for } x>0 \end{cases}$$ %fliiped signs
+  \[f(x)=|x|, f'(x)=\begin{cases} 1 &  \text{for } x>0 \\ -1 & \text{for } x<0 \end{cases}\]
+
+  \begin{image}
+    \begin{tikzpicture}
+      \begin{axis}[
+          xmin=-2,xmax=2,ymin=-2,ymax=2,
+          axis lines=center,
+          ticks=none,
+          width=6in,
+          height=3in,
+          every axis y label/.style={at=(current axis.above origin),anchor=south},
+          every axis x label/.style={at=(current axis.right of origin),anchor=west},
+        ]
+        %\addplot [ultra thick,dashed, penColor,smooth, domain=(-2:2)] {x^3+.3*x^2-2*x)};
+        \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {abs(x)} node [pos=0.9, above left] {$f$};
+        \addplot [ultra thick,penColor2,smooth, domain=(-2:0)] {-1};
+        \addplot [ultra thick,penColor2,smooth, domain=(0:2)] {1} node [pos=0.8, below right] {$f'$};
+        \addplot[color=penColor,fill=background,only marks,mark=*] coordinates{(0,-1)};
+        \addplot[color=penColor,fill=background,only marks,mark=*] coordinates{(0,1)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{image}
+  \begin{question}
+ For each of the three pairs of functions, describe $y=f(x)$ when $f'$
+  is positive, and when $f'$  is negative.\\
+
+NOTE: When we say a graph is ``increasing", we mean loosely that the $y$ values are going up as we read the graph from left to right.
+
+Similarly, we say a graph is ``decreasing" when the $y$ values are going down as we read the graph from left to right.
+
+Later, we will have a more mathematical definition for increasing and decreasing. For now, the concepts above will suffice.
+
+  \begin{prompt}
+    When $f'$ is positive, $y=f(x)$ is \wordChoice{\choice{positive}\choice[correct]{increasing}\choice{negative}\choice{decreasing}}.
+    When $f'$ is negative, $y=f(x)$ is \wordChoice{\choice{positive}\choice{increasing}\choice{negative}\choice[correct]{decreasing}}
+  \end{prompt}
+      \end{question}
+
+Think about the lines tangent to the graph of the function in the examples above.
+In the first graph, on $(-\infty,0)$, the slopes of the tangent lines are all negative, producing negative $y$ values in the graph of the derivative (underneath the $x$ axis).
+
+In the same graph, the slopes of the tangent lines are positive from $(0,\infty)$, producing positive $y$ values in the graph of the derivative (above the $x$-axis).
+
+Since the derivative gives us a formula for the slope of a tangent
+line to a curve, we can gain information about a function purely from
+the sign of the derivative.  In particular, we have the following theorem
+
+\begin{theorem}
+A function $f$ is \textbf{increasing} on any interval $I$ where $f'(x)>0$, for all $x$ in $I$.\\
+A function $f$  is \textbf{decreasing} on any interval $I$ where $f'(x)<0$, for all $x$ in $I$.\\
+ \end{theorem}
+
+\begin{question}
+  Here we see the graph of $f'$, the derivative of some function $f$.
+  \begin{image}
+    \begin{tikzpicture}
+      \begin{axis}[
+          xmin=-2,xmax=2,ymin=-8,ymax=8,
+          axis lines=center,
+          ticks=none,
+          width=6in,
+          height=3in,
+          every axis y label/.style={at=(current axis.above origin),anchor=south},
+          every axis x label/.style={at=(current axis.right of origin),anchor=west},
+        ]
+        %\addplot [ultra thick,dashed, penColor,smooth, domain=(-2:2)] {x^3+.3*x^2-2*x)};
+        \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {3*x^2+2*.3*x-2)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{image}
+\end{question}
+
+    Which of the following graphs could be $y = f(x)$?
+     \begin{multipleChoice}
+       \choice{\begin{tikzpicture}[framed,scale=1,baseline=3ex]
+           \begin{axis}[
+               xmin=-2,xmax=2,ymin=-8,ymax=8,
+               axis lines=center,
+               ticks=none,
+               width=2in,
+               height=1in,
+               every axis y label/.style={at=(current axis.above origin),anchor=south},
+               every axis x label/.style={at=(current axis.right of origin),anchor=west},
+             ]
+             \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {3*x^2+2*.3*x-2)};
+           \end{axis}
+       \end{tikzpicture}}
+       \choice[correct]{\begin{tikzpicture}[framed,scale=1,baseline=3ex]
+           \begin{axis}[
+               xmin=-2,xmax=2,ymin=-8,ymax=8,
+               axis lines=center,
+               ticks=none,
+               width=2in,
+               height=1in,
+               every axis y label/.style={at=(current axis.above origin),anchor=south},
+               every axis x label/.style={at=(current axis.right of origin),anchor=west},
+             ]
+             \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {x^3+.3*x^2-2*x)};
+           \end{axis}
+       \end{tikzpicture}}
+       \choice{\begin{tikzpicture}[framed,scale=1,baseline=3ex]
+           \begin{axis}[
+               xmin=-2,xmax=2,ymin=-8,ymax=8,
+               axis lines=center,
+               ticks=none,
+               width=2in,
+               height=1in,
+               every axis y label/.style={at=(current axis.above origin),anchor=south},
+               every axis x label/.style={at=(current axis.right of origin),anchor=west},
+             ]
+             \addplot [ultra thick,penColor,smooth, domain=(-2:2)] {6*x+2*.3)};
+           \end{axis}
+       \end{tikzpicture}}
+     \end{multipleChoice}
+
+\section{Higher Order Derivatives}
+
+Since the derivative is a function, we could take the derivative again. What does this mean graphically?
+
+  \begin{image}
+      \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-6.75,xmax=6.75,ymin=-1.5,ymax=1.5,
+            axis lines=center,
+            ticks=none,
+            width=6in,
+            height=3in,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]        
+          \addplot [very thick, penColor, samples=100,smooth, domain=(-6.75:6.75)] {-sin(deg(x))};
+          \addlegendentry{$A$};
+          \addplot [very thick, dashed,penColor, samples=100,smooth, domain=(-6.75:6.75)] {cos(deg(x))};
+          \addlegendentry{$B$};
+          \addplot [very thick, dotted,penColor, samples=100,smooth, domain=(-6.75:6.75)] {sin(deg(x))};
+          \addlegendentry{$C$};
+        \end{axis}
+  \end{tikzpicture}
+  \end{image}
+
+
+\begin{problem}
+Which of the following is true?
+\begin{multipleChoice}
+  \choice{Curve $A$ is increasing when curve $B$ is positive.}
+  \choice{Curve $A$ is increasing when curve $C$ is positive.}
+  \choice[correct]{None of the above.}
+\end{multipleChoice}
+\end{problem}
+
+\begin{problem}
+Which of the following is true?
+\begin{multipleChoice}
+  \choice[correct]{Curve $B$ is increasing when curve $A$ is positive.}
+  \choice{Curve $B$ is increasing when curve $C$ is positive.}
+  \choice{None of the above.}
+\end{multipleChoice}
+\end{problem}
+
+\begin{problem}
+Which of the following is true?
+\begin{multipleChoice}
+  \choice{Curve $C$ is increasing when curve $A$ is positive.}
+  \choice[correct]{Curve $C$ is increasing when curve $B$ is positive.}
+  \choice{None of the above.}
+\end{multipleChoice}
+\end{problem}
+
+\begin{question}
+\author{Nela Lakos}
+	Consider the graph of the function $f$ below:
+	\begin{image}
+          \begin{tikzpicture}
+	    \begin{axis}[
+	        ticks=none,
+                domain=-2.5:2.5,
+                width=6in,
+                height=3in,
+                xmin=-1.5, xmax=1.5,
+                ymin=-1, ymax=1,
+                axis lines =middle, xlabel=$x$, ylabel=$y$,
+                every axis y label/.style={at=(current axis.above origin),anchor=south},
+                every axis x label/.style={at=(current axis.right of origin),anchor=west},
+              ]
+              \addplot [very thick, penColor2, smooth, samples=100,domain=-2:2] {x^3-x-1/6};
+              \node at (axis cs:1.3,1.5) [penColor2, anchor=west] {$f$};
+
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(-.58,0)};%%closed
+          
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(.58,0)};%%closed
+                   
+              
+	     
+              \node at (axis cs:-0.67,-0.1) [penColor, anchor=west] {$a$};
+      
+              \node at (axis cs:0.47,-0.1) [penColor, anchor=west] {$b$};
+         
+              \node at (axis cs:1.15,0.6) [penColor2] {$f$};
+            \end{axis}
+          \end{tikzpicture}
+        \end{image}
+	On which of the following intervals is $f$ increasing?
+	\begin{selectAll}
+		\choice[correct]{$(-\infty,a)$}
+		\choice{$(-\infty,b)$}
+		\choice{$(a,b)$}
+		\choice{$(a,+\infty)$}
+		\choice[correct]{$(b,+\infty)$}
+	\end{selectAll}
+	\begin {explanation} 
+		The function $f$ is not increasing on the interval $(-\infty,b)$, because if we pick a pair of numbers from $(-\infty,b)$, say, $x_{1}=a$, and $x_{2}=0$,
+		then $x_{1}<x_{2}$, but  $f(x_{1})>f(x_{2})$.
+	\end {explanation}
+\end{question}
+ 
+\begin{question}
+  Below we have graphed $y=f(x)$:
+  \begin{image}
+  \begin{tikzpicture}
+	\begin{axis}[
+            xmin=-2,xmax=2,ymin=-8,ymax=8,
+            axis lines=center,
+            width=6in,
+            height=3in,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]        
+          \addplot [very thick,penColor,smooth, domain=(-2:2)] {x^3+x^2-2*x)};
+        \end{axis}
+  \end{tikzpicture}
+  \end{image}
+  Is the first derivative positive or negative on the interval $-1<x<1/2$?
+  \begin{prompt}
+    \begin{multipleChoice}
+      \choice{Positive}
+      \choice[correct]{Negative}
+    \end{multipleChoice}
+  \end{prompt}
+\end{question}
+
+\begin{question}
+  Below we have graphed $y=f'(x)$:
+  \begin{image}
+  \begin{tikzpicture}
+	\begin{axis}[
+            xmin=-2,xmax=2,ymin=-8,ymax=8,
+            axis lines=center,
+            width=6in,
+            height=3in,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]        
+          \addplot [very thick,penColor,smooth, domain=(-2:2)] {x^3+x^2-2*x)};
+        \end{axis}
+  \end{tikzpicture}
+  \end{image}
+  Is the graph of $f(x)$ increasing or decreasing as $x$ increases on
+  the interval $-1<x<0$?
+  \begin{prompt}
+    \begin{multipleChoice}
+      \choice[correct]{Increasing}
+      \choice{Decreasing}
+    \end{multipleChoice}
+  \end{prompt}
+\end{question}
+
+We call the derivative of the derivative the \dfn{second
+  derivative}, the derivative of the derivative of the derivative the
+\dfn{third derivative}, and so on. We have special notation for
+higher derivatives, check it out:
+\begin{description}
+\item[First derivative:] $\ddx f(x) = f'(x) = f^{(1)}(x)$.
+\item[Second derivative:] $\dd[~^2]{x^2} f(x) = f''(x) = f^{(2)}(x)$.
+\item[Third derivative:] $\dd[~^3]{x^3} f(x) = f'''(x) = f^{(3)}(x)$.
+\end{description}
+
+We use the facts above in our next example.
+
+\begin{example}
+  Here we have unlabeled graphs of $f$, $f'$, and $f''$:
+  \begin{image}
+  \begin{tikzpicture}
+	\begin{axis}[
+            xmin=-2,xmax=2,ymin=-8,ymax=8,
+            axis lines=center,
+            ticks=none,
+            width=6in,
+            height=3in,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]        
+          \addplot [very thick,penColor,smooth, domain=(-2:2)] {x^3+.3*x^2-2*x)};
+          \addlegendentry{$A$};
+          \addplot [very thick, dashed,penColor,smooth, domain=(-2:2)] {3*x^2+2*.3*x-2)};
+          \addlegendentry{$B$};
+          \addplot [very thick, dotted,penColor,smooth, domain=(-2:2)] {6*x+2*.3)};
+          \addlegendentry{$C$};
+        \end{axis}
+  \end{tikzpicture}
+  \end{image}
+  Identify each curve above as a graph of $f$, $f'$, or $f''$.
+  \begin{explanation} 
+    Here we see three curves, $A$, $B$, and $C$. Since $A$ is
+    \wordChoice{\choice{positive} \choice{negative}
+      \choice[correct]{increasing} \choice{decreasing}} when $B$ is
+    positive and
+    \wordChoice{\choice{positive}\choice{negative}\choice{increasing}\choice[correct]{decreasing}}
+    when $B$ is negative, we see
+    \[
+    A'=B.
+    \]
+    Since $B$ is increasing when $C$ is
+    \wordChoice{\choice[correct]{positive}\choice{negative}\choice{increasing}
+      \choice{decreasing}} and decreasing when $C$ is
+    \wordChoice{\choice{positive}\choice[correct]{negative}\choice{increasing}\choice{decreasing}}, we see
+    \[
+    B'=C.
+    \]
+    Hence $f=A$, $f'=B$, and $f''=C$.
+  \end{explanation}
+\end{example}
+
+
+
+
+\begin{example}
+    Here we have unlabeled graphs of $f$, $f'$, and $f''$:
+    \begin{image}
+      \begin{tikzpicture}
+	\begin{axis}[
+            domain=-4:4,
+            ticks=none,
+            ymax=2, ymin=-2,
+            xmax=4, xmin=-4,
+            axis lines =middle,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+            width=6in,
+            height=3in,
+          ]
+          \addplot [very thick, penColor,smooth,samples=100] {2/(.75*sqrt(2*pi))*exp(-((x)^2)/(2*.75^2)) *(-x)/(.75^2)};
+          \addlegendentry{$A$};
+          \addplot [very thick, dashed,penColor,smooth,samples=100] {2*gauss(0,.75)};
+          \addlegendentry{$B$};
+          \addplot [very thick, dotted,penColor,smooth,samples=100] {2/(.75*sqrt(2*pi))*exp(-((x)^2)/(2*.75^2)) *(-1)/(.75^2) +
+            2/(.75*sqrt(2*pi))*exp(-((x)^2)/(2*.75^2)) *(x^2)/(.75^4)};
+          \addlegendentry{$C$};
+        \end{axis}
+          \end{tikzpicture}
+\end{image}
+    Identify each curve above as a graph of $f$, $f'$, or $f''$.
+      \begin{explanation} 
+        Here we see three curves, $A$, $B$, and $C$. Since $B$ is
+        \wordChoice{\choice{positive}\choice{negative}\choice[correct]{increasing}\choice{decreasing}} when $A$
+        is positive and
+        \wordChoice{\choice{positive}\choice{negative}\choice{increasing}\choice[correct]{decreasing}} when $A$
+        is negative, we see
+        \[
+        B'=A.
+        \]
+        Since $A$ is increasing when $C$ is
+        \wordChoice{\choice[correct]{positive}\choice{negative}\choice{increasing}\choice{decreasing}}
+          and decreasing when $C$ is
+          \wordChoice{\choice{positive}\choice[correct]{negative}\choice{increasing}\choice{decreasing}}, we
+          see
+        \[
+        A'=C.
+        \]
+        Hence $f=\answer[given]{B}$, $f'=\answer[given]{A}$, and
+        $f''=\answer[given]{C}$.
+      \end{explanation}
+\end{example}
+
+\begin{example}
+  Here we have unlabeled graphs of $f$, $f'$, and $f''$:
+  \begin{image}
+  \begin{tikzpicture}
+	\begin{axis}[
+            xmin=-6.75,xmax=6.75,ymin=-1.5,ymax=1.5,
+            axis lines=center,
+            ticks=none,
+            width=6in,
+            height=3in,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+          ]        
+          \addplot [very thick, penColor, samples=100,smooth, domain=(-6.75:6.75)] {-sin(deg(x))};
+          \addlegendentry{$A$};
+          \addplot [very thick, dashed,penColor, samples=100,smooth, domain=(-6.75:6.75)] {cos(deg(x))};
+          \addlegendentry{$B$};
+          \addplot [very thick, dotted,penColor, samples=100,smooth, domain=(-6.75:6.75)] {sin(deg(x))};
+          \addlegendentry{$C$};
+        \end{axis}
+  \end{tikzpicture}
+  \end{image}
+  Identify each curve above as a graph of $f$, $f'$, or $f''$.
+  %One is of $f$, another is of $f'$ and a third is of $f''$.  Explain
+  %what strategies you could use to identify which graph corresponds
+    \begin{explanation} %%BADBAD Need Dropdown
+    Here we see three curves, $A$, $B$, and $C$. Since $C$ is
+    \wordChoice{\choice{positive}\choice{negative}\choice[correct]{increasing}\choice{decreasing}} when $B$ is
+    positive and \wordChoice{\choice{positive}\choice{negative}\choice{increasing}\choice[correct]{decreasing}}
+    when $B$ is negative, we see
+    \[
+    C'=B.
+    \]
+    Since $B$ is increasing when $A$ is
+    \wordChoice{\choice[correct]{positive}\choice{negative}\choice{increasing}\choice{decreasing}} and
+    decreasing when $A$ is
+    \wordChoice{\choice{positive}\choice[correct]{negative}\choice{increasing}\choice{decreasing}}, we see
+    \[
+    B'=A.
+    \]
+    Hence $f=\answer[given]{C}$, $f'=\answer[given]{B}$, and
+    $f''=\answer[given]{A}$.
+  \end{explanation}
+\end{example}
+
+So far, we know how to determine if a function is increasing or decreasing by looking at the sign of its
+derivative.  If all we know about $f$ is the increasing/decreasing information, we no not have enough
+information to say how $f$ is behaving accurately enough.  Consider the following four possibilities:
+
+\begin{image}
+  \begin{tikzpicture}
+    \draw (0,0) -- (0,12);
+    \draw (0,0) -- (12,0);
+    \draw (6,0) -- (6,12);
+    \draw (0,6) -- (12,6);
+    \draw (12,0) -- (12,12);
+    \draw (0,12) -- (12,12);
+    
+    \node at (3,12.4) {\Large $f$ decreasing};
+    \node at (9,12.4) {\Large$f$ increasing};
+    
+    \draw [penColor,ultra thick,domain=180:270] plot ({2*cos(\x)+4}, {2*sin(\x)+11});
+    \draw [penColor,ultra thick,domain=270:360] plot ({2*cos(\x)+8}, {2*sin(\x)+11});
+    \draw [penColor,ultra thick,domain=0:90] plot ({2*cos(\x)+2}, {2*sin(\x)+3});
+    \draw [penColor,ultra thick,domain=180:90] plot ({2*cos(\x)+10}, {2*sin(\x)+3});
+
+  \end{tikzpicture}
+\end{image}
+
+In both graphs in the left-hand column, $f$ is decreasing.  In both graphs in the right-hand column,
+$f$ is increasing.  What is the difference between the two rows?  Their concavity.
+\begin{definition}\index{concave up}\index{concave down}
+	Let $f$ be a  function differentiable on an open interval $I$.\\
+		We say that the graph of  $f$ is \textbf{concave up} on $I$ if  $f'$, the derivative of $f$, is \textbf{increasing} on $I$.\\
+		We say that the graph of  $f$ is \textbf{concave down} on $I$ if $f'$, the derivative of $f$, is \textbf{decreasing} on $I$.
+\end{definition}
+That is, the graph of $f$ is concave up if the graph locally lies above its tangent lines, and is concave down if the graph locally lies below its tangent lines.
+
+The graphs of two functions, $f$ and $g$, both increasing on the given interval, are given below.
+\begin{image}
+  \begin{tikzpicture}
+    \draw [penColor,  ultra thick,domain=180:270] plot ({2*cos(\x)+4},{9-2*sin(\x)});
+    \draw [penColor, ultra thick,domain=270:360] plot ({2*cos(\x)+8}, {2*sin(\x)+11});
+    \draw [color=red,thick, domain=1.92:2.2] plot({\x},{cot(193)*(\x-(2*cos(193)+4))+9-2*sin(193)});
+    \draw [color=red, thick, domain=2.3:3.1] plot({\x},{cot(225)*(\x-(2*cos(225)+4))+9-2*sin(225)});    
+    \draw [color=red, thick, domain=3.19:4.2] plot({\x},{cot(260)*(\x-(2*cos(260)+4))+9-2*sin(260)});
+    \draw [color=red, thick, domain=7.8:9.01] plot({\x},{-cot(280)*(\x-(2*cos(280)+8))+11+2*sin(280)});
+    \draw [color=red, thick, domain=9.05:9.79] plot({\x},{-cot(315)*(\x-(2*cos(315)+8))+11+2*sin(315)});
+    \draw [color=red, thick, domain=9.82:10.08] plot({\x},{-cot(347)*(\x-(2*cos(347)+8))+11+2*sin(347)});
+    \node at (3,7.5) [text width=5cm] {
+      The function $f$ is increasing, while the rate itself is decreasing.
+      In this case the curve  $y=f(x)$is \dfn{concave down}.};
+    \node at (9,7.5) [text width=5cm] {
+      The function $g$ is increasing, while the rate itself is increasing.
+      In this case the curve  $y=g(x)$is \dfn{concave up}.};
+  \end{tikzpicture}
+\end{image}
+
+\begin{example}
+A graph of $y=f(x)$ is given below, with domain $\left(-\frac{3}{2} , \frac{3}{2} \right)$.
+        \begin{image}
+    \begin{tikzpicture}
+    \begin{axis}[
+        xmin=-1.57,xmax=1.57,ymin=-1.5,ymax=1.5,
+        axis lines=center,
+        width=6in,
+        height=3in,
+        every axis y label/.style={at=(current axis.above origin),anchor=south},
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      ]
+      \addplot [penColor,ultra thick,domain=-1.5:1.5,smooth] {sin(2*deg(x))};
+
+    \end{axis}
+  \end{tikzpicture}
+  \end{image}
+On what intervals is $f$ concave up?  On what intervals is $f$ concave down?
+\begin{explanation}
+	Let's draw some tangent lines on the graph.
+	        \begin{image}
+    \begin{tikzpicture}
+    \begin{axis}[
+        xmin=-1.57,xmax=1.57,ymin=-1.5,ymax=1.5,
+        axis lines=center,
+        width=6in,
+        height=3in,
+        every axis y label/.style={at=(current axis.above origin),anchor=south},
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+      ]
+      \addplot [penColor,ultra thick,domain=-1.5:1.5,smooth] {sin(2*deg(x))};
+      \addplot [penColor2,ultra thick,domain=-1:-0.57,smooth] {-1};
+      \addplot [penColor2,ultra thick,domain=-0.7:-0.3,smooth] {2*cos(2*deg(-0.5))*(x+0.5)+sin(2*deg(-0.5))};
+      \addplot [penColor2,ultra thick,domain=-1.3:-0.9,smooth] {2*cos(2*deg(-1.1))*(x+1.1)+sin(2*deg(-1.1))};
+      \addplot [penColor3,ultra thick,domain=0.9:1.3,smooth] {2*cos(2*deg(1.1))*(x-1.1)+sin(2*deg(1.1))};
+      \addplot [penColor3,ultra thick,domain=0.3:0.7,smooth] {2*cos(2*deg(0.5))*(x-0.5)+sin(2*deg(0.5))};
+      \addplot [penColor3,ultra thick,domain=0.57:1,smooth] {1};
+    \end{axis}
+  \end{tikzpicture}
+  \end{image}
+  
+  The graph is above the tangent lines for $x$ in $\left(-\frac{3}{2}, 0\right)$, and below the tangent lines we sketched on $\left(0, \frac{3}{2}\right)$.
+  
+  Therefore, $f$ is concave up on $\left(\answer{-\frac{3}{2}}, \answer{0}\right)$, and concave down on $\left(\answer{0}, \answer{\frac{3}{2}}\right)$.
+\end{explanation}
+\end{example}
+In that example, examine the intervals where $f$ was concave up.  At the beginning of that interval, $f$ was decreasing, and at the end, $f$ was increasing.
+The slopes in that interval increased from a negative value to a positive value.  In the interval where $f$ was concave down, the slopes started positive
+and ended negative.  The slopes in that interval were decreasing.
+
+We know that the sign of the derivative tells us whether a function is increasing or decreasing at some point. Likewise, the sign of the
+second derivative $f''(x)$ tells us whether $f'(x)$ is increasing or decreasing at $x$.  Let's use this to add more details into the chart from above.
+
+\begin{image}
+  \begin{tikzpicture}
+    \draw (0,0) -- (0,12);
+    \draw (0,0) -- (12,0);
+    \draw (6,0) -- (6,12);
+    \draw (0,6) -- (12,6);
+    \draw (12,0) -- (12,12);
+    \draw (0,12) -- (12,12);
+    
+    \node at (-1.3,9) {\Large$0<f''(x)$};
+    \node at (-1.3,3) {\Large$f''(x)<0$};
+    \node at (3,12.4) {\Large$f'(x)<0$};
+    \node at (9,12.4) {\Large$0<f'(x)$};
+    
+    \draw [penColor,ultra thick,domain=180:270] plot ({2*cos(\x)+4}, {2*sin(\x)+11});
+    \draw [penColor,ultra thick,domain=270:360] plot ({2*cos(\x)+8}, {2*sin(\x)+11});
+    \draw [penColor,ultra thick,domain=0:90] plot ({2*cos(\x)+2}, {2*sin(\x)+3});
+    \draw [penColor,ultra thick,domain=180:90] plot ({2*cos(\x)+10}, {2*sin(\x)+3});
+
+    \node at (3,7.5) [text width=5cm] {\large
+      Here $y=f(x)$ is decreasing, while the rate itself is increasing.
+      In this case the curve is \dfn{concave up}.};
+
+    \node at (9,7.5) [text width=5cm] {\large
+      Here $y=f(x)$ is increasing, while the rate itself is increasing.
+      In this case the curve is \dfn{concave up}.};
+
+    \node at (3,1.5) [text width=5cm] {\large
+      Here $y=f(x)$ is decreasing, while the rate itself is decreasing.
+      In this case the curve is \dfn{concave down}.};
+
+    \node at (9,1.5) [text width=5cm] {\large
+      Here $y=f(x)$ is increasing, while the rate itself is decreasing.
+      In this case the curve is \dfn{concave down}.};
+  \end{tikzpicture}
+\end{image}
+
+
+
+\end{document}
