@@ -24,7 +24,7 @@ arcsecant.
 
 \begin{theorem}[The derivative of arcsine]\index{derivative!of arcsine}
 \[
-\ddx \arcsin(x) = \frac{1}{\sqrt{1-x^2}}.
+\frac{d}{dx} \arcsin(x) = \frac{1}{\sqrt{1-x^2}}.
 \]
 \begin{explanation} 
   %% To start, note that the Inverse Function Theorem assures us that this
@@ -34,7 +34,7 @@ arcsecant.
   Implicitly differentiating with respect $x$ we see
   \begin{align*}
     \sin(y) &= x\\
-    \ddx \sin(y) &= \ddx x &\text{Differentiate both sides.}\\
+    \frac{d}{dx} \sin(y) &= \frac{d}{dx} x &\text{Differentiate both sides.}\\
     \cos(y) \cdot \frac{dy}{dx} &= 1 &\text{Implicit differentiation.}\\
     \frac{dy}{dx} &= \frac{1}{\cos(y)} &\text{Solve for $\frac{dy}{dx}$.}
   \end{align*}
@@ -108,7 +108,7 @@ arcsecant.
    
   In summary,
   \[
-  \frac{dy}{dx} = \ddx \arcsin(x) = \answer[given]{\frac{1}{\sqrt{1-x^2}}}.
+  \frac{dy}{dx} = \frac{d}{dx} \arcsin(x) = \answer[given]{\frac{1}{\sqrt{1-x^2}}}.
   \]
  
 \end{explanation}
@@ -118,7 +118,7 @@ arcsecant.
 \begin{question}
   Compute:
   \[
-  \ddx \arcsin(x^3)
+  \frac{d}{dx} \arcsin(x^3)
   \begin{prompt}
     = \answer[given]{\frac{3x^2}{\sqrt{1-(x^3)^2}}}
   \end{prompt}
@@ -132,7 +132,7 @@ We can do something similar with arctangent.
 
 \begin{theorem}[The derivative of arctangent]\index{derivative!of arctangent}
   \[
-  \ddx \arctan(x) = \frac{1}{1+x^2}.
+  \frac{d}{dx} \arctan(x) = \frac{1}{1+x^2}.
   \]
   \begin{explanation} 
 %     To start, note that the Inverse Function Theorem assures us that this
@@ -146,7 +146,7 @@ We can do something similar with arctangent.
     differentiating with respect $x$ we see
     \begin{align*}
       \tan(y) &= x\\
-      \ddx \tan(y) &= \ddx x         &\text{Differentiate both sides.}\\
+      \frac{d}{dx} \tan(y) &= \frac{d}{dx} x         &\text{Differentiate both sides.}\\
       \sec^2(y) \cdot \frac{dy}{dx} &= 1   &\text{Implicit differentiation.}\\
      \frac{dy}{dx} &= \frac{1}{\sec^2(y)}   &\text{Solve for $\frac{dy}{dx}$.}
        \end{align*}
@@ -226,7 +226,7 @@ We can do something similar with arctangent.
 %%\end{align*}
 In summary,
 \[
-\frac{dy}{dx} = \ddx \arctan(x) = \answer[given]{\frac{1}{1+x^2}}.
+\frac{dy}{dx} = \frac{d}{dx} \arctan(x) = \answer[given]{\frac{1}{1+x^2}}.
 \]
 \end{explanation}
 \end{theorem}
@@ -234,7 +234,7 @@ In summary,
 \begin{question}
   Compute:
   \[
-  \ddx \tan^{-1}(\sqrt{x})
+  \frac{d}{dx} \tan^{-1}(\sqrt{x})
   \begin{prompt}
     = \answer[given]{\frac{1}{1+(\sqrt{x})^2}\cdot\frac{1}{2\sqrt{x}}}
   \end{prompt}
@@ -247,7 +247,7 @@ Finally, we investigate the derivative of arcsecant.
 
 \begin{theorem}[The derivative of arcsecant]\index{derivative!of arcsecant}
 \[
-\ddx \arcsec(x) = \frac{1}{|x|\sqrt{x^2-1}}\qquad\text{for $|x|>1$.}
+\frac{d}{dx} \arcsec(x) = \frac{1}{|x|\sqrt{x^2-1}}\qquad\text{for $|x|>1$.}
 \]
 \begin{explanation} 
   %% To start, note that the Inverse Function Theorem assures us that this
@@ -261,7 +261,7 @@ then $\sec(y) = x$ and $\answer[given]{0}\le y\le
 differentiating with respect $x$ we see
 \begin{align*}
 \sec(y) &= x\\
-\ddx \sec(y) &= \ddx x                     &\text{Differentiate both sides.}\\
+\frac{d}{dx} \sec(y) &= \frac{d}{dx} x                     &\text{Differentiate both sides.}\\
 \sec(y)\tan(y) \cdot \frac{dy}{dx} &= 1     &\text{Implicit differentiation.}\\
 \frac{dy}{dx} &= \frac{1}{\sec(y)\tan(y)}=\frac{\cos^2(y)}{\sin(y)} &\text{Solve for $\frac{dy}{dx}$}.
 \end{align*}
@@ -336,7 +336,7 @@ we have $\cos(y)=1/x=$adj/hyp and we assemble the following right triangle:
 \end{align*}
 In summary,
 \[
-\frac{dy}{dx}= \ddx \arcsec(x) = \frac{1}{|x|\sqrt{x^2-1}}\qquad\text{for $|x|>1$}. 
+\frac{dy}{dx}= \frac{d}{dx} \arcsec(x) = \frac{1}{|x|\sqrt{x^2-1}}\qquad\text{for $|x|>1$}. 
 \]
 \end{explanation}
 \end{theorem}
@@ -344,7 +344,7 @@ In summary,
 \begin{question}
   Compute:
   \[
-  \ddx \sec^{-1}(3x)
+  \frac{d}{dx} \sec^{-1}(3x)
   \begin{prompt}
     = \answer[given]{\frac{3}{|3x|\sqrt{(3x)^2-1}}}
   \end{prompt}
@@ -356,12 +356,12 @@ cosine, arccosecant, and arccotangent, listed below.
 
 \begin{theorem}[The Derivatives of Inverse Trigonometric Functions] \hfil
 \begin{itemize}
-\item $\dd{x} \arcsin(x) = \frac{1}{\sqrt{1-x^2}}$
-\item $\dd{x} \arccos(x) = \frac{-1}{\sqrt{1-x^2}}$
-\item $\dd{x} \arctan(x) = \frac{1}{1+x^2}$
-\item $\dd{x} \arcsec(x) = \frac{1}{|x|\sqrt{x^2-1}}$ for $|x|>1$
-\item $\dd{x} \arccsc(x) = \frac{-1}{|x|\sqrt{x^2-1}}$ for $|x|>1$
-\item $\dd{x} \arccot(x) = \frac{-1}{1+x^2}$
+\item $\frac{d}{dx} \arcsin(x) = \frac{1}{\sqrt{1-x^2}}$
+\item $\frac{d}{dx} \arccos(x) = \frac{-1}{\sqrt{1-x^2}}$
+\item $\frac{d}{dx} \arctan(x) = \frac{1}{1+x^2}$
+\item $\frac{d}{dx} \arcsec(x) = \frac{1}{|x|\sqrt{x^2-1}}$ for $|x|>1$
+\item $\frac{d}{dx} \arccsc(x) = \frac{-1}{|x|\sqrt{x^2-1}}$ for $|x|>1$
+\item $\frac{d}{dx}  \arccot(x) = \frac{-1}{1+x^2}$
 \end{itemize}
 \end{theorem}
 

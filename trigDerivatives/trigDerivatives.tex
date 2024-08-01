@@ -12,7 +12,7 @@
 
 The goal of the first part of this section will be to show that
 \[
-\dd{\theta}\sin(\theta)=\cos(\theta).
+\frac{d}{d\theta}\sin(\theta)=\cos(\theta).
 \]
 
 Before we start applying the definition of the derivative to this, let's recall a limit we've used before:
@@ -43,12 +43,12 @@ We can use these limits to help us prove what we set out to prove.
 \begin{theorem}[The derivative of sine]\index{derivative!of sine}\label{theorem:deriv sin}
 For any angle $\theta$ measured in radians, the derivative of $\sin(\theta)$ with respect to $\theta$ is $\cos(\theta)$.  In other words, 
 \[
-\dd{\theta} \sin(\theta) = \cos(\theta).
+\frac{d}{d\theta} \sin(\theta) = \cos(\theta).
 \]
 \begin{explanation}
 Using the definition of the derivative, write with me
 \[
-\dd{\theta} \sin(\theta) = \lim_{h\to0} \frac{\sin(\theta+h)-\sin(\theta)}{h}
+  \frac{d}{d\theta} \sin(\theta) = \lim_{h\to0} \frac{\sin(\theta+h)-\sin(\theta)}{h}
 \]
 Now we apply the trigonometric addition formula for sine, that says $\sin(\alpha+\beta) = \sin(\alpha)\cos(\beta)+\sin(\beta)\cos(\alpha)$, to write
 \begin{align*}
@@ -185,7 +185,7 @@ accurately describe the slope of the former, and indeed this is true.
 Let's differentiate the other trigonometric functions. The derivative of sine will be useful here.
 
 \begin{theorem}[The derivative of cosine]\index{derivative!of cosine}
-	\[ \ddx \cos(x) = -\sin(x).\]
+	\[ \frac{d}{dx} \cos(x) = -\sin(x).\]
 	\begin{explanation}
 	Recall that
 	\begin{itemize}
@@ -194,7 +194,7 @@ Let's differentiate the other trigonometric functions. The derivative of sine wi
 	\end{itemize}
 	Now
 	\begin{align*}
-		\ddx \cos(x) &= \ddx \sin\left(\frac{\pi}{2}-x\right)\\
+		\frac{d}{dx} \cos(x) &= \frac{d}{dx} \sin\left(\frac{\pi}{2}-x\right)\\
 			&=-\cos\left(\frac{\pi}{2}-x\right) \\
 			&= -\sin(x).
 	\end{align*}
@@ -203,16 +203,16 @@ Let's differentiate the other trigonometric functions. The derivative of sine wi
 
 \begin{example}
 	Compute:
-	\[ \eval{\ddx \cos \left( \frac{x^3}{2} \right)}_{x=\sqrt[3]{\pi}} \]
+	\[ \eval{\frac{d}{dx} \cos \left( \frac{x^3}{2} \right)}_{x=\sqrt[3]{\pi}} \]
 \begin{explanation}
 Now that we know the derivative of cosine, we may combine this with the
 chain rule, so we have that
 \[
-\ddx \cos \left( \frac{x^3}{2} \right) = \answer[given]{\frac{3 x^2}{2}} \left(- \sin \left( \frac{x^3}{2} \right) \right)
+  \frac{d}{dx} \cos \left( \frac{x^3}{2} \right) = \answer[given]{\frac{3 x^2}{2}} \left(- \sin \left( \frac{x^3}{2} \right) \right)
 \]
 and so
 \[
-\eval{\ddx \cos \left( \frac{x^3}{2} \right)}_{x=\sqrt[3]{\pi}}
+\eval{\frac{d}{dx} \cos \left( \frac{x^3}{2} \right)}_{x=\sqrt[3]{\pi}}
 \]
 \begin{align*}
   &= \eval{\left( \frac{3}{2} x^2 \left(- \sin \left( \frac{x^3}{2}
@@ -229,14 +229,14 @@ Next we have:
 
 \begin{theorem}[The derivative of tangent]\index{derivative!of tangent}
 \[
-\ddx \tan(x) = \sec^2(x).
+\frac{d}{dx} \tan(x) = \sec^2(x).
 \]
 
 \begin{explanation}
 We'll rewrite $\tan(x)$ as $\frac{\sin(x)}{\cos(x)}$ and use the
 quotient rule. Write with me:
 \begin{align*}
-\ddx\tan(x) &= \ddx\frac{\sin(x)}{\cos(x)}\\
+\frac{d}{dx}\tan(x) &= \frac{d}{dx}\frac{\sin(x)}{\cos(x)}\\
 &=\frac{\cos^2(x) + \answer[given]{\sin^2(x)}}{\cos^2(x)}\\
 &=\frac{\answer[given]{1}}{\cos^2(x)}\\
 &=\sec^2(x).
@@ -247,14 +247,14 @@ quotient rule. Write with me:
 \begin{example}
 Compute:
 \[
-\ddx \left( \frac{5x \tan(x)}{x^2 - 3} \right)
+\frac{d}{dx} \left( \frac{5x \tan(x)}{x^2 - 3} \right)
 \]
 \begin{explanation}
 Applying the quotient rule, and the product rule, and the derivative
 of cosine:
 \begin{align*}
-  \ddx &\left( \frac{5x \tan(x)}{x^2 - 3} \right) \\
-  &= \frac{(x^2 - 3) \cdot \ddx(\answer[given]{5x \tan(x)}) - 5x \tan(x) \cdot \ddx (\answer[given]{x^2 - 3})}{(x^2 - 3)^2}  \\
+  \frac{d}{dx} &\left( \frac{5x \tan(x)}{x^2 - 3} \right) \\
+  &= \frac{(x^2 - 3) \cdot \frac{d}{dx}(\answer[given]{5x \tan(x)}) - 5x \tan(x) \cdot \frac{d}{dx} (\answer[given]{x^2 - 3})}{(x^2 - 3)^2}  \\
   &= \frac{(x^2 - 3)(5 \tan(x) + 5x \answer[given]{\sec^2(x)}) - 5x \tan(x) \cdot 2x}{(x^2 - 3)^2}  \\
   &= \frac{5(x^2-3)(\tan(x)+x \sec^2(x)) - 10x^2 \tan(x)}{(x^2-3)^2}
 \end{align*}
@@ -265,14 +265,14 @@ Finally, we have:
 
 \begin{theorem}[The derivative of secant]\index{derivative!of secant}
 \[
-\ddx \sec(x) = \sec(x)\tan(x).
+\frac{d}{dx} \sec(x) = \sec(x)\tan(x).
 \]
 
 
 \begin{explanation}
 We'll rewrite $\sec(x)$ as $(\cos(x))^{-1}$ and use the power rule and the chain rule. Write
 \begin{align*}
-\ddx \sec(x) &= \ddx(\cos (x))^{-1}\\
+\frac{d}{dx} \sec(x) &= \frac{d}{dx}(\cos (x))^{-1}\\
 &=-1(\cos(x))^{-2}(\answer[given]{-\sin(x)}) \\
 &= \frac{\sin(x)}{\cos^2(x)} \\
 &= \frac{1}{\cos(x)} \cdot \frac{\sin(x)}{\cos(x)}  \\
@@ -286,28 +286,28 @@ exercises.  Putting this all together, we have:
 
 \begin{theorem}[The Derivatives of Trigonometric Functions] \hfil
 \begin{itemize}
-\item $\ddx \sin(x) = \cos(x)$.
-\item $\ddx \cos(x) = -\sin(x)$.
-\item $\ddx \tan(x) = \sec^2(x)$.
-\item $\ddx \sec(x) = \sec(x)\tan(x)$.
-\item $\ddx \csc(x) = -\csc(x)\cot(x)$.
-\item $\ddx \cot(x) = -\csc^2(x)$.
+\item $\frac{d}{dx} \sin(x) = \cos(x)$.
+\item $\frac{d}{dx} \cos(x) = -\sin(x)$.
+\item $\frac{d}{dx} \tan(x) = \sec^2(x)$.
+\item $\frac{d}{dx} \sec(x) = \sec(x)\tan(x)$.
+\item $\frac{d}{dx} \csc(x) = -\csc(x)\cot(x)$.
+\item $\frac{d}{dx} \cot(x) = -\csc^2(x)$.
 \end{itemize}
 \end{theorem}
 
 \begin{example}
 Compute:
 \[
-\eval{\ddx ( \csc(x) \cot(x) )}_{x=\frac{\pi}{3}}
+\eval{\frac{d}{dx} ( \csc(x) \cot(x) )}_{x=\frac{\pi}{3}}
 \]
 \begin{explanation}
 Applying the product rule the facts above, we know that
 \[
-\ddx ( \csc(x) \cot(x) ) = - \csc^3(x) - \cot^2(x)\answer[given]{\csc(x)}
+\frac{d}{dx} ( \csc(x) \cot(x) ) = - \csc^3(x) - \cot^2(x)\answer[given]{\csc(x)}
 \]
 and so
 \[
-\eval{\ddx ( \csc(x) \cot(x) )}_{x=\frac{\pi}{3}}
+\eval{\frac{d}{dx} ( \csc(x) \cot(x) )}_{x=\frac{\pi}{3}}
 \]
 \begin{align*}
   &= \eval{  - \csc^3(x) - \cot^2(x) \answer[given]{\csc(x)}}_{x=\frac{\pi}{3}}  \\
@@ -325,7 +325,7 @@ you use \textbf{radians} for angle measure. For example, while
 \]
 one must be careful with derivatives as
 \[
-\eval{\ddx \sin\left(x^2\right)}_{x=90^\circ} \ne \underbrace{2\cdot 90\cdot \cos(90^2)}_{\text{incorrect}}
+\eval{\frac{d}{dx} \sin\left(x^2\right)}_{x=90^\circ} \ne \underbrace{2\cdot 90\cdot \cos(90^2)}_{\text{incorrect}}
 \]
 Alternatively, one could think of $x^\circ$ as meaning
 $\frac{x\cdot\pi}{180}$, as then $90^\circ = \frac{90\cdot\pi}{180} =

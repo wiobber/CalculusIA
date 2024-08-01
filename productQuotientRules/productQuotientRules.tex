@@ -12,7 +12,7 @@
 Remember our sum rule for derivatives: $(f(x)+g(x))'=f'(x)+g'(x)$. Based on this, you may be tempted to imagine a similar rule for the product of two functions:
 
   \[
-  \dd{x} \left(f(x)\cdot g(x)\right) = f'(x) \cdot g'(x)?
+  \frac{d}{dx} \left(f(x)\cdot g(x)\right) = f'(x) \cdot g'(x)?
   \]
 
 Here is an example that shows why it is not this simple. Using our ``rule":
@@ -37,16 +37,16 @@ However, if we multiply it out and then use rules we already know to be true:
 Therefore
 
   \[
-  \ddx \left(f(x) \cdot g(x)\right) = 5x^4-6x^2-3.
+  \frac{d}{dx} \left(f(x) \cdot g(x)\right) = 5x^4-6x^2-3.
   \]
-Overall, the idea we had $  \dd{x} \left(f(x)\cdot g(x)\right) = f'(x) \cdot g'(x)?$ does not work. Can we find out a rule that does work?
+Overall, the idea we had $  \frac{d}{dx} \left(f(x)\cdot g(x)\right) = f'(x) \cdot g'(x)?$ does not work. Can we find out a rule that does work?
 
 \section{The product rule}
 
 \begin{theorem}[The product rule]\index{derivative rules!product}\index{product rule}\label{theorem:product-rule}
 If $f$ and $g$ are differentiable, then
 \[
-\ddx f(x)g(x) = f(x)g'(x)+f'(x)g(x).
+\frac{d}{dx} f(x)g(x) = f(x)g'(x)+f'(x)g(x).
 \]
 \end{theorem}
 
@@ -113,7 +113,7 @@ If $f$ and $g$ are differentiable, then
 %% \begin{explanation}
 %% From the limit definition of the derivative, write
 %% \[
-%% \ddx (f(x)g(x)) = \lim_{h \to0} \frac{f(\answer[given]{x+h})g(\answer[given]{x+h}) - f(\answer[given]{x})g(\answer[given]{x})}{\answer[given]{h}}
+%% \frac{d}{dx} (f(x)g(x)) = \lim_{h \to0} \frac{f(\answer[given]{x+h})g(\answer[given]{x+h}) - f(\answer[given]{x})g(\answer[given]{x})}{\answer[given]{h}}
 %% \]
 %% Now we use a trick, we add $0 = -f(x+h)g(x) + f(x+h)g(x)$:
 %% \begin{align*}
@@ -133,13 +133,13 @@ Let's apply this rule to the previous example. If this rule is correct, it shoul
 \begin{example} 
 Let $f(x)=(x^2+1)$ and $g(x)=(x^3-3x)$. Compute:
 \[
-\ddx f(x)g(x)
+\frac{d}{dx} f(x)g(x)
 \]
 
 \begin{explanation}
 Write with me
 \begin{align*}
-\ddx f(x)g(x) &= f(x)g'(x) + f'(x)g(x)\\
+\frac{d}{dx} f(x)g(x) &= f(x)g'(x) + f'(x)g(x)\\
 &=(x^2+1)(\answer[given]{3x^2-3}) + (\answer[given]{2x})(x^3-3x).
 \end{align*}
 We could stop here, but we should show that expanding this out recovers
@@ -170,17 +170,17 @@ Now that we are pros, let's try one more example.
 		\end{tabular}		
 	\end{center}
 		
-	Compute $\eval{ \ddx\left( (x^2+1) f(x) \right)}_{x=2}$.
+	Compute $\eval{ \frac{d}{dx}\left( (x^2+1) f(x) \right)}_{x=2}$.
 	\begin{explanation}
 	Using the product rule, write with me.
 	\begin{align*}
-		\ddx\left( (x^2+1) f(x) \right) &= \ddx \left( \answer[given]{x^2+1} \right) \cdot f(x) + (x^2+1) \cdot \ddx\left( \answer[given]{f(x)} \right) \\
-			&= \left( \answer[given]{2x} \right) \cdot f(x) + (x^2+1) \cdot \ddx \left( f(x) \right)
+		\frac{d}{dx}\left( (x^2+1) f(x) \right) &= \frac{d}{dx} \left( \answer[given]{x^2+1} \right) \cdot f(x) + (x^2+1) \cdot \frac{d}{dx}\left( \answer[given]{f(x)} \right) \\
+			&= \left( \answer[given]{2x} \right) \cdot f(x) + (x^2+1) \cdot \frac{d}{dx} \left( f(x) \right)
 	\end{align*}
 	
 	Plugging in $x=2$ yields:
 	\begin{align*}
-		\eval{ \ddx\left( (x^2+1) f(x) \right) }_{x=2} &= \left( \answer[given]{4} \right) \cdot f\left( \answer[given]{2} \right) + \left( \answer[given]{5} \right) \cdot f'\left( \answer[given]{2} \right)\\	
+		\eval{ \frac{d}{dx}\left( (x^2+1) f(x) \right) }_{x=2} &= \left( \answer[given]{4} \right) \cdot f\left( \answer[given]{2} \right) + \left( \answer[given]{5} \right) \cdot f'\left( \answer[given]{2} \right)\\	
 			&= 4 \cdot \answer[given]{5} + 5 \cdot \answer[given]{-1}\\
 			&= \answer[given]{15}
 	\end{align*}
@@ -194,7 +194,7 @@ Now that we are pros, let's try one more example.
 
 We'd like to have a formula to compute
 \[
-\ddx \frac{f(x)}{g(x)}.
+\frac{d}{dx} \frac{f(x)}{g(x)}.
 \]
 %if we already know $f'(x)$ and $g'(x)$. Instead of attacking this
 %problem head-on, let's notice that we've already done part of the
@@ -206,17 +206,17 @@ This brings us to our next derivative rule.
 \begin{theorem}[The quotient rule]\index{derivative rules!quotient}\index{quotient rule}\label{theorem:quotient-rule}
 If $f$ and $g$ are differentiable, then
 \[
-\ddx \frac{f(x)}{g(x)} = \frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}.
+\frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}.
 \]
 \end{theorem}
 %% \begin{explanation}
 %% First note that if we knew how to compute
 %% \[
-%% \ddx \frac{1}{g(x)}
+%% \frac{d}{dx} \frac{1}{g(x)}
 %% \]
 %% then we could use the product rule to complete our explanation.  Write
 %% \begin{align*}
-%% \ddx\frac{1}{g(x)}&=\lim_{h\to0} \frac{\frac{1}{g(x+h)}-\frac{1}{g(x)}}{h} \\
+%% \frac{d}{dx}\frac{1}{g(x)}&=\lim_{h\to0} \frac{\frac{1}{g(x+h)}-\frac{1}{g(x)}}{h} \\
 %% &=\lim_{h\to0} \frac{\frac{g(\answer[given]{x})-g(\answer[given]{x+h})}{g(x+h)g(x)}}{h} \\
 %% &=\lim_{h\to0} \frac{g(x)-g(x+h)}{g(x+h)g(x)h} \\
 %% &=\lim_{h\to0} -\frac{g(x+h)-g(x)}{h} \frac{1}{g(x+h)g(x)} \\
@@ -224,7 +224,7 @@ If $f$ and $g$ are differentiable, then
 %% \end{align*}
 %% Now we can put this together with the product rule:
 %% \begin{align*}
-%% \ddx\frac{f(x)}{g(x)} &=f(x)\frac{-g'(x)}{g(x)^2}+f'(x)\frac{1}{g(x)}\\
+%% \frac{d}{dx}\frac{f(x)}{g(x)} &=f(x)\frac{-g'(x)}{g(x)^2}+f'(x)\frac{1}{g(x)}\\
 %% &=\frac{-f(x)g'(x)+f'(x)g(x)}{g(x)^2}\\
 %% &=\frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}.
 %% \end{align*}
@@ -235,13 +235,13 @@ If $f$ and $g$ are differentiable, then
 \begin{example}
 Compute:
 \[
-\ddx \frac{x^2+1}{x^3-3x}
+\frac{d}{dx} \frac{x^2+1}{x^3-3x}
 \]
 
 \begin{explanation}
 Write with me
 \begin{align*}
-\ddx \frac{x^2+1}{x^3-3x} &= \frac{2x(\answer[given]{x^3-3x})-(\answer[given]{x^2+1})(3x^2-3)}{(\answer[given]{x^3-3x})^2}\\
+\frac{d}{dx} \frac{x^2+1}{x^3-3x} &= \frac{2x(\answer[given]{x^3-3x})-(\answer[given]{x^2+1})(3x^2-3)}{(\answer[given]{x^3-3x})^2}\\
 &=\frac{-x^4-6x^2+3}{(\answer[given]{x^3-3x})^2}.
 \end{align*}
 \end{explanation}
@@ -255,19 +255,19 @@ derivative, though it is not always simpler.
 \begin{example}
 Compute: 
 \[
-\ddx \frac{625-x^2}{\sqrt{x}}
+\frac{d}{dx} \frac{625-x^2}{\sqrt{x}}
 \] 
 in two ways. First using the quotient rule and then using the product
 rule.
 \begin{explanation}
 First, we'll compute the derivative using the quotient rule. Write with me
 \[
-\ddx \frac{625-x^2}{\sqrt{x}} = \frac{\left(-2x\right)\left(\answer[given]{\sqrt{x}}\right) - (\answer[given]{625-x^2})\left(\frac{1}{2}x^{-1/2}\right)}{\answer[given]{x}}.
+\frac{d}{dx} \frac{625-x^2}{\sqrt{x}} = \frac{\left(-2x\right)\left(\answer[given]{\sqrt{x}}\right) - (\answer[given]{625-x^2})\left(\frac{1}{2}x^{-1/2}\right)}{\answer[given]{x}}.
 \]
 
 Second, we'll compute the derivative using the product rule:
 \begin{align*}
-\ddx \frac{625-x^2}{\sqrt{x}} &= \ddx \left(625-x^2\right)x^{-1/2}\\
+\frac{d}{dx} \frac{625-x^2}{\sqrt{x}} &= \frac{d}{dx} \left(625-x^2\right)x^{-1/2}\\
 =\left(625-x^2\right)&\left(\answer[given]{\frac{-x^{-3/2}}{2}}\right)+ (\answer[given]{-2x})\left(x^{-1/2}\right).
 \end{align*}
 With a bit of algebra, both of these simplify to
@@ -292,18 +292,18 @@ Let's finish up with one more, mixing the rules together.
 		\end{tabular}		
 	\end{center}
 		
-	Compute $\eval{ \ddx\left( \frac{x f(x)}{x+1} \right)}_{x=2}$.
+	Compute $\eval{ \frac{d}{dx}\left( \frac{x f(x)}{x+1} \right)}_{x=2}$.
 	\begin{explanation}
 	The `Outside Operation' is a quotient, so we'll start with the quotient rule.  Notice that the numerator is a product?  That means we'll have to use product rule, too.
 	\begin{align*}
-		\ddx\left( \frac{x f(x)}{x+1} \right) &= \frac{\ddx\left(x f(x)\right) \left(\answer[given]{x+1}\right) - \left( x f(x) \right) \ddx \left(x+1\right)}{\answer[given]{(x+1)^2}}\\
-			&= \frac{\left( \ddx(x) f(x) + x\ddx\left(f(x)\right) \right) (x+1) - \left( x f(x) \right) \left( \answer[given]{1}\right)}{(x+1)^2}\\
+		\frac{d}{dx}\left( \frac{x f(x)}{x+1} \right) &= \frac{\frac{d}{dx}\left(x f(x)\right) \left(\answer[given]{x+1}\right) - \left( x f(x) \right) \frac{d}{dx} \left(x+1\right)}{\answer[given]{(x+1)^2}}\\
+			&= \frac{\left( \frac{d}{dx}(x) f(x) + x\frac{d}{dx}\left(f(x)\right) \right) (x+1) - \left( x f(x) \right) \left( \answer[given]{1}\right)}{(x+1)^2}\\
 			&= \frac{\left( f(x) + x f'(x) \right) (x+1) - x f(x)}{(x+1)^2}		
 	\end{align*}
 	
 	Plugging $x=2$ into this yields:
 	\begin{align*}
-		\eval{ \ddx\left( \frac{x f(x)}{x+1} \right)}_{x=2} 
+		\eval{ \frac{d}{dx}\left( \frac{x f(x)}{x+1} \right)}_{x=2} 
 			&= \frac{\left( f\left(\answer[given]{2}\right) + 2 f'\left(\answer[given]{2}\right) \right) \left(\answer[given]{3}\right) - \answer[given]{2} f\left(\answer[given]{2}\right)}{\answer[given]{9}} \\
 			&= \frac{\left( 5 + 2 (\answer[given]{-1})\right) (3) - 2 (5)}{9} \\
 			&= \answer[given]{\frac{-1}{9}}
