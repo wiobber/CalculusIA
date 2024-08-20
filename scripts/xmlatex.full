@@ -173,8 +173,8 @@ fi
 
 [[ -n "$DEBUG" ]]  && ls -al /root/texmf/tex/latex/ximeraLatex/
 
-# Extend the path, so that commands in the rootfolder OVERWRITE what is in the container
-PATH=$(pwd):$PATH
+# Extend the path, so that commands inside a ./scripts folder OVERWRITE what is in the container
+PATH=$(pwd)/scripts:$PATH
 
 # Longer lines in pdflatex output
 export max_print_line=1000
@@ -421,7 +421,7 @@ then
     echo "xake $* (with --skip-mathjax ...)"
     $XAKE --skip-mathjax $*
 else
-    # Hope that 'xake $*' was intended ...; if not, xake will complain.
+    # Hope that 
     echo "Starting xake $*"
     xake $*
 fi
