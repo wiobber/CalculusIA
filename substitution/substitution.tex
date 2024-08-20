@@ -1,0 +1,296 @@
+\documentclass{ximera}
+
+\input{../preamble}
+
+\outcome{To be able to use the method of substitution to solve some ``simple'' integrals, with an emphasis on being able to correctly identify what to substitute for.}
+\outcome{Undo the Chain Rule.}
+\outcome{Calculate indefinite integrals (antiderivatives) using basic substitution.}
+\outcome{Calculate definite integrals using basic substitution.}
+\title{8.10 - The Substitution Rule}
+\begin{document}
+\begin{abstract}
+  We learn a new technique, called substitution, to help us solve
+  problems involving integration.
+\end{abstract}
+\maketitle
+
+
+Computing antiderivatives is not as easy as computing derivatives. For instance, we've seen that 
+\[\int f(x)g(x)\d x \neq \int f(x)dx\int g(x)\d x.
+\]
+Additionally, the chain rule can be difficult to ``undo.''  We
+have a general method called ``integration by substitution'' that will
+somewhat help with this difficulty. 
+
+If the functions are differentiable, we can apply the chain rule and obtain
+\[
+\ddx f(g(x)) = f'(g(x))g'(x)
+\]
+If the derivatives are continuous, we can use this equality to evaluate a definite integral. Namely,
+
+ \[ \int f'(g(x))g'(x) \d x &= {f(g(x))}+C \]
+
+Let's start with a simple example that fits the above form.
+\begin{example}
+Compute:
+\[
+\int 2x e^{x^2}\d x
+\]
+\begin{explanation}
+Notice that $\frac{d}{dx}\left[e^{x^2}\right]=e^{x^2}\frac{d}{dx}\left[x^2\right]=2xe^{x^2}$.
+
+Thus, we know that 
+\[
+\int 2x e^{x^2}\d x=e^{x^2}+C.
+\]
+However, there are many integrals that we encounter that are not so obviously in that form. So how do we deal with those scenarios?
+
+Notice this integral has the structure
+\[
+\int f'(g(x)) g'(x) \d x ,  
+\]
+
+
+where $g(x) =x^2$. Thus $g'(x)dx =2xdx$, and note that
+
+\[
+\int 2x e^{x^2}\d x
+=\int e^{\underbrace{x^2}}\underbrace{2x\d x}
+\]
+So, let's introduce a new variable $u$. We will let $u=g(x)=x^2$. We now want to substitute anything that has an $x$ in it with it's corresponding expression in terms of $u$.
+If 
+\begin{align*}
+    u&=x^2\\
+    du&=2xdx
+\end{align*}
+
+Notice that the second line can be seen as using differentials.
+
+
+\[
+\int 2x e^{x^2}\d x=\int e^{g(x)}g'(x)\d x=\int e^{u}\d u
+\]
+
+We can easily evaluate the last integral
+\[
+\int e^{u}\d u= e^u+C
+
+\]
+
+We now need to substitute the $u$ in our answer with it's equivalent expression in terms of $x$. 
+Thus,
+
+\[
+\int 2x e^{x^2}\d x=\int e^{u}\d u=e^u+C=e^{x^2}+C.
+\]
+
+Therefore, whenever we are faced with a problem of evaluating a difficult integral, we try to  replace it with  a simpler one.
+
+
+\end{explanation}
+\end{example}
+
+
+\section{More examples}
+
+With some experience, it is (usually) not too hard to see what to
+substitute as $u$.  When determining what your $u$ should be, it is often helpful to look for an expression whose derivative (which can differ by a constant) is multiplied into the function. We will work through the following examples in the
+same way that we did above.
+\begin{example}
+Compute:
+\[
+\int x^4(x^5+1)^{9} \d x
+\]
+\begin{explanation}
+Here we set $u =  \answer[given]{x^5+1}$, so $\d u =  \answer[given]{5x^4} \d x$.  Then
+we can solve for the $x^4$ that is present in the integrand. It follows that $\frac{1}{5}\d u=x^4\d x$. Therefore
+\begin{align*}
+  \int x^4(x^5+1)^{9} \d x &= \int \frac{1}{5} (u)^{9} \d u \\
+  &= \frac{1}{5} \int u^{9} \d u\\
+&=\frac{u^{10}}{ \answer[given]{50}}+C.
+\end{align*}
+We again need to back-substitute into our answer, so that our final
+answer is a function of $x$.  Recalling that $u= x^5+1$, we have
+our final answer
+\[
+\int x^4(x^5+1)^{9} \d x= \frac{(x^5+1)^{10}}{\answer[given]{50}}+C.
+\]
+Reminder: you can always verify your result by differentiating.
+
+\end{explanation}
+\end{example}
+
+
+%If substitution works to solve an integral (and that is not always the
+%case!), a common trick to find what to substitute for is to locate the
+%``ugly'' part of the function being integrated.  We then substitute
+%for the ``inside'' of this ugly part.  While this technique is
+%certainly not rigorous, it can prove to be very helpful.  This is
+%especially true for students new to the technique of substitution.
+%The next two problems are really good examples of this philosophy.
+
+
+\begin{example}
+  Compute:
+  \[
+  \int \frac{\cos(\ln x)}{x} \d x
+  \]
+\begin{explanation}
+Here the ``ugly'' part here is $\cos(\ln x)$.  So we substitute for
+the inside:
+\[
+u=g(x)=\answer[given]{\ln x}.
+\]
+Then
+\[
+\d u =  \answer[given]{\frac{1}{x}} \d x 	
+\]
+
+Then we substitute into the original integral and solve:
+\begin{align*}
+\int\frac{\cos(\ln x)}{x} \d x &= \int\frac{\cos(u)}{x} x \d u  \\
+&= \int \cos(u) \d u  \\
+&= {\answer[given]{\sin(u)}}+C\\
+&= \answer[given]{\sin}(\answer[given]{\ln(x)})+C
+\end{align*}
+\end{explanation}
+\end{example}
+Let's look at another example that will require a new technique.
+\begin{example}
+  Compute:
+\[
+\int x^2\sqrt{1-x}\d x
+\]
+\begin{explanation}
+
+Here it is not apparent that the chain rule is involved. However, if
+it was involved, perhaps a good guess for $g$ would be
+\[
+u = \answer[given]{1-x}
+\]
+and then
+\begin{align*}
+  \d u &= \answer[given]{-1} \d x, \\
+  -\d u &= \d x.
+\end{align*}
+Now we consider the integral we are trying to compute
+\[
+\int x^2\sqrt{1-x}\d x
+\]
+and we substitute using our work above. Write with me
+\begin{align*}
+  \int x^2\sqrt{1-x}\d x &= \int x^2 \answer[given]{\sqrt{u}} ( \answer[given]{-1} ) \d u \\
+  &= \int {-x^2 \answer[given]{\sqrt{u}}}\d u.
+\end{align*}
+At this point, it seems like this isn't going to work since we do not know how to substitute $x^2$ with an expression in terms of $u$.
+
+Let's dig into this a little bit. We know $u=1-x$. With a little rearranging perhaps we can find something helpful!
+\begin{align*}
+u &= 1-x \\
+ u -1 &= -x\\
+ \answer[given]{1- u} &= x
+\end{align*}
+so now we can replace the $x^2$ as well. Notice 
+\begin{align*}
+    x^2&=(1-u)^2\\
+    &=(1-2u+u^2)
+\end{align*}
+Picking up where we left off, 
+\[ \int x^2\sqrt{1-x}\d x = \int -\answer[given]{(1-2u+u^2)} \sqrt{u}}\d u.
+\]
+At this point, we are close to being done. Write
+\begin{align*}
+\int -{(1-2u+u^2)} \sqrt{u}\d u &= \int -u^{1/2}{(1-2u+u^2)} \d u\\
+&=\int -u^{1/2}+2u^{3/2}-u^{5/2}\d u\\
+&=-\answer[given]{\frac{2}{3}}u^{3/2}+\frac{4}{5}u^{\answer[given]{5/2}}-\frac{2}{7}u^{7\2}+C
+\end{align*}
+Now recall that $u = 1-x$. Hence our final answer is
+\[
+\int x^3\sqrt{1-x}\d x = -\answer[given]{\frac{2}{3}}(1-x)^{3/2}+\frac{4}{5}(1-x)^{\answer[given]{5/2}}-\frac{2}{7}(1-x)^{7\2}+C
+\]
+\end{explanation}
+\end{example}
+
+
+
+
+\begin{example}\label{key example}
+Compute:
+\[
+\int \frac{u}{1-u^2} \d u
+\]
+\begin{explanation}
+We want to substitute for $1-u^2$.  
+But the variable ``$u$'' has already been used. We can substitute with whatever variable that we want.  
+In particular, let's use ``$w$'' for this problem.  
+So we let
+\[
+w = 1 - u^2
+\]
+and then
+\begin{align*}
+  \d w &= \answer[given]{-2u} \d u,\\
+  \answer[given]{-\frac{1}{2}}\d w &=u  \d u .
+\end{align*}
+Thus
+\begin{align*}
+\int \frac{u}{1-u^2} \d u &= \int \left(-\frac{1}{2}\right)\left(\frac{1}{w}\right)\d w  \\
+&= - \frac{1}{2} \int \frac{1}{w} \d w  \\
+&= - \frac{1}{2} \ln|w| + C  \\
+&= - \frac{1}{2} \ln|\answer[given]{1-u^2}| + C.
+\end{align*}
+\end{explanation}
+
+
+\end{example}
+
+There are many functions that may not look like prime candidates for integrating using substitution, but with a little rewriting it becomes clear that they are! One such example is $y=\tan (x)$
+
+\begin{example}\label{example tan}
+Compute:
+\[
+\int \tan(x) \d x
+\]
+\begin{explanation}
+We begin by recalling that 
+
+$\tan(x) &= \frac{\sin(x)}{\cos(x)}  $
+We then make the substitution
+\[
+u = \cos(x)
+\]
+and so
+\begin{align*}
+\d u &= \answer[given]{-\sin(x)} \d x,\\
+-\d u &= {\answer[given]{\cos(x)}} \d x.
+\end{align*}
+Then
+\begin{align*}
+\int \tan(x) \d x &= \int \frac{\sin(x)}{\cos(x)} \d x  \\
+&= \int -\frac{1}{u}  \d u  \\
+&= \answer[given]{-\ln|u|}+C
+\end{align*}
+Substituting with $u=\cos(x)$, we get
+\[\int \tan(x) \d x=-\ln|\answer[given]{\cos(x)}|+C=\ln|\sec(x)|+C\]
+Notice that last equality was achieved using the log rule
+\[n\log(x)=\log(x^n)\]
+\end{explanation}
+\end{example}
+
+We have just proved
+
+\begin{theorem}
+\[
+\int \tan(x) \d x = \ln|\sec(x)| + C.
+\]
+\end{theorem}
+
+
+To summarize, if we suspect that a given function is the derivative of
+another via the chain rule, we introduce a new variable $u=g(x)$, where $g$ is a likely candidate for
+the inner function. We rewrite the integral
+ entirely in terms of $u$, with no $x$ remaining in the
+expression. If we can integrate this new function of $u$, then the
+antiderivative of the original function is obtained by replacing $u$
+by $g(x)$.
+\end{document}

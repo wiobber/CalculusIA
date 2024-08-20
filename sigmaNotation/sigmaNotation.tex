@@ -1,0 +1,119 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\outcome{Write a sum into sigma notation.}
+\outcome{Evaluate sums written in sigma notation.}
+\outcome{Recognize sigma notation.}
+
+
+\title{8.3 - Sigma Notation}
+
+
+\begin{document}
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+
+We've seen that our area approximations get better and better when we take more 
+and more rectangles.  When the number of rectangles we have to work with is small 
+(under 10 or so), we can work everything out by hand.  However, if we need to use
+more, it becomes cumbersome. In this section, we will describe a new notation that helps us more compactly write a sum of a lot of numbers.  
+
+\emph{Sigma notation} is a way of writing a sum of many terms, in a concise form.  A sum in sigma notation looks something like this:
+
+\[ \sum_{k=1}^{5} 3k \]
+
+The $\Sigma$ (sigma) indicates that a sum is being taken.  The variable $k$ is called the \emph{index} of the sum.  The numbers at the top and bottom of the $\Sigma$
+are called the \emph{upper and lower limits} of the summation.  In this case, the upper limit is $5$, and the lower limit is $1$.  The notation means that we will take
+every integer value of $k$ between $1$ and $5$ (so $1$, $2$, $3$, $4$, and $5$) and plug them each into the summand formula (here that formula is $3k$).
+Then add them all together.
+\[ \sum_{k=1}^{5} 3k= 3\cdot 1 + 3\cdot 2 + 3\cdot 3 + 3\cdot 4 + 3\cdot 5 = 45 \]
+
+
+
+\begin{example}
+	Write out what is meant by the following:
+	\[ \sum_{k=0}^{3} \frac{1}{k+1}\]
+	\begin{explanation}
+		Here, the index $k$ takes the values $0$, $1$, $2$, and $3$.  We'll plug those each into $\frac{1}{k+1}$ and add them together.
+		\[\sum_{k=0}^3 \frac{1}{k+1} = \frac{1}{\answer{0}+1} + \frac{1}{\answer{1}+1} + \frac{1}{\answer{2}+1} + \frac{1}{\answer{3}+1} =\frac{\answer{25}}{12}\]
+	\end{explanation}
+\end{example}
+
+
+ 
+
+\begin{example}
+	Write out what is meant by the following:
+	\[ \sum_{i=1}^{8} \left(-1\right)^i \]
+	\begin{explanation}
+		The index variable here is written as $i$ instead of $k$.  That's ok.  The most common variables to use for indexes include $i$, $j$, $k$, $m$, and $n$.
+		\begin{align*}
+			\sum_{i=1}^8 (-1)^i &= (-1)^{\answer{1}} + (-1)^{\answer{2}} + (-1)^{\answer{3}} + (-1)^{\answer{4}} + (-1)^{\answer{5} }+ (-1)^{\answer{6}} + (-1)^{\answer{7}} + (-1)^{\answer{8}} \\
+				&= -1 + 1 + -1 + 1 + -1 + 1 + -1 + 1\\
+				&= \answer{0}
+		\end{align*}	
+	\end{explanation}
+\end{example}
+ 
+
+Try one on your own.
+\begin{question}
+	Write out what is meant by the following (no need to simplify):
+	\[ \sum_{n=-1}^{4} \sqrt{n+1} =\answer{\sqrt{0}+\sqrt{1}+\sqrt{2}+\sqrt{3}+\sqrt{4}+\sqrt{5}}\]
+\end{question}
+ 
+
+Let's try going the other way around.
+\begin{example}
+	Write the following sum in sigma notation.
+	\[ 2 + 4 + 6 + 8 + \ldots + 22 + 24 \]
+	\begin{explanation}
+		Notice that we can factor a $2$ out of each term to rewrite this sum as
+		\[ \answer{2}\cdot 1 + \answer{2} \cdot 2 + \answer{2}\cdot 3 + \answer{2} \cdot 4 + \ldots + \answer{2}\cdot 11 + \answer{2}\cdot 12 \]
+		That means that we are adding together $\answer{2}$ times every number between $1$ and $12$.  If we use $k$ as our index, the sigma notation could be
+		\[ \sum_{k=1}^{12} \answer{2k} \]
+		There is no need to use $k$ as our index variable.  We could have just as easily used $m$ or $j$ instead.
+		\[ \sum_{k=1}^{12} 2k = \sum_{m=1}^{12} 2m = \sum_{j=1}^{12} 2j\]  
+		Notice, that these are NOT the same as
+		\[ \sum_{k=1}^{12} 2m \]
+	\end{explanation}
+\end{example}
+ 
+
+\begin{example}
+	Write the following sum in sigma notation.
+	\[ 1 - \frac{1}{2} + \frac{1}{4} - \frac{1}{8} + \ldots - \frac{1}{64} + \frac{1}{128}  \]
+	\begin{explanation}
+		This one is a little more complicated.  We'll worry about the signs later, first we'll deal with the numbers themselves.  Do you notice a pattern in the terms?
+		Sure, we get from one term to the next term by dividing by 2.  That is:
+		\begin{align*}
+			1 &= \frac{1}{2^0} = \left(\frac{1}{2}\right)^0\\
+			\frac{1}{2} &= \frac{1}{2^1} = \left(\frac{1}{2}\right)^{1}\\
+			\frac{1}{4} &= \frac{1}{2^2} = \left(\frac{1}{2}\right)^{2}\\
+				 ...  \\
+			 \frac{1}{128} &= \frac{1}{2^7} = \left(\frac{1}{2}\right)^{7}
+		\end{align*}
+		If we call our index variable $k$, then $k$ should go from $0$ to $\answer{7}$, and the numbers themselves are just $\left(\frac{1}{2}\right)^{\answer{k}}$.  Now we need to deal with the signs.
+		We say above that $(-1)^k$ will alternate between $+1$ and $-1$.  That means, if we multiply the terms we just found by $(-1)^k$, they will alternate between $+$ and $-$.  
+		We are starting with $k=0$, so $(-1)^0 = +1$ will give us the alternation starting at the sign we want.
+		\[ \sum_{k=0}^{7} (-1)^k \left(\frac{1}{2}\right)^{k} = \sum_{k=0}^7 \left( \answer{\frac{-1}{2}} \right)^k \]
+	\end{explanation}
+\end{example}
+  
+ 
+Try one on your own.
+\begin{example}
+ 	Write the following sum in sigma notation.
+ 	\[ \frac{1}{\sqrt{2}} - \frac{2}{\sqrt{3}} + \frac{3}{\sqrt{4}} - \frac{4}{\sqrt{5}}+ \ldots + \frac{51}{\sqrt{52}} - \frac{52}{\sqrt{53}} \]
+	\[ \sum_{k=2}^{53} \left(  \answer{(-1)^k\frac{k-1}{\sqrt{k}} } \right) \]
+
+\end{example}
+   
+
+ 
+ 
+  
+\end{document}
