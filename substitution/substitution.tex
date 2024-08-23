@@ -1,6 +1,6 @@
 \documentclass{ximera}
 
-\input{../preamble}
+\input{../preamble.tex}
 
 \outcome{To be able to use the method of substitution to solve some ``simple'' integrals, with an emphasis on being able to correctly identify what to substitute for.}
 \outcome{Undo the Chain Rule.}
@@ -74,7 +74,6 @@ Notice that the second line can be seen as using differentials.
 We can easily evaluate the last integral
 \[
 \int e^{u}\d u= e^u+C
-
 \]
 
 We now need to substitute the $u$ in our answer with it's equivalent expression in terms of $x$. 
@@ -196,17 +195,17 @@ so now we can replace the $x^2$ as well. Notice
     &=(1-2u+u^2)
 \end{align*}
 Picking up where we left off, 
-\[ \int x^2\sqrt{1-x}\d x = \int -\answer[given]{(1-2u+u^2)} \sqrt{u}}\d u.
+\[ \int x^2\sqrt{1-x}\d x = \int -\answer[given]{(1-2u+u^2)} \sqrt{u}\d u.
 \]
 At this point, we are close to being done. Write
 \begin{align*}
 \int -{(1-2u+u^2)} \sqrt{u}\d u &= \int -u^{1/2}{(1-2u+u^2)} \d u\\
 &=\int -u^{1/2}+2u^{3/2}-u^{5/2}\d u\\
-&=-\answer[given]{\frac{2}{3}}u^{3/2}+\frac{4}{5}u^{\answer[given]{5/2}}-\frac{2}{7}u^{7\2}+C
+&=-\answer[given]{\frac{2}{3}}u^{3/2}+\frac{4}{5}u^{\answer[given]{5/2}}-\frac{2}{7}u^{7/2}+C
 \end{align*}
 Now recall that $u = 1-x$. Hence our final answer is
 \[
-\int x^3\sqrt{1-x}\d x = -\answer[given]{\frac{2}{3}}(1-x)^{3/2}+\frac{4}{5}(1-x)^{\answer[given]{5/2}}-\frac{2}{7}(1-x)^{7\2}+C
+\int x^3\sqrt{1-x}\d x = -\answer[given]{\frac{2}{3}}(1-x)^{3/2}+\frac{4}{5}(1-x)^{\answer[given]{5/2}}-\frac{2}{7}(1-x)^{7/2}+C
 \]
 \end{explanation}
 \end{example}
@@ -254,7 +253,7 @@ Compute:
 \begin{explanation}
 We begin by recalling that 
 
-$\tan(x) &= \frac{\sin(x)}{\cos(x)}  $
+$\tan(x) = \frac{\sin(x)}{\cos(x)}  $
 We then make the substitution
 \[
 u = \cos(x)
