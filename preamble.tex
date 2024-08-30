@@ -14,12 +14,19 @@
   {greensTheorem/}
   {shapeOfThingsToCome/}
 }
+\usepackage{comment} %% used in what is a limit
+\usepackage[valunder]{signchart} %% used in graphing sign chart
 
 \newcommand{\mooculus}{\textsf{\textbf{MOOC}\textnormal{\textsf{ULUS}}}}
 
 \usepackage{tkz-euclide}
 \tikzset{>=stealth} %% cool arrow head
 \tikzset{shorten <>/.style={ shorten >=#1, shorten <=#1 } } %% allows shorter vectors
+
+
+\pgfplotsset{soldot/.style={color=black,only marks,mark=*}} %% USED by piecewise functions
+\pgfplotsset{holdot/.style={color=black,fill=white,only marks,mark=*}}
+\usetikzlibrary{arrows.meta}
 
 
 \usepackage{tkz-tab}  %% sign charts
