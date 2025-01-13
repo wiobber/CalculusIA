@@ -1,6 +1,7 @@
 \documentclass{ximera}
 
 \input{../preamble.tex}
+\usepgfplotslibrary{fillbetween}
 
 \title{8.12 - Area between curves}
  
@@ -17,7 +18,6 @@ We have seen previously that for continuous functions defined on closed interval
 We begin the section with an example that illustrates the concepts that are fundamental in setting up definite integrals.  Consider a continuous function $f(x)$ that is positive on a closed interval $[a,b]$ in its domain.   Suppose that we are interested in finding the area bounded by the graph of $y=f(x)$ and the $x$-axis between $x=a$ and $x=b$.  Below is an example of such an example.
 
 
-\begin{image}
 \begin{tikzpicture}
 
 \begin{axis}
@@ -46,7 +46,6 @@ We begin the section with an example that illustrates the concepts that are fund
 \end{axis}
 
 \end{tikzpicture}
-\end{image}
 
 We can write this area as the definite integral 
 
