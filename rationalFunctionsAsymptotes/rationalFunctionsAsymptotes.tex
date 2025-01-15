@@ -50,22 +50,22 @@ Consider the rational function $f(x)=\dfrac{1}{x-3}$.
 \\
 \\Notice that $x=3$ is not in the domain of $f$ because it causes division by zero. Also notice that if we plug in numbers increasingly close to $x=3$, the outputs get increasingly large in magnitude: 
 %$f(2.9)=-10, f(2.99)=-100, f(2.999)=-1000$. 
-\[ \begin{array}{c|c}
+$$ \begin{array}{c|c}
 		x       & f(x)=\frac{1}{x-3} \\\hline
 		2.9      &  -10\\ 
 		2.99     &  -100\\
 		2.999    &  -1000
-	\end{array} \]
+	\end{array} $$
 These large negative numbers tell us that $f$ has a vertical asymptote at $x=3$ and more specifically the graph heads downward (toward $-\infty$) on the left side of $x=3$.
 \\
 \\To figure out what's happening on the right side of $x=3$, we plug in numbers increasingly close to $3$ from right side: 
 %$f(3.1)=10,f(3.01)=100, f(3.001)=1000$. 
-\[ \begin{array}{c|c}
+$$ \begin{array}{c|c}
 		x       & f(x)=\frac{1}{x-3} \\\hline
 		3.1   &  10\\
 		3.01  & 100\\
 		3.001 & 1000
-	\end{array} \]
+	\end{array} $$
 
 Because these numbers are positive and increasingly large, we can tell that the graph heads upward (toward $\infty$) on the right side $x=3$. The graph of $f(x)$ is shown below.
 
@@ -122,7 +122,10 @@ The graph of $f(x)=\dfrac{x^2}{(x+3)(x-10)}$ has vertical asymptotes at $x=-3$ a
 Consider, for example, $f(x)=\dfrac{x(x-1)}{(x+4)(x-1)}$.
 \\
 \\The domain restrictions are $x=-4$ and $x=1$. Because there is also an $(x-1)$ in the numerator however, we can cancel to see that for $x\neq 1$, 
-$$\dfrac{x(x-1)}{(x+4)(x-1)}=\dfrac{x}{x+4}.$$ 
+
+$$
+\dfrac{x(x-1)}{(x+4)(x-1)}=\dfrac{x}{x+4}.
+$$ 
 This cancellation tells us that there is a hole in the graph at $x=1$ and not a vertical asymptote. That is, our $f(x)$ has a graph identical to that of $y=\dfrac{x}{x+4}$ but with a hole at $x=1$. If we were to plug in test points increasingly close to $x=1$, the outputs would not have magnitudes increasing without bound but rather would simply get closer and closer to $\frac{1}{1+4}=\frac{1}{5}$. Thus there is a hole in the graph at the point $(1,1/5)$. There is, however, a true vertical asymptote at $x=-4$ because the $(x+4)$ term did not cancel. The graph of $f(x)=\dfrac{x(x-1)}{(x+4)(x-1)}$ is shown below on the left; compare with the graph of $g(x)=\dfrac{x}{x+4}$ shown on the right.
 
 \begin{center}\begin{tikzpicture} [scale=.8]
@@ -222,7 +225,7 @@ Before we begin computing horizontal asymptotes, it will be necessary to establi
 \vspace{.1in}
 
 This is because $1$ divided by numbers with larger and larger magnitude will give smaller and smaller magnitude outputs. For example, consider the function $g(x) = \frac{1}{x}$ with the table below
-	\[ \begin{array}{c|c}
+	$$ \begin{array}{c|c}
 		x       & g(x)=\frac{1}{x} \\\hline
 		10      & \answer[given]{0.1} \\ 
 		100     & \answer[given]{0.01} \\
@@ -230,7 +233,7 @@ This is because $1$ divided by numbers with larger and larger magnitude will giv
 		10000   & \answer[given]{0.0001} \\
 		100000  & \answer[given]{0.00001}\\
 		1000000 & \answer[given]{0.000001}
-	\end{array} \]
+	\end{array} $$
 
 Thus as $x\rightarrow\infty,g(x)\rightarrow 0$. Similarly, as $x\rightarrow -\infty,g(x)\rightarrow 0$. The same pattern can be observed if $x$ has any positive exponent, as long as the function is defined. For functions like $y=x^{1/2}=\sqrt{x}$, the function is simply not defined as $x\rightarrow -\infty$.
 

@@ -22,13 +22,13 @@ Sometimes a function uses different formulas depending on what number is being p
 When defining a piecewise function, we need to show the various formulas being used as well as which parts of the domain each applies to. We typically write the formulas in a vertical list, grouped by a brace symbol, with their associated domain intervals on the right.
 
 \begin{example}
-$f(x)=\begin{cases} x+10 &  \mbox{ \emph{if} } x<0\\x^2+1 &  \mbox{ \emph{if} } x\geq 0\end{cases}$
+$f(x)=\begin{cases} x+10 &  \textit{if } x<0\\x^2+1 &  \textit{if } x\geq 0\end{cases}$
 
 This notation defines a single function $f(x)$ that uses the formula $y=x+10$ when plugging in $x$ values less than $0$, and the formula $y=x^2+1$ when plugging in $x$ values $0$ or higher.
 \end{example}
 
 \begin{example}
-$g(x)=\begin{cases} 2x+5 & \mbox{ \emph{if} }x\leq 2\\ -(x-2)(x-10) & \mbox{ \emph{if} } 2<x<10\\ x-10 & \mbox{ \emph{if} } x\geq 10\end{cases}$
+$g(x)=\begin{cases} 2x+5 & \textit{if }x\leq 2\\ -(x-2)(x-10) & \textit{if } 2<x<10\\ x-10 & \textit{if } x\geq 10\end{cases}$
 
 This notation defines a single function $g(x)$ that uses the formula $y=2x+5$ when plugging in $x$ values $2$ or less, and the formula $y=-(x-2)(x-10)$ when plugging in $x$ values strictly between $2$ and $10$, and the formula $y=x-10$ when plugging in $x$ values $10$ or higher.
 \end{example}
@@ -37,7 +37,7 @@ This notation defines a single function $g(x)$ that uses the formula $y=2x+5$ wh
 When we want to plug a number into a piecewise function to compute its corresponding output, we start by deciding which of the intervals the number falls into. These intervals will not overlap, so for each $x$ there will always be only one interval that it belongs to. We plug into the formula next to the chosen interval; the other formulas will not be used for that input.
 
 \begin{example}
-$f(x)=\begin{cases} x+10 & \mbox{ \emph{if} }x<0\\x^2+1 & \mbox{ \emph{if} } x\geq 0\end{cases}$
+$f(x)=\begin{cases} x+10 & \textit{if }x<0\\x^2+1 & \textit{if } x\geq 0\end{cases}$
 
 Suppose we want to compute $f(-3)$, which is the output corresponding to $x=-3$. We start by determining which interval $-3$ is in: $x<0$ or $x\geq 0$. \\Since $-3<0$, we choose the first interval $x<0$, which means we should plug into the first formula $y=x+10$. Thus $f(-3)=-3+10=7$.
 \\
@@ -60,7 +60,7 @@ Suppose we want to compute $f(-3)$, which is the output corresponding to $x=-3$.
 \end{example}
 
 \begin{example}
-$g(x)=\begin{cases} 2x+5 & \mbox{ \emph{if} }x\leq 2\\ -(x-2)(x-10) & \mbox{ \emph{if} } 2<x<10\\ x-10 & \mbox{ \emph{if} } x\geq 10\end{cases}$
+$g(x)=\begin{cases} 2x+5 & \textit{if }x\leq 2\\ -(x-2)(x-10) & \textit{if } 2<x<10\\ x-10 & \textit{if } x\geq 10\end{cases}$
 
 To compute $g(6)$, we start by determining which of the three intervals contains $x=6$. Since 
 \begin{multipleChoice}
@@ -99,7 +99,7 @@ formula. Thus $g(6)=$
 The graphs of piecewise functions often have a corner or a jump where the formula changes. 
 
 \begin{example}
-$f(x)=\begin{cases} x+10 & \mbox{ \emph{if} }x<0\\x^2+1 & \mbox{ \emph{if} } x\geq 0\end{cases}$
+$f(x)=\begin{cases} x+10 & \textit{if }x<0\\x^2+1 & \textit{if } x\geq 0\end{cases}$
 
 This graph will look like the graph of $y=x+10$ when $x<0$, which is on the left side of the $y$-axis. Then when $x=0$, the graph jumps and starts showing the curve $y=x^2+1$ on the right side of the $y$-axis.
 
@@ -118,7 +118,7 @@ In general, showing open and closed points at the transition clarifies what's ha
 \end{example}
 
 \begin{example}
-$g(x)=\begin{cases} 2x+5 & \mbox{ \emph{if} }x\leq 2\\ 9(x-2)(x-10) & \mbox{ \emph{if} } 2<x<10\\ x-10 & \mbox{ \emph{if} } x\geq 10\end{cases}$
+$g(x)=\begin{cases} 2x+5 & \textit{if }x\leq 2\\ 9(x-2)(x-10) & \textit{if } 2<x<10\\ x-10 & \textit{if } x\geq 10\end{cases}$
 
 This graph will have transitions at $x=2$ and $x=10$. The left-most part will look like $y=2x+5$, the middle part will look like $y=-(x-2)(x-10)$, and the right-most part will look like $y=x-20$. If you're not sure what these graphs look like, plug in some $x$ values and plot points to connect!
 
