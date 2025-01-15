@@ -11,8 +11,8 @@
 #      via Codespaces: connect keys via GitHub Codespaces Secrets
 #      on your PC:     set environment variables, or edit .xmKeyFile
 # To generate a key-pair, fill in your name and email, and run 'xmlatex genKey'
-YOUR_NAME=""
-YOUR_EMAIL=""
+YOUR_NAME="Alex Dempsey"
+YOUR_EMAIL="alex.dempsey@uc.edu.github"
 # !! Do NEVER commit real keys to the repo !!
 # !! DO NEVER SAVE THE KEYS THEMSELVES IN THIS FILE   !!
 #
