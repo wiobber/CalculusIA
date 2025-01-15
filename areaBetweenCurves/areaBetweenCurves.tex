@@ -49,7 +49,9 @@ We begin the section with an example that illustrates the concepts that are fund
 
 We can write this area as the definite integral 
 
-\[A = \int_{x=a}^{x=b} f(x) \d x , \]
+$$ 
+	A = \int_{x=a}^{x=b} f(x) \d x , 
+$$
 
 and we may use the Fundamental Theorem of Calculus to evaluate it.  However, recalling how this result was obtained in the first place is instructive.  Understanding the logic behind it is essential in order to apply a similar method to set up integrals to model other types of situations.  We thus give a detailed conceptual outline of the argument here.
 
@@ -148,7 +150,12 @@ We can now find the area $\Delta A_k$ of the $k$-th rectangle.
 \end{align}
 where $x_k^*$ here is the $x$-value of the right-hand endpoint of each rectangle.  The height of the rectangle is thus $f(x_k^*)$. 
 
-Let $S_n$ denote the total area obtained by adding the areas of the $n$ rectangles together.   Then, we can compute $S_n$ easily by adding up the areas of all of the rectangles. $$S_n = \Delta A_1 + \Delta A_2 + \cdots +\Delta A_n$$
+Let $S_n$ denote the total area obtained by adding the areas of the $n$ rectangles together.   Then, we can compute $S_n$ easily by adding up the areas of all of the rectangles. 
+
+% $$
+% S_n = \Delta A_1 + \Delta A_2 + \cdots +\Delta A_n
+% $$
+
 or if you prefer using sigma notation, 
 \begin{equation}
 S_n =\sum_{k=1}^{n} \Delta A_k =  \sum_{k=1}^n f(x_k^*) \Delta x. 
@@ -169,7 +176,9 @@ The actual area is then $A = \lim_{n \rightarrow \infty} \left[ \sum_{k=1}^n f(x
 
 While this infinite limit can be quite cumbersome to work out in even the simplest cases, the Fundamental Theorem of Calculus comes to the rescue.  It guarantees that since $y=f(x)$ is continuous on $[a,b]$, we may find the area by finding antiderivatives and evaluating the difference of an antiderivative of $f(x)$ at the endpoints.
 
-\[A = \int_{x=a}^{x=b} f(x) \d x = F(b)-F(a) ,\]
+$$ 
+A = \int_{x=a}^{x=b} f(x) \d x = F(b)-F(a) ,
+$$
 
 where $F(x)$ is an antiderivative of $f(x)$.
 
@@ -393,15 +402,15 @@ The approximate area $A$ is given by the finite sum $A = \sum_{k=1}^n f(x_k^*) \
 
 The actual area $A$ is found by taking the limit of the above sum, that is
 
-\[
+$$
 A = \lim_{n \rightarrow \infty} \left[ \sum_{k=1}^n f(x_k^*) \Delta x \right],
-\]
+$$
 
 and we can write this as the definite integral
 
-\[
+$$
 A = \int_{x=-1}^{x=1} (4x^3+15)-(3x^2-2) \d x
-\]
+$$
 
 Once again the Fundamental Theorem of Calculus allows us to find the area using antiderivatives.
 
@@ -438,13 +447,13 @@ We can summarize the above procedure with a formula that respects the geometrica
 \begin{formula}
 The area of a region bounded by continuous functions on $a \le x \le b$ is given by: 
 
-\[A=\int_{x=a}^{x=b} h(x) \d x \]
+$$A=\int_{x=a}^{x=b} h(x) \d x $$
 where $h(x)$ is the height of each rectangle as a function of $x$, $x=a$ gives the $x$-value of the first slice, and $x=b$ gives the $x$-value of the last slice.
 
 By using vertical rectangles, we have 
-\[
+$$
 h(x) = y_{top}-y_{bot}
-\] 
+$$ 
 where $y_{top}$ is found from the top curve, expressed as a function of $x$, and $y_{bot}$ is found form the bottom curve.
 \end{formula}
 
@@ -508,8 +517,8 @@ Note that there is a ``natural" right-hand boundary here given by the $x$-value 
 We must now express $h$ in terms of the variable of integration.  Since $h$ is a vertical distance, $h(x)=y_{top}-y_{bot}$.  The function used to determine the upper $y$-value is \wordChoice{\choice{$y_{top}=2x-3$}\choice[correct]{$y_{top}=\frac{9}{x}$}\choice{$y_{top}=1$}}.  The function used to determine the lower $y$-value is \wordChoice{\choice[correct]{$y_{bot}=2x-3$}\choice{$y_{bot}=\frac{9}{x}$}\choice{$y_{bot}=1$}}
 
 The height $h$ of the rectangle is thus $h=y_{top}-y_{bot} = \answer[given]{\frac{9}{x}-(2x-3)}$, and the area is given by:
-  \[
- \int_{x=a}^{x=b} h \d x =  \int_{x=\answer[given]{1}}^{x=\answer[given]{3}} \answer[given]{\frac{9}{x}-(2x-3)} \d x .  \]
+  $$
+ \int_{x=a}^{x=b} h \d x =  \int_{x=\answer[given]{1}}^{x=\answer[given]{3}} \answer[given]{\frac{9}{x}-(2x-3)} \d x .  $$
   
  Evaluating the integral, we find that the area is $A= \answer[given]{-2+9 \ln(3)}$.
   \begin{hint}
@@ -625,7 +634,7 @@ We can now think of the original region in two separate parts and write down an 
             \end{image}
 
 Using the picture above: 
-\[
+$$
 \begin{array}{ll}
 \text{In Region I:}  & \text{In Region II:}  \\
 0 \le x \le 2  & 2 \le x \le  6\\
@@ -633,11 +642,11 @@ y_{top} = \sqrt{2x}    &  y_{top} = 3-\frac{1}{2}x \\
 y_{bot} = 0  & y_{bot} = 0 \\
 A_I = \int_{x= \answer[given]{0}}^{x=\answer[given]{2}} \answer[given]{\sqrt{2x}} \d x   & A_{II} = \int_{x= \answer[given]{2}}^{x=\answer[given]{6}}  \answer[given]{3-\frac{1}{2}x} \d x
 \end{array}
-\]
+$$
 
 Putting this together, we can write down a sum of integrals that gives the area.
 
-\[A= \int_{x= \answer[given]{0}}^{x=\answer[given]{2}} \answer[given]{\sqrt{2x}} \d x + \int_{x= \answer[given]{2}}^{x=\answer[given]{6}}\answer[given]{3-\frac{1}{2}x} \d x\]
+$$A= \int_{x= \answer[given]{0}}^{x=\answer[given]{2}} \answer[given]{\sqrt{2x}} \d x + \int_{x= \answer[given]{2}}^{x=\answer[given]{6}}\answer[given]{3-\frac{1}{2}x} \d x$$
 
 \end{example}
 
@@ -688,13 +697,13 @@ So what are we doing?  Instead of making slices with respect to $x$ as we did be
 \begin{formula}
 The area of a region bounded by continuous functions on $c \le y \le d$ is given by
 
-\[A=\int_{y=c}^{y=d} h(y) \d y \]
+$$A=\int_{y=c}^{y=d} h(y) \d y $$
 where $h(y)$ is the height of each rectangle as a function of $y$ , $y=c$ gives the $y$-position of the lowest rectangle, and $y=d$ gives the $y$-position of the highest rectangle.
 
 By using horizontal rectangles, we have 
-\[
+$$
 h(y) = x_{right}-x_{left}
-\] 
+$$ 
 where $x_{right}$ is found from the right curve, described as a function of $y$,  and $x_{left}$ is found from the left curve.
 
 
@@ -759,9 +768,9 @@ Now that we have our limits of integration, we must express $h$ in terms of the 
 The function used to determine the rightmost $x$-value is \wordChoice{\choice{$x_{right}=\frac{1}{2}y^2$}\choice[correct]{$x_{right}=6-2y$}} and the function used to determine the leftmost $x$-value is \wordChoice{\choice[correct]{$x_{left}=\frac{1}{2}y^2$}\choice{$x_{left}=6-2y$}}.
 
 The length $h$ of the rectangle is thus $h=x_{right}-x_{left} = \answer[given]{(6-2y)-\left(\frac{1}{2}y^2\right)}$ and the area is given by the integral
-  \[
+  $$
  \int_{y=c}^{y=d} h \d y =  \int_{y=0}^{y=2} 6-2y-\frac{1}{2}y^2 \d y .
-  \]
+  $$
   Evaluating this (which you should work out yourself and confirm) gives $A= \frac{20}{3}.$
  \end{explanation}
  
