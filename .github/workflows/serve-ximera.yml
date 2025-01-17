@@ -45,4 +45,4 @@ jobs:
           XIMERA_NAME: uccalc
           XIMERA_URL: https://ximera.osu.edu/
         run: |
-          ./xmScripts/xmlatex ghaction test.tex
+          ./xmScripts/xmlatex ghaction
