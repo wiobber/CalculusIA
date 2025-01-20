@@ -9,6 +9,15 @@
 \end{abstract}
 \maketitle
 
+
+% HACK: in ximeralatex v2.5.5, TeX4HTis configured to use luatex, 
+% and pictures-with-luatex somehow redefine \d so that \d x becomes x-underdot  (presumable at \BeginDocument or so)
+% This is only a problem when using \d inside a tikzpicture
+% TEMPORARY FIX: redefine it once more
+% (in this case, anothjer fix might be to remove the \tikzpicture: it does not seem to be needed (anymore?) to get the formatting correct)
+% TODO: implement a better solution
+\renewcommand{\d}{\mathop{}\!d}
+
 Here are a few derivatives we may have calculated using the definition (all of them can be verified with a factoring limit - try it!)
 
 {  \renewcommand*{\arraystretch}{1.3}
