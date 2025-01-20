@@ -43,6 +43,7 @@ jobs:
           GPG_KEY: ${{ secrets.GPG_KEY }}
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
           XIMERA_NAME: uccalc
-          XIMERA_URL: https://ximera.osu.edu/
+          XIMERA_URL: https://set-p-dsb-zomercursus-latest.cloud-ext.icts.kuleuven.be/
+          # XIMERA_URL: https://ximera.osu.edu/
         run: |
           ./xmScripts/xmlatex ghaction

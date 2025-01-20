@@ -2,7 +2,8 @@
 # version of Ximera xake container to use (with xmlatex)
 #
 # : "${XAKE_BASE:=ximeralatex}"
-: "${XAKE_VERSION:=v2.5.5-full}"
+: "${XAKE_VERSION:=v2.5.6}"
+# : "${XAKE_VERSION:=v2.5.6-full}"
 
 #
 #
