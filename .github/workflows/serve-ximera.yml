@@ -76,6 +76,8 @@ jobs:
           XIMERA_NAME: ${{ vars.XIMERA_NAME }}
         run: |
           chmod +x ./xmScripts/xmlatex*
+          ls -alrt
+          ls -al .git || echo NOK
           export COMMAND=./xmScripts/xmlatex.test
           ./xmScripts/xmlatex name         
           ./xmScripts/xmlatex serve         
