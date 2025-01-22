@@ -47,8 +47,8 @@ jobs:
         run: |
           ls -alrt
           # git config --global --add safe.directory "$(pwd)"
-          export COMMAND=./xmScripts/xmlatex.test
-          ./xmScripts/xmlatex ghaction test.tex
+          # export COMMAND=./xmScripts/xmlatex.test
+          ./xmScripts/xmlatex ghaction
           echo "✅ Published to $XIMERA_URL$XIMERA_NAME " >> $GITHUB_STEP_SUMMARY
 
       - name: Setup ximera serve cache (only .git)
@@ -86,10 +86,9 @@ jobs:
           XIMERA_URL: ${{ vars.XIMERA_URL }}
           XIMERA_NAME: ${{ vars.XIMERA_NAME }}
         run: |
-          ls -alrt xmScripts
-          chmod +x ./xmScripts/xmlatex*
-          export COMMAND=./xmScripts/xmlatex.test
           ./xmScripts/xmlatex name         
           ./xmScripts/xmlatex serve         
+          echo "✅ Published to $XIMERA_URL$XIMERA_NAME " >> $GITHUB_STEP_SUMMARY
+
 
 
