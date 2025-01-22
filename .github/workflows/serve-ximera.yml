@@ -87,7 +87,7 @@ jobs:
           XIMERA_NAME: ${{ vars.XIMERA_NAME }}
         run: |
           ./xmScripts/xmlatex name         
-          ./xmScripts/xmlatex serve         
+          ./xmScripts/xmlatex serve -f  # NOTE: -f  should not be needed ...        
           echo "✅ Published to $XIMERA_URL$XIMERA_NAME " >> $GITHUB_STEP_SUMMARY
 
 
