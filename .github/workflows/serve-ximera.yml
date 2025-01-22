@@ -37,13 +37,6 @@ jobs:
             ximera-${{ github.ref_name }}-
             ximera-
 
-      - name: Setup ximera serve cache (only .git)
-        id: serve-cache
-        uses: actions/cache/save@v4
-        with:
-          path: | 
-            .git/**
-          key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
 
       - name: Build and publish Ximera courses
         env:
@@ -57,6 +50,14 @@ jobs:
           export COMMAND=./xmScripts/xmlatex.test
           ./xmScripts/xmlatex ghaction test.tex
           echo "✅ Published to $XIMERA_URL$XIMERA_NAME " >> $GITHUB_STEP_SUMMARY
+
+      - name: Setup ximera serve cache (only .git)
+        id: serve-cache
+        uses: actions/cache/save@v4
+        with:
+          path: | 
+            .git/**
+          key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
 
       # - name: Upload Artifacts
       #   uses: actions/upload-artifact@v4
@@ -81,27 +82,14 @@ jobs:
       #   with:
       #     name: build-artifacts
 
-      - name: Setup cache
-        uses: actions/cache@v4
-        id: cache-restore
+      - name: Restore ximera serve cache (only .git)
+        id: serve-cache-restore
+        fail-on-cache-miss: true
+        uses: actions/cache/restore@v4
         with:
           path: | 
-            **/*.html
-            **/*.pdf
-            **/*.svg
-            **/*.aux
-            **/*.xref
-            **/*.toc
-            !xmPictures/**
-            !.git/**
-            !.github/**
+            .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
-
-      - name: Fail if Cache is Missing
-        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' }}
-        run: |
-          echo "Cache not found! Failing the job."
-          exit 1
           
       - name: Serve
         env:
