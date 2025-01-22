@@ -75,7 +75,8 @@ jobs:
           XIMERA_URL: ${{ vars.XIMERA_URL }}
           XIMERA_NAME: ${{ vars.XIMERA_NAME }}
         run: |
-          chmod +x ./xmScripts/xmlatex
+          chmod +x ./xmScripts/xmlatex*
+          export COMMAND=./xmScripts/xmlatex.test
           ./xmScripts/xmlatex name         
           ./xmScripts/xmlatex serve         
 
