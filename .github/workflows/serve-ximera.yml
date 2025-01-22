@@ -84,9 +84,9 @@ jobs:
 
       - name: Restore ximera serve cache (only .git)
         id: serve-cache-restore
-        fail-on-cache-miss: true
         uses: actions/cache/restore@v4
         with:
+          fail-on-cache-miss: true
           path: | 
             .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
