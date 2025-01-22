@@ -1,12 +1,11 @@
-name: Build and publish a Ximera repo
+name: Ximera Workflow
 
 on:
-  push:
-    branches:
-      - master
+  push:      
 
 jobs:
   build-ximera:
+    name: Build and preview Ximera Courses
     runs-on: ubuntu-latest
 
     permissions:
@@ -33,17 +32,51 @@ jobs:
             !xmPictures/**
             !.git/**
             !.github/**
-          key: ximera-buildx-${{ github.sha }}
+          key: ximera-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
-            ximera-buildx-
+            ximera-${{ github.ref_name }}-
             ximera-
 
       - name: Build and publish Ximera courses
         env:
           GPG_KEY: ${{ secrets.GPG_KEY }}
           GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
-          XIMERA_NAME: uccalc
-          XIMERA_URL: https://set-p-dsb-zomercursus-latest.cloud-ext.icts.kuleuven.be/
-          # XIMERA_URL: https://ximera.osu.edu/
+          XIMERA_URL: ${{ vars.XIMERA_URL }}
+          XIMERA_NAME: ${{ vars.XIMERA_NAME }}*${{ github.ref_name }}
         run: |
-          ./xmScripts/xmlatex ghaction
+          ls -alrt
+          # git config --global --add safe.directory "$(pwd)"
+          export COMMAND=./xmScripts/xmlatex.test
+          ./xmScripts/xmlatex ghaction 
+          echo "✅ Published to $XIMERA_URL$XIMERA_NAME " >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: .
+          retention-days: 3
+
+  publish-ximera:
+    name: Publish Ximera Courses
+    needs: build-ximera # Waits for the build job to complete
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Serve
+        env:
+          GPG_KEY: ${{ secrets.GPG_KEY }}
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          XIMERA_URL: ${{ vars.XIMERA_URL }}
+          XIMERA_NAME: ${{ vars.XIMERA_NAME }}
+        run: |
+          chmod +x ./xmScripts/xmlatex
+          ./xmScripts/xmlatex name         
+          ./xmScripts/xmlatex serve         
+
+
