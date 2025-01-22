@@ -56,6 +56,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: | 
+            xmscripts/**
             .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
 
@@ -88,6 +89,7 @@ jobs:
         with:
           fail-on-cache-miss: true
           path: | 
+            xmscripts/**
             .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
           
