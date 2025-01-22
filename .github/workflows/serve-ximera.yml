@@ -56,7 +56,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: | 
-            xmscripts/**
+            xmScripts/**
             .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
 
@@ -89,7 +89,7 @@ jobs:
         with:
           fail-on-cache-miss: true
           path: | 
-            xmscripts/**
+            xmScripts/**
             .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
           
@@ -100,9 +100,9 @@ jobs:
           XIMERA_URL: ${{ vars.XIMERA_URL }}
           XIMERA_NAME: ${{ vars.XIMERA_NAME }}
         run: |
-          chmod +x ./xmScripts/xmlatex*
           ls -alrt
           ls -al .git || echo NOK
+          chmod +x ./xmScripts/xmlatex*
           export COMMAND=./xmScripts/xmlatex.test
           ./xmScripts/xmlatex name         
           ./xmScripts/xmlatex serve         
