@@ -60,12 +60,6 @@ jobs:
             .git/**
           key: ximeraSERVE-${{ github.ref_name }}-${{ github.sha }}
 
-      # - name: Upload Artifacts
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: build-artifacts
-      #     path: .
-      #     retention-days: 3
 
   publish-ximera:
     name: Publish Ximera Courses
@@ -73,15 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v4
-      #   with:
-      #     fetch-depth: 0   # full 
 
-      # - name: Download Artifacts
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: build-artifacts
 
       - name: Restore ximera serve cache (only .git)
         id: serve-cache-restore
@@ -100,8 +86,7 @@ jobs:
           XIMERA_URL: ${{ vars.XIMERA_URL }}
           XIMERA_NAME: ${{ vars.XIMERA_NAME }}
         run: |
-          ls -alrt
-          ls -al .git || echo NOK
+          ls -alrt xmScripts
           chmod +x ./xmScripts/xmlatex*
           export COMMAND=./xmScripts/xmlatex.test
           ./xmScripts/xmlatex name         
